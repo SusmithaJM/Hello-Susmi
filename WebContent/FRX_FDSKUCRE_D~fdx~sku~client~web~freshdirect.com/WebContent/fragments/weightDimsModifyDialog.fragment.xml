@@ -1,0 +1,700 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:Table="sap.ui.table" xmlns:l="sap.ui.layout">
+	<Dialog class="sapUiSizeCompact">
+		<customHeader>
+			<Bar class="referenceMatPopUp">
+				<contentMiddle>
+					<Label text="{i18n>WEIGHTS_DIMS}" design="Bold" class="sapUiSmallMarginBegin"/>
+				</contentMiddle>
+				<contentRight>
+					<Button icon="sap-icon://documents" press="onWtsNDimsCopyOverAll" 
+						class="sapUiSmallMarginEnd sapUiSizeCompact"/>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<Table:Table fixedColumnCount="3" visibleRowCount="4" 
+		 	rows="{oWeightsNDimsModel>/wtsDimsData}" enableSelectAll="false">
+			<Table:columns>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>PROJECT_ID}" tooltip="{i18n>PROJECT_ID}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>projectId}" ></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="7.3rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>REQUEST_ID}" tooltip="{i18n>REQUEST_ID}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>requestId}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="7.3rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>REFERENCE_GTIN}" tooltip="{i18n>REFERENCE_GTIN}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>referenceGtin}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="hierarchy" filterProperty="hierarchy" width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="Hierarchies" tooltip="Hierarchies"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>hierarchy}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{oWeightsNDimsModel>hierarchy}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="6.2rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>GTIN-EA}" tooltip="{i18n>GTIN-EA}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>gtinEA}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>gtinEA', type:'sap.ui.model.type.Integer', formatOptions:{
+								minIntegerDigits: 8}}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>SELLABLE}" tooltip="{i18n>SELLABLE}"/>
+					<Table:template>
+						<HBox>
+							<Switch customTextOn="Yes" customTextOff="No" change="onSwitchChange" class="basicSwitchBtnClass switchClass"
+								state="{path:'oDashboardTabModel>sellableEA', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" >
+								<customData>
+									<core:CustomData key="target" value="TABLE"/>
+								</customData>
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+							</Switch>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+						</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>BOTTLE_EA}" tooltip="{i18n>BOTTLE_EA}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>bottlePerEA}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>bottlePerEA',type:'sap.ui.model.type.Integer'}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>NET_CONTENT}" tooltip="{i18n>NET_CONTENT}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>netContentEA}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>netContentEA', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="11.5rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<HBox>
+							<Select forceSelection="false" items="{oDropdownModel>/NetContentUom}" class="selectFragClass sapUiTinyMarginTop"
+								selectedKey="{oDashboardTabModel>netContentUomEA}" change="onWtsNDimsChange">
+								<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+							</Select>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>GROSS_WT}" tooltip="{i18n>GROSS_WT}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>grossWTEA}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>grossWTEA', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="11.5rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<HBox>
+							<Select forceSelection="false" items="{oDropdownModel>/NetContentUom}" class="selectFragClass sapUiTinyMarginTop"
+								selectedKey="{oDashboardTabModel>grossWTUomEA}" change="onWtsNDimsChange">
+								<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+							</Select>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>VARIABLE}" tooltip="{i18n>VARIABLE}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>variableEA}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>variableEA', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>W}" tooltip="{i18n>W}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>weightEA}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>weightEA', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>H}" tooltip="{i18n>H}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>heightEA}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>heightEA', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>D}" tooltip="{i18n>D}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>depthEA}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>depthEA', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="11.5rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<HBox>
+							<Select forceSelection="false" items="{oDropdownModel>/dimensionUOM}" class="selectFragClass sapUiTinyMarginTop"
+								selectedKey="{oDashboardTabModel>depthUomEA}" change="onWtsNDimsChange" >
+								<core:Item key="{oDropdownModel>Msehi}" text="{oDropdownModel>Msehl}"/>
+							</Select>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="6.2rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>GTIN_INNER}" tooltip="{i18n>GTIN_INNER}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>gtinIN}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>gtinIN', type:'sap.ui.model.type.Integer', formatOptions:{
+								minIntegerDigits: 8}}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>SELLABLE}" tooltip="{i18n>SELLABLE}"/>
+					<Table:template>
+						<HBox>
+							<Switch customTextOn="Yes" customTextOff="No" change="onSwitchChange" class="basicSwitchBtnClass switchClass"
+								state="{path:'oDashboardTabModel>sellableIN', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}">
+								<customData>
+									<core:CustomData key="target" value="TABLE"/>
+								</customData>
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+							</Switch>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="4.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>FD_SELLABLE}" tooltip="{i18n>FD_SELLABLE}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>fdSellableIN}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{oWeightsNDimsModel>fdSellableIN}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>EA_INNER}" tooltip="{i18n>EA_INNER}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>eachPerIN}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>eachPerIN', type:'sap.ui.model.type.Integer'}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>BOTTLE_IN}" tooltip="{i18n>BOTTLE_IN}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>bottlePerIN}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{oWeightsNDimsModel>bottlePerIN}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>GROSS_WT}" tooltip="{i18n>GROSS_WT}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>grossWTIN}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>grossWTIN', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="11.5rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<HBox>
+							<Select forceSelection="false" items="{oDropdownModel>/GrossWeightUom}" class="selectFragClass sapUiTinyMarginTop"
+								selectedKey="{oDashboardTabModel>grossWTUomIN}" change="onWtsNDimsChange">
+								<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+							</Select>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>W}" tooltip="{i18n>W}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>weightIN}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>weightIN', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>H}" tooltip="{i18n>H}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>heightIN}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>heightIN', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>D}" tooltip="{i18n>D}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>depthIN}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>depthIN', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>VARIABLE}" tooltip="{i18n>VARIABLE}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>variableIN}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>variableIN', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="11.5rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<HBox>
+							<Select forceSelection="false" items="{oDropdownModel>/GrossWeightUom}" class="selectFragClass sapUiTinyMarginTop"
+								selectedKey="{oWeightsNDimsModel>depthUomIN}" change="onWtsNDimsChange" >
+								<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+							</Select>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="6.2rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>GTIN_CASE}" tooltip="{i18n>GTIN_CASE}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>gtinCS}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>gtinCS', type:'sap.ui.model.type.Integer', formatOptions:{
+								minIntegerDigits: 8}}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>SELLABLE}" tooltip="{i18n>SELLABLE}"/>
+					<Table:template>
+						<HBox>
+							<Switch customTextOn="Yes" customTextOff="No" change="onSwitchChange" class="basicSwitchBtnClass switchClass"
+								state="{path:'oDashboardTabModel>sellableCS', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" >
+								<customData>
+									<core:CustomData key="target" value="TABLE"/>
+								</customData>
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+							</Switch>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="4.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>FD_SELLABLE}" tooltip="{i18n>FD_SELLABLE}"/>
+					<Table:template>
+						<HBox>
+							<CheckBox selected="{path:'oWeightsNDimsModel>fdSellableCS', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" 
+								editable="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>IN_CS}" tooltip="{i18n>IN_CS}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>innerPerCS}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>innerPerCS',type:'sap.ui.model.type.Integer'}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>EA_CS}" tooltip="{i18n>EA_CS}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>eachPerCS}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{oWeightsNDimsModel>eachPerCS}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>GROSS_WT}" tooltip="{i18n>GROSS_WT}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>grossWTCS}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>grossWTCS', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="11.5rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<HBox>
+							<Select forceSelection="false" items="{oDropdownModel>/GrossWeightUom}" class="selectFragClass sapUiTinyMarginTop"
+								selectedKey="{oDashboardTabModel>grossWTUomCS}" change="onWtsNDimsChange" >
+								<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+							</Select>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>VARIABLE}" tooltip="{i18n>VARIABLE}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>variableCS}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>variableCS', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>W}" tooltip="{i18n>W}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>weightCS}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>weightCS', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>H}" tooltip="{i18n>H}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>heightCS}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>heightCS', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>D}" tooltip="{i18n>D}"/>
+					<Table:template>
+					<HBox>
+							<Text text="{oWeightsNDimsModel>hierarchy}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>hierarchy', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+						<Text text="{oWeightsNDimsModel>depthCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="11.5rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<HBox>
+							<Select forceSelection="false" items="{oDropdownModel>/GrossWeightUom}" class="selectFragClass sapUiTinyMarginTop"
+								selectedKey="{oDashboardTabModel>depthUomCS}" change="onWtsNDimsChange" >
+								<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+							</Select>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="6.2rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>GTIN_PALLET}" tooltip="{i18n>GTIN_PALLET}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>gtinPAL}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>gtinPAL', type:'sap.ui.model.type.Integer', formatOptions:{
+								minIntegerDigits: 8}}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>SELLABLE}" tooltip="{i18n>SELLABLE}"/>
+					<Table:template>
+						<HBox>
+							<Switch customTextOn="Yes" customTextOff="No" change="onSwitchChange" class="basicSwitchBtnClass switchClass"
+								state="{path:'oDashboardTabModel>sellablePAL', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}">
+								<customData>
+									<core:CustomData key="target" value="TABLE"/>
+								</customData>
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>	
+							</Switch>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="4.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>FD_SELLABLE}" tooltip="{i18n>FD_SELLABLE}"/>
+					<Table:template>
+						<HBox>
+							<CheckBox selected="{path:'oDashboardTabModel>fdSellablePAL', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" 
+								editable="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>CS_PAL}" tooltip="{i18n>CS_PAL}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>casePerPAL}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>casePerPAL', type:'sap.ui.model.type.Integer'}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>EA_PAL}" tooltip="{i18n>EA_PAL}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>eachPerPAL}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{oWeightsNDimsModel>eachPerPAL}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>TIE}" tooltip="{i18n>TIE}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>tiePAL}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>tiePAL', type:'sap.ui.model.type.Integer'}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>HIGH}" tooltip="{i18n>HIGH}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>highPAL}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>highPAL', type:'sap.ui.model.type.Integer'}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>GROSS_WT}" tooltip="{i18n>GROSS_WT}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>grossWTPAL}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>grossWTPAL', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="11.5rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<HBox>
+							<Select forceSelection="false" items="{oDropdownModel>/GrossWeightUom}" class="selectFragClass sapUiTinyMarginTop"
+								selectedKey="{oDashboardTabModel>grossWTUomPAL}" change="onWtsNDimsChange">
+								<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+							</Select>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>W}" tooltip="{i18n>W}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>weightPAL}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>weightPAL', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>H}" tooltip="{i18n>H}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>heightPAL}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>heightPAL', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.7rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>D}" tooltip="{i18n>D}"/>
+					<Table:template>
+						<HBox>
+							<Text text="{oWeightsNDimsModel>depthPAL}" visible="{oDashboardVisibilityModel>/wtsnDimsModifyVisible}"></Text>
+							<Input value="{path : 'oWeightsNDimsModel>depthPAL', type:'sap.ui.model.type.Float', formatOptions:{
+								minFractionDigits: 2, maxFractionDigits: 2 }}" change="onWtsNDimsChange"
+								visible="{path : 'oWeightsNDimsModel>key',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"></Input>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="11.5rem" hAlign="Center" resizable="false">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<HBox>
+							<Select forceSelection="false" items="{oDropdownModel>/GrossWeightUom}" class="selectFragClass sapUiTinyMarginTop"
+								selectedKey="{oDashboardTabModel>depthUomPAL}" change="onWtsNDimsChange" >
+								<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+							</Select>
+							<Button icon="sap-icon://documents" type="Transparent" press="onWtsNDimsCopyOverpress"
+								visible="{path : 'oWeightsNDimsModel>copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+						</HBox>
+					</Table:template>
+				</Table:Column>
+			</Table:columns>
+		</Table:Table>
+		<beginButton>
+			<Button text="Cancel" press="onModifyWnDCancel"/>
+		</beginButton>
+		<endButton>
+			<Button text="Submit" press="onModifyWnDSubmit"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

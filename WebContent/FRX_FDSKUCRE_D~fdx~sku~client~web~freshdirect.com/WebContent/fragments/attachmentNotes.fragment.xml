@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover title="{i18n>ATTCHMENT_NOTES}" placement="Top">
+		<content>
+		<TextArea placeholder="{i18n>TEXT_AREA}" width="20rem" height="6rem" maxlength="500"
+			id="MM_ATTACHMENT_NOTES_AREA" value="{oDashboardTabModel>/dmmDto/strategicJustification}" />
+		</content>
+		<Toolbar class="sapUiSizeCompact">
+			<ToolbarSpacer/>
+			<core:Icon src="sap-icon://accept" press=""/>
+			<core:Icon src="sap-icon://decline" press=""/>
+		</Toolbar>
+	</Popover>
+</core:FragmentDefinition>

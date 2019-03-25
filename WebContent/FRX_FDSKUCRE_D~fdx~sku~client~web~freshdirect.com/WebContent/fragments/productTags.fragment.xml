@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:layout="sap.ui.layout">
+	<Panel class="sapUiSizeCompact">
+		<VBox class="sapUiSmallMargin" id="SKU_PRODUCT_TAGS_VBOX"/>
+	</Panel>
+</core:FragmentDefinition>

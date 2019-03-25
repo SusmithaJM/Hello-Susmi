@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:Table="sap.ui.table" xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<Table:Table rows="{oDashboardTabModel>/sourceInfoDtos}" selectionBehavior="RowOnly" 
+		visibleRowCount="5">
+		<Table:columns>
+			<Table:Column hAlign="Center">
+				<Label text="{i18n>VENDOR_NUMBER}" design="Bold"/>
+				<Table:template>
+				<Link text="{oDashboardTabModel>sourceInfoDto/vendorNumber}"  press="showSelectedSrcDetails"/>
+				</Table:template>
+			</Table:Column>
+			<Table:Column hAlign="Center">
+				<Label text="{i18n>VENDOR_NAME}" design="Bold"/>
+				<Table:template>
+					<Text text="{oDashboardTabModel>sourceInfoDto/vendorName}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column hAlign="Center">
+				<Label text="{i18n>CONTACT_NAME}" design="Bold"/>
+				<Table:template>
+					<Text text="{oDashboardTabModel>sourceInfoDto/contactName}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column hAlign="Center">
+				<Label text="{i18n>TYPE}" design="Bold"/>
+				<Table:template>
+					<Text text="{oDashboardTabModel>sourceInfoDto/type}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column hAlign="Center">
+				<Label text="{i18n>UPGRADE_TYPE}" design="Bold"/>
+				<Table:template>
+					<HBox class="bracketAlignClass">
+						<Button text="{i18n>PRIMARY}" press="onPromoteSource" type="Transparent" class="promotBtnClass sapUiTinyMarginBegin" tooltip="{i18n>PROMOTE_TO_PRIMARY}"
+						visible="{path:'oDashboardTabModel>sourceInfoDto/type',formatter:'freshdirect.SKU.formatter.formatter.formatSourceButtonVisibility'}"/>
+						<Button text="{i18n>SECONDARY}" press="onPromoteSource" type="Transparent" class="promotBtnClass sapUiTinyMarginBegin" tooltip="{i18n>PROMOTE_TO_SECONDARY}"
+						visible="{path:'oDashboardTabModel>sourceInfoDto/type',formatter:'freshdirect.SKU.formatter.formatter.formatSourceButtonVisibility'}"/>
+						<Button text="{i18n>OTHER}" press="onPromoteSource" type="Transparent" class="promotBtnClass sapUiTinyMarginBegin" tooltip="{i18n>DEMOTE_TO_OTHERS}"
+						visible="{path:'oDashboardTabModel>sourceInfoDto/type',formatter:'freshdirect.SKU.formatter.formatter.formatSourceButtonVisibility'}"/>
+					</HBox>
+				</Table:template>
+			</Table:Column>
+			<Table:Column hAlign="Center">
+				<Label text="" design="Bold"/>
+				<Table:template>
+					<Button type="Transparent" icon="sap-icon://delete" press="onSourceDeletion"></Button>
+				</Table:template>
+			</Table:Column>
+		</Table:columns>
+	</Table:Table>
+</core:FragmentDefinition>

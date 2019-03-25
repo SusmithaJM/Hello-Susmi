@@ -1,0 +1,80 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" class="sapUiSizeCompact"
+	controllerName="freshdirect.SKU.controller.dashboardNew" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:Table="sap.ui.table"
+	xmlns:layout="sap.ui.layout">
+	<Page title="Title" class="sapUiSizeCompact pageBackground" showHeader="false">
+		<content>
+			<Panel>
+				<Bar>
+					<contentLeft>
+						<Button type="Transparent" text="Create" press="onDropdownClick"/>
+						<Button type="Transparent" text="Modify" press="onDropdownClick"/>
+						<Button type="Transparent" text="Promote Phase"/>
+					</contentLeft>
+					<contentRight>
+						<Button type="Transparent" text="Export"/>
+						<Button type="Transparent" text="Templates" press="onDropdownClick"/>
+						<Button type="Transparent" text="Upload" press="onDropdownClick"/>
+					</contentRight>
+				</Bar>
+				<HBox>
+					<VBox width="80%"/>
+					<HBox>
+						<Button icon="sap-icon://navigation-left-arrow" press="onNavItem1" enabled="{navigationModel>/previousButtonEnabled1}" type="Transparent"/>
+						<Select selectedKey="{navigationModel>/selectKey}" width="10rem" change="setIconVisible" items="{navigationModel>/iconTab}"
+							class="IconTabSelectClass">
+							<core:Item key="{navigationModel>key}" text="{navigationModel>value}"/>
+						</Select>
+						<Button icon="sap-icon://navigation-right-arrow" press="onNavItem1" enabled="{navigationModel>/nextButtonEnabled1}" type="Transparent"/>
+					</HBox>
+				</HBox>
+				<VBox>
+					<core:Fragment fragmentName="freshdirect.SKU.fragments.dashboardNewTable" type="XML"/>
+					<IconTabBar select="onIconBarSelect" id="iconTabId">
+						<items>
+							<IconTabFilter key="01" text="Ideation" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.ideation" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="02" text="Basic Attributes" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.basicAttributes" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="12" text="{i18n>WEIGHT_DIMS}" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.weightsDims" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="03" text="Binning" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.binning" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="04" text="Product Sources" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.sourcing" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="05" text="DMM" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.dmm" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="06" text="Merchandizing" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.merchandizing" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="07" text="Store Front Attributes" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.storeFront" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="08" text="Product Tags" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.productTags" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="09" text="Commercial Finance" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.commercialFinance" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="10" text="Attachments" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.attachments" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter key="11" text="Comments" tooltip="">
+								<core:Fragment fragmentName="freshdirect.SKU.fragments.comments" type="XML"/>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+					<HBox justifyContent="End">
+						<Button text="Cancel" type="Reject" class="cancelBtnStyle"/>
+						<Button text="Save" type="Accept" press="onSave"/>
+					</HBox>
+				</VBox>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>

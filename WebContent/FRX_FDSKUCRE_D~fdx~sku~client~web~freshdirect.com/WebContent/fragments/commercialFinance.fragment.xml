@@ -1,0 +1,261 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:l="sap.ui.layout">
+	<HBox class="skuCfmBorderBox">
+	    <VBox width="8rem">
+			<Label text="{i18n>CATEGORY_GROSS_MARGIN}" class="sapUiMediumMarginTop sapUiTinyMarginBegin" design="Bold"/>
+		</VBox>
+		<l:Grid defaultSpan="XL3 L3 M6 S12" width="60rem">
+			<Label text="{i18n>TIER1}" design="Bold"/>
+			<Label text="{i18n>TIER2}" design="Bold"/>
+			<Label text="{i18n>TIER4}" design="Bold"/>
+			<Label text="{i18n>TIER4}" design="Bold"/>
+			<Label text="{oDashboardTabModel>/commercialFinanceDto/idtnTier1Val}"/>
+			<Label text="{oDashboardTabModel>/commercialFinanceDto/idtnTier2Val}" />
+			<Label text="{oDashboardTabModel>/commercialFinanceDto/idtnTier3Val}" />
+			<Label text="{oDashboardTabModel>/commercialFinanceDto/idtnTier4Val}" />
+			<Label text="{path:'oDashboardTabModel>/commercialFinanceDto/categoryGrossMarginTier1', formatter:'freshdirect.SKU.formatter.formatter.formatPercentSign'}" />
+			<Label text="{path:'oDashboardTabModel>/commercialFinanceDto/categoryGrossMarginTier2', formatter:'freshdirect.SKU.formatter.formatter.formatPercentSign'}" />
+			<Label text="{path:'oDashboardTabModel>/commercialFinanceDto/categoryGrossMarginTier3', formatter:'freshdirect.SKU.formatter.formatter.formatPercentSign'}" />
+			<Label text="{path:'oDashboardTabModel>/commercialFinanceDto/categoryGrossMarginTier4', formatter:'freshdirect.SKU.formatter.formatter.formatPercentSign'}" />
+		</l:Grid>
+	</HBox>
+	<VBox class="skuCfmBorderBox" >
+		<l:Grid defaultSpan="{oCFMValuesModel>/isCFMGridDSpan}">
+			<Label></Label>
+			<VBox class="CFMToolBarBoxClass" >
+				<Label text="{oDashboardTabModel>/commercialFinanceDto/primaryVId}{oDashboardTabModel>/commercialFinanceDto/primaryVName} (Primary Vendor)" width="100%" design="Bold" class="costSheetLabelClss"/>
+				<Label text="{oDashboardTabModel>/commercialFinanceDto/isPickUpText}" width="100%" class="costSheetLabelClss "/>
+			</VBox>
+		    <VBox class="CFMToolBarBoxClass" visible="{oCFMValuesModel>/isSecondVenVisible}" >
+		    	<Label text="{oDashboardTabModel>/commercialFinanceDto/secondaryVId}{oDashboardTabModel>/commercialFinanceDto/secondaryVName} (Secondary Vendor)" width="100%" design="Bold" class="costSheetLabelClss"/>
+		    	<Label text="{oDashboardTabModel>/commercialFinanceDto/isPickUpText}" width="100%" class="costSheetLabelClss "/>
+		    </VBox>
+	 	</l:Grid>
+		<l:Grid defaultSpan="{oCFMValuesModel>/isCFMGridDSpan}">
+			<Label text="" class=""/>
+			<HBox>
+				<HBox width="45%" class="">
+					<Label text="{i18n>COST_UOM}" class="" design="Bold"/>
+				</HBox>
+				<HBox width="45%" class="">
+					<Label text="{i18n>COST_UNIT}" class="" design="Bold"/>
+				</HBox>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<HBox width="45%" class="">
+					<Label text="{i18n>COST_UOM}" class="" design="Bold"/>
+				</HBox>
+				<HBox width="45%" class="">
+					<Label text="{i18n>COST_UOM}" class="" design="Bold"/>
+				</HBox>
+			</HBox>
+			
+			<Label text="{i18n>NET_ITEM_COST_PRE_HEADER_FEES}" design="Bold" class="sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVenPreHdrFeeCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder" />
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVenPreHdrFeeCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVenPreHdrFeeCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVenPreHdrFeeCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			
+			<Label text="{i18n>NET_ITEM_COST_POST_HEADER_FEES}" design="Bold" class="sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVenPostHdrFeeCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVenPostHdrFeeCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVenPostHdrFeeCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVenPostHdrFeeCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			
+			<Label text="{i18n>NET_ITEM_COST_POST_HEADER_FEES_AND_ACCURALS}" design="Bold" class="sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVenPostHdrFeeAccrCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVenPostHdrFeeAccrCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVenPostHdrFeeAccrCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVenPostHdrFeeAccrCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			
+			<Label text="{i18n>NET_ITEM_COST_POST_HEADER_FEES_AND_EPD}" design="Bold" class="sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVenPostHdrFeeEpdCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVenPostHdrFeeEpdCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVenPostHdrFeeEpdCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVenPostHdrFeeEpdCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			
+			<Label text="{i18n>DEAD_NET_ITEM_INBOUND_COST}" design="Bold" class="sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVendDeadInboundCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVendDeadInboundCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVendDeadInboundCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVendDeadInboundCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			
+			<Label text="{i18n>CFM_ADJUSTMENTS($)}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{oDashboardTabModel>/commercialFinanceDto/pCfmAdjustNetValue}" enabled="{oDashboardTabModel>/commercialFinanceDto/pCfmAdjustNetEditable}" class="skuCFMInputBgClass" change="onChangePriCFMAdjustNet"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{oDashboardTabModel>/commercialFinanceDto/sCfmAdjustNetValue}" enabled="{oDashboardTabModel>/commercialFinanceDto/sCfmAdjustNetEditable}" class="skuCFMInputBgClass" change="onChangeSecCFMAdjustNet"/>
+			</HBox>
+			
+			<Label text="{i18n>CFM_ADJUSTMENTS(%)}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{oDashboardTabModel>/commercialFinanceDto/pCfmAdjustPerValue}" enabled="{oDashboardTabModel>/commercialFinanceDto/pCfmAdjustPerEditable}" class="skuCFMInputBgClass" change="onChangePriCFMAdjustPerc"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}"> 
+				<Input value="{oDashboardTabModel>/commercialFinanceDto/sCfmAdjustPerValue}" enabled="{oDashboardTabModel>/commercialFinanceDto/sCfmAdjustPerEditable}" class="skuCFMInputBgClass" change="onChangeSecCFMAdjustPerc"/>
+			</HBox>
+			
+			<Label text="{i18n>DEAD_NET_ITEM_INBOUND_COST_SUB}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVendCalDeadInboundCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pVendCalDeadInboundCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVendCalDeadInboundCostUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sVendCalDeadInboundCostUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			
+			<Label text="{i18n>PRICE}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pricePerCase', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pricePerEach', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pricePerCase', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pricePerEach', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			
+			<Label text="{i18n>GROSS_MARGIN}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pGrossMarginUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pGrossMarginUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sGrossMarginUom', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sGrossMarginUnit', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			
+			<Label text="{i18n>GROSS_MARGIN_PERCENTAGE}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/pGrossMarginPercent', formatter:'freshdirect.SKU.formatter.formatter.formatPercentSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/sGrossMarginPercent', formatter:'freshdirect.SKU.formatter.formatter.formatPercentSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			
+			<Label text="{i18n>MIN_ORDER_QUANTITY}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{oDashboardTabModel>/commercialFinanceDto/pMinOrderQuantity}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="{oDashboardTabModel>/commercialFinanceDto/sMinOrderQuantity}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder sapUiSmallMarginBegin"/>
+			</HBox>
+			
+			 <Label text="{i18n>AVG_FORECAST_WEEKLY_UNIT_DEMAND}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{oDashboardTabModel>/commercialFinanceDto/avgForcastWeekDemand}" editable="true" class="skuCFMInputBgClass" change="onChangeCFMAvgWeeklyDemand"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			
+			<Label text="{i18n>REFERENCE_MATERIAL}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{oDashboardTabModel>/commercialFinanceDto/referenceMat}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			
+			<Label text="{i18n>REFERENCE_MATERIAL_DESCRIPTION}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{oDashboardTabModel>/commercialFinanceDto/referenceMatDesc}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			
+			<Label text="{i18n>GMROI}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{oDashboardTabModel>/commercialFinanceDto/gmroi}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			
+			<Label text="{i18n>ANNUAL_$_GAIN_LOSS_PRIMARY_VS_SECONDARY}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/annulDollarGainLossPriSec', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			
+			<Label text="{i18n>ANNUAL_$_GAIN_LOSS_IN_CATEGORY}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/annulDollarGainLossInCategory', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			
+			<Label text="{i18n>NPV_CS}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/npvPerCS', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			
+			<Label text="{i18n>NPV_EA}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/npvPerEA', formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			
+			<Label text="{i18n>IRR}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Input value="{path:'oDashboardTabModel>/commercialFinanceDto/irr', formatter:'freshdirect.SKU.formatter.formatter.formatPercentSign'}" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			
+			<Label text="{i18n>APPROVED}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<Switch state="{path:'oDashboardTabModel>/commercialFinanceDto/approved', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" customTextOn="YES" customTextOff="NO" class="basicSwitchBtnClass">
+				</Switch>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+				
+			<Label text="{i18n>COMMENTS}" design="Bold" class="sapUiTinyMarginBegin sapUiTinyMarginTop"/>
+			<HBox>
+				<TextArea cols="40" rows="10" placeholder="Enter Here" maxLength="500" value="{oDashboardTabModel>/commercialFinanceDto/comments}" 
+				editable="{oDashboardVisibilityModel>/isBinningEditable}" class="skuCFMComntTxtAreaClass"></TextArea>
+			</HBox>
+			<HBox visible="{oCFMValuesModel>/isSecondVenVisible}">
+				<Input value="" editable="false" class="skuCFMInputBgClass skuCFMInputNoBorder"/>
+			</HBox>
+			
+		</l:Grid>
+	</VBox>	
+	<Toolbar class="SkubasicAtrbToolBarClass">
+			<ToolbarSpacer/>
+			<Button type="Accept" text="{i18n>APPROVED}" press="onApproveCFMTask"/>
+			<Button type="Reject" text="{i18n>REJECT}" press="onRejectCFMTask"/>
+	</Toolbar>
+</core:FragmentDefinition>

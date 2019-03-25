@@ -1,0 +1,141 @@
+<core:FragmentDefinition xmlns:layout="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog>
+		<customHeader>
+			<Bar class="referenceMatPopUp">
+				<contentLeft>
+					<Label text="{i18n>REF_MAT_NUM_TITLE}" design="Bold" class="sapUiSmallMarginBegin"/>
+				</contentLeft>
+				<contentRight>
+					<Button icon="sap-icon://decline" press="closeReferenceMatPopUp" class="sapUiSmallMarginEnd sapUiSizeCompact"/>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<VBox class="costSheetBorderBox">
+			<HBox class="sapUiSmallMarginBegin">
+				<Input placeholder="{i18n>REF_MAT_NUM_PLACEHOLDER}" maxLength="18" value="{oMerchandisingModel>/referenceMaterialNumber}"></Input>
+				<Input placeholder="{i18n>ENTER_BRAND}" class="sapUiSmallMarginBegin" maxLength="20" value="{oMerchandisingModel>/referenceBrand}"></Input>
+			</HBox>
+			<layout:Grid class="sapUiTinyMarginTop">
+				<layout:content>
+					<Label text="{i18n>TIER1}" design="Bold" class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+						<layoutData>
+							<layout:GridData span="XL1 L1 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" change="onTier1Selection" items="{oDropdownModel>/tier1List}" class="sapUiSmallMarginEnd IconTabSelectClass"
+						selectedKey="{oMerchandisingModel>/tier1}" tooltip="{oMerchandisingModel>/tier1}">
+						<customData>
+							<core:CustomData key="target" value="MM_REFERENCE_MAT_TIER1"/>
+						</customData>
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+						<layoutData>
+							<layout:GridData span="XL2 L2 M6 S6"/>
+						</layoutData>
+					</Select>
+					<Label text="{i18n>TIER2}" design="Bold" class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+						<layoutData>
+							<layout:GridData span="XL1 L1 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" change="onTier2Selection" items="{oDropdownModel>/tier2List}" class="sapUiSmallMarginEnd IconTabSelectClass"
+						selectedKey="{oMerchandisingModel>/tier2}" tooltip="{oMerchandisingModel>/tier2}">
+						<customData>
+							<core:CustomData key="target" value="MM_REFERENCE_MAT_TIER2"/>
+						</customData>
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+						<layoutData>
+							<layout:GridData span="XL2 L2 M6 S6"/>
+						</layoutData>
+					</Select>
+					<Label text="{i18n>TIER3}" design="Bold" class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+						<layoutData>
+							<layout:GridData span="XL1 L1 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" change="onTier3Selection" items="{oDropdownModel>/tier3List}" class="sapUiSmallMarginEnd IconTabSelectClass"
+						selectedKey="{oMerchandisingModel>/tier3}" tooltip="{oMerchandisingModel>/tier3}">
+						<customData>
+							<core:CustomData key="target" value="MM_REFERENCE_MAT_TIER3"/>
+						</customData>
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+						<layoutData>
+							<layout:GridData span="XL2 L2 M6 S6"/>
+						</layoutData>
+					</Select>
+					<Label text="{i18n>TIER4}" design="Bold" class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+						<layoutData>
+							<layout:GridData span="XL1 L1 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" items="{oDropdownModel>/tier4List}" class="sapUiSmallMarginEnd IconTabSelectClass"
+						selectedKey="{oMerchandisingModel>/tier4}" tooltip="{oMerchandisingModel>/tier4}">
+						<customData>
+							<core:CustomData key="target" value="MM_REFERENCE_MAT_TIER4"/>
+						</customData>
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+						<layoutData>
+							<layout:GridData span="XL2 L2 M6 S6"/>
+						</layoutData>
+					</Select>
+				</layout:content>
+			</layout:Grid>
+			<HBox justifyContent="End">
+				<Button text="{i18n>CLEAR}" type="Reject" class="sapUiSizeCompact" press="resetRefMatPopUpFields"/>
+				<Button text="{i18n>SEARCH}" type="Accept" class="enterbrandclass sapUiSizeCompact" press="searchReferenceMatNumber"/>
+			</HBox>
+		</VBox>
+		<VBox class="costSheetBorderBox">
+			<Table items="{oMerchandisingModel>/referenceMaterials}" growing="{oPaginationModel>/numberOfPages}">
+				<columns>
+					<Column width="10rem" demandPopin="true" hAlign="Center">
+						<Text text="{i18n>REF_MATERIAL_NUMBER}"/>
+					</Column>
+					<Column width="10rem" demandPopin="true" hAlign="Center">
+						<Text text="{i18n>REF_MATERIAL_DESC}"/>
+					</Column>
+					<Column width="5rem" demandPopin="true" hAlign="Center">
+						<Text text="{i18n>BRAND}"/>
+					</Column>
+					<Column demandPopin="true" width="5rem" hAlign="Center">
+						<Text text="{i18n>TIER1}"/>
+					</Column>
+					<Column demandPopin="true" width="5rem" hAlign="Center">
+						<Text text="{i18n>TIER2}"/>
+					</Column>
+					<Column demandPopin="true" width="5rem" hAlign="Center">
+						<Text text="{i18n>TIER3}"/>
+					</Column>
+					<Column demandPopin="true" width="5rem" hAlign="Center">
+						<Text text="{i18n>TIER4}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Link text="{oMerchandisingModel>materialNo}" press="getSelectedRefMatNumber"/>
+							<Text text="{oMerchandisingModel>materialDesc}"/>
+							<Text text="{oMerchandisingModel>brand}"/>
+							<Text text="{oMerchandisingModel>tier1}"/>
+							<Text text="{oMerchandisingModel>tier2}"/>
+							<Text text="{oMerchandisingModel>tier3}"/>
+							<Text text="{oMerchandisingModel>tier4}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<VBox justifyContent="Center" alignItems="Center">
+				<Label text="{path: 'oPaginationModel>/selectedPage', formatter: 'freshdirect.SKU.formatter.formatter.formatPageNumber'}"
+					class="pageNumberStyleClass"/>
+				<HBox>
+					<Button icon="sap-icon://close-command-field" enabled="{oPaginationModel>/prevBtnVisible}" class="sapUiSizeCompact" press="onScrollLeft"
+						type="Transparent"/>
+					<HBox items="{oPaginationModel>/counters}">
+						<Link text="{oPaginationModel>text}" press="onPageClick" class="paginationNumbers"/>
+					</HBox>
+					<Button icon="sap-icon://open-command-field" enabled="{oPaginationModel>/nextBtnVisible}" class="sapUiSizeCompact" press="onScrollRight"
+						type="Transparent"/>
+				</HBox>
+			</VBox>
+		</VBox>
+	</Dialog>
+</core:FragmentDefinition>

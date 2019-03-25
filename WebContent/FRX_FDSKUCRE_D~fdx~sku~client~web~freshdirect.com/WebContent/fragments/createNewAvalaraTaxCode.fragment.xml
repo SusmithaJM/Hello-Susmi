@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:layout="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="{oSalesTaxModel>/fragmentTitle}" class="createNewTaxCodefragTitle createNewTaxCode dialogClass sapUiSizeCompact">
+		<content>
+			<layout:Grid defaultSpan="L6 M12 S12" class="gridClass">
+				<layout:content>
+					<Label text="{i18n>CATEGORY}" design="Bold" class="sapUiSmallMarginTop"></Label>
+					<Select editable="{oVisiblityModel>/categoryEditable}" forceSelection="false" class="selectFragClass sapUiTinyMarginTop"
+						change="onCategorySelection" visible="{oVisiblityModel>/CategoryDropdownVisible}" selectedKey="{oDropdownModel>/categorySelectedKey}"
+						items="{oSalesTaxModel>/cat}">
+						<core:Item key="{oSalesTaxModel>key}" text="{oSalesTaxModel>c}"/>
+					</Select>
+					<Input class="sapUiTinyMarginTop createTaxCodeInput" editable="{oVisiblityModel>/categoryEditable}"
+						visible="{oVisiblityModel>/CategoryInputVisible}" value="{oSalesTaxModel>/category}"></Input>
+					<Label text="{i18n>SUB_CATEGORY}" design="Bold" class="sapUiSmallMarginTop"></Label>
+					<Select forceSelection="false" visible="{oVisiblityModel>/subCategoryDropdownVisible}" selectedKey="{oSalesTaxModel>/subCategory}"
+						editable="{oVisiblityModel>/CategoryEditable}" class="selectFragClass sapUiTinyMarginTop" items="{oDropdownModel>/subcat/0}">
+						<core:Item key="{oDropdownModel>sc}" text="{oDropdownModel>sc}"/>
+					</Select>
+					<Input class="sapUiTinyMarginTop createTaxCodeInput" visible="{oVisiblityModel>/subCategoryInputVisible}"
+						value="{oSalesTaxModel>/subCategory}" editable="{oVisiblityModel>/subCategoryEditable}"></Input>
+					<Label text="{i18n>AVALARA_TAX_CODE}" design="Bold" class="sapUiSmallMarginTop"></Label>
+					<Input class="sapUiTinyMarginTop createTaxCodeInput" editable="{oVisiblityModel>/taxCodeEditable}" maxLength="8"
+						value="{oSalesTaxModel>/taxCode}"></Input>
+					<Label text="{i18n>TAXABLE_IN_NY}" design="Bold" class="sapUiSmallMarginTop"></Label>
+					<Select forceSelection="false" class="selectFragClass sapUiTinyMarginTop" editable="{oVisiblityModel>/taxableEditable}"
+						items="{oSalesTaxModel>/taxable}" selectedKey="{oSalesTaxModel>/isTaxable}">
+						<core:Item key="{oSalesTaxModel>t}" text="{oSalesTaxModel>t}"/>
+					</Select>
+					<Label text="{i18n>DESCRIPTION}" design="Bold" class="sapUiSmallMarginTop"></Label>
+					<TextArea class="createTaxCodeTextArea" editable="{oVisiblityModel>/DescriptionEditable}" placeholder="Enter Description"
+						value="{oSalesTaxModel>/description}">
+						<layoutData>
+							<layout:GridData span="L12 M12 S12" linebreak="true"/>
+						</layoutData>
+					</TextArea>
+				</layout:content>
+			</layout:Grid>
+		</content>
+		<buttons>
+			<Button text="{i18n>CANCEL_BUTTON}" type="Reject" press="onCancelCreateNewTaxCode"></Button>
+			<Button text="{oSalesTaxModel>/buttonText}" type="Accept" press="onCreate"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

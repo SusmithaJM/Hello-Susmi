@@ -1,0 +1,204 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" class="sapUiSizeCompact"
+	controllerName="freshdirect.SKU.controller.detailReport" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
+	<Page showHeader="false">
+		<content>
+			<VBox class="detailReportHdrBoxClass">
+				<Toolbar class="detailReportToolbarClass">
+					<Label text="{i18n>DETAIL_REPORT}" design="Bold"/>
+				</Toolbar>
+				<fb:FilterBar id="filterBar" search="onSearch" clear="onClear" showClearButton="true" vSpacing="0" hSpacing="1" filterContainerWidth="10rem"
+					position="Right" class="">
+					<fb:filterItems>
+						<fb:FilterItem name="Request Id" label="{i18n>REQUEST_ID}">
+							<fb:control>
+								<Input type="Text" value="{oDetailReportModel>/requestId}"/>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Project Id" label="{i18n>PROJECT_ID}">
+							<fb:control>
+								<Input type="Text" value="{oDetailReportModel>/projectId}"/>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Reference GTIN" label="{i18n>REFERENCE_GTIN}">
+							<fb:control>
+								<Input value="{oDetailReportModel>/referenceGtin}"/>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Brand" label="{i18n>BRAND}">
+							<fb:control>
+								<Input filterSuggests="false" suggest="onSuggestBrand" startSuggestion="1" showSuggestion="true" maxSuggestionWidth="480px"
+									placeholder="Enter character for suggestions" suggestionItemSelected="onBrandSelection" value="{oDetailReportModel>/brand}"
+									suggestionItems="{oDropdownModel>/allBrandList}" change="onBrandValueChange">
+									<customData>
+										<core:CustomData key="target" value="MM_TAB_BRAND"/>
+									</customData>
+									<suggestionItems>
+										<core:ListItem text="{oDropdownModel>value}" key="{oDropdownModel>key}"/>
+									</suggestionItems>
+								</Input>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Purchasing Group" label="{i18n>PURCHASING_GROUP}">
+							<fb:control>
+								<Select forceSelection="false" class="selectFragClass" items="{oDropdownModel>/purchasingGroup}"
+									selectedKey="{oDetailReportModel>/purchasingGroup}">
+									<core:Item key="{oDropdownModel>Ekgrp}" text="{oDropdownModel>Eknam}"/>
+								</Select>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Profit Center" label="{i18n>PROFIT_CENTER}">
+							<fb:control>
+								<Select forceSelection="false" class="selectFragClass" items="{oDropdownModel>/profitCenter}"
+									selectedKey="{oDetailReportModel>/profitCenter}">
+									<core:ListItem key="{oDropdownModel>Prctr}" text="{oDropdownModel>Mctxt}" additionalText="{oDropdownModel>Prctr}"/>
+								</Select>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Tier 1" label="{i18n>TIER1}">
+							<fb:control>
+								<Select forceSelection="false" change="onTier1Selection" items="{oDropdownModel>/tier1List}" selectedKey="{oDetailReportModel>/tier1}"
+									class="selectFragClass">
+									<customData>
+										<core:CustomData key="target" value="MM_IDEATION_TIER1"/>
+									</customData>
+									<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+								</Select>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Tier 2" label="{i18n>TIER2}">
+							<fb:control>
+								<Select forceSelection="false" change="onTier2Selection" items="{oDropdownModel>/tier2List}" selectedKey="{oDetailReportModel>/tier2}"
+									class="selectFragClass">
+									<customData>
+										<core:CustomData key="target" value="MM_IDEATION_TIER2"/>
+									</customData>
+									<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+								</Select>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Tier 3" label="{i18n>TIER3}">
+							<fb:control>
+								<Select forceSelection="false" change="onTier3Selection" items="{oDropdownModel>/tier3List}" selectedKey="{oDetailReportModel>/tier3}"
+									class="selectFragClass">
+									<customData>
+										<core:CustomData key="target" value="MM_IDEATION_TIER3"/>
+									</customData>
+									<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+								</Select>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Tier 4" label="{i18n>TIER4}">
+							<fb:control>
+								<Select forceSelection="false" items="{oDropdownModel>/tier4List}" selectedKey="{oDetailReportModel>/tier4}" class="selectFragClass">
+									<customData>
+										<core:CustomData key="target" value="MM_IDEATION_TIER4"/>
+									</customData>
+									<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+								</Select>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Attribute 1" label="{i18n>ATTRIBUTE1}">
+							<fb:control>
+								<Input filterSuggests="false" suggest="onSuggestAttribute1" startSuggestion="1" showSuggestion="true" maxSuggestionWidth="480px"
+									placeholder="Enter character for suggestions" suggestionItemSelected="onAttribute1Selection" suggestionItems="{oDropdownModel>/attribute1}"
+									value="{oDetailReportModel>/attribute1}">
+									<suggestionItems>
+										<core:Item text="{oDropdownModel>attribute}"/>
+									</suggestionItems>
+								</Input>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Attribute 2" label="{i18n>ATTRIBUTE2}">
+							<fb:control>
+								<Input filterSuggests="false" suggest="onSuggestAttribute2" startSuggestion="1" showSuggestion="true" maxSuggestionWidth="480px"
+									placeholder="Enter character for suggestions" suggestionItemSelected="onAttribute2Selection" suggestionItems="{oDropdownModel>/attribute2}"
+									value="{oDetailReportModel>/attribute2}">
+									<suggestionItems>
+										<core:Item text="{oDropdownModel>attribute}"/>
+									</suggestionItems>
+								</Input>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Attribute 3" label="{i18n>ATTRIBUTE3}">
+							<fb:control>
+								<Input filterSuggests="false" suggest="onSuggestAttribute3" startSuggestion="1" showSuggestion="true" maxSuggestionWidth="480px"
+									placeholder="Enter character for suggestions" suggestionItemSelected="onAttribute3Selection" suggestionItems="{oDropdownModel>/attribute3}"
+									value="{oDetailReportModel>/attribute3}">
+									<suggestionItems>
+										<core:Item text="{oDropdownModel>attribute}"/>
+									</suggestionItems>
+								</Input>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Attribute 4" label="{i18n>ATTRIBUTE4}">
+							<fb:control>
+								<Input filterSuggests="false" suggest="onSuggestAttribute4" startSuggestion="1" showSuggestion="true" maxSuggestionWidth="480px"
+									placeholder="Enter character for suggestions" suggestionItemSelected="onAttribute4Selection" suggestionItems="{oDropdownModel>/attribute4}"
+									value="{oDetailReportModel>/attribute4}">
+									<suggestionItems>
+										<core:Item text="{oDropdownModel>attribute}"/>
+									</suggestionItems>
+								</Input>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="SAP Material" label="{i18n>SAP_MATERIAL}">
+							<fb:control>
+								<Input value="{oDetailReportModel>/sapMaterial}"/>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Product Id" label="{i18n>PRODUCT_ID}">
+							<fb:control>
+								<Input value="{oDetailReportModel>/productId}"/>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Web Id" label="{i18n>WEB_ID}">
+							<fb:control>
+								<Input value="{oDetailReportModel>/webId}"/>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Merchant" label="{i18n>MERCHANT}">
+							<fb:control>
+								<Input value="{oDetailReportModel>/merchant}"/>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Current Stage" label="{i18n>CURRENT_STAGE}">
+							<fb:control>
+								<Select selectedKey="{oDetailReportModel>/currentStage}" items="" class="IconTabSelectClass">
+									<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+								</Select>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Target Activation Date" label="{i18n>TARGET_ACTIVATION_DATE}">
+							<fb:control>
+								<DatePicker dateValue="{oDetailReportModel>/targetActivationDate}" change="onTargetActivationDateChange" displayFormat="MM/dd/yyyy"
+									valueFormat="MM/dd/yyyy"/>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="Request Date" label="{i18n>REQUEST_DATE}">
+							<fb:control>
+								<DatePicker dateValue="{oDetailReportModel>/requestDate}" change="onRequestDateChange" displayFormat="MM/dd/yyyy" valueFormat="MM/dd/yyyy"/>
+							</fb:control>
+						</fb:FilterItem>
+					</fb:filterItems>
+				</fb:FilterBar>
+			</VBox>
+			<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height='100%' width="100%" vizType='column' legendVisible="false">
+				<viz:dataset>
+					<viz.data:FlattenedDataset data="{oDetailReportModel>/graph1Data}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition name="Task name" value="{oDetailReportModel>taskName}"/>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="Hours Gain/Loss against SLA" value="{oDetailReportModel>daysDifference}"/>
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Hours Gain/Loss against SLA"/>
+					<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Task name"/>
+				</viz:feeds>
+			</viz:VizFrame>
+		</content>
+	</Page>
+</core:View>

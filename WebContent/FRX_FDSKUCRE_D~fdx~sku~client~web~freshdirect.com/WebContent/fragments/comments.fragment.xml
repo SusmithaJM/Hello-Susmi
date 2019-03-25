@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<VBox class="sapUiTinyMarginTop sapUiMediumMarginBegin" width="95%">
+		<VBox class="sapUiTinyMarginTop sapUiSmallMarginBegin sapUiSmallMarginEnd">
+			<FeedInput showIcon="false" post="onPostTabComment" visible="{oDashboardVisibilityModel>/isCommentsEditable}"/>
+		</VBox>
+		<VBox items="{oDashboardTabModel>/activityLogsDtos}">
+			<VBox class="sapUiTinyMarginTop sapUiSmallMarginBegin sapUiSmallMarginEnd">
+				<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+					<items>
+						<HBox>
+							<Title text="{oDashboardTabModel>user}"/>
+							<Text class="sapUiSizeCompact sapUiTinyMarginBegin"
+								text="{path:'oDashboardTabModel>group', formatter:'freshdirect.SKU.formatter.formatter.concatUserTeamName'}"/>
+						</HBox>
+						<HBox>
+							<Text class="sapUiSizeCompact sapUiSmallMarginEnd" 
+							text="{path:'oDashboardTabModel>date', formatter:'freshdirect.SKU.formatter.formatter.formatDateObject'}"/>
+							<core:Icon src="{path:'oDashboardTabModel>systemGenerated',formatter:'freshdirect.SKU.formatter.formatter.isSystemGenerated'}"
+								class="generatedCommnent"/>
+						</HBox>
+					</items>
+				</FlexBox>
+				<Text class="sapUiSizeCompact sapUiSmallMarginBegin" text="{oDashboardTabModel>description}"/>
+				<core:HTML content="&lt;hr&gt;"/>
+			</VBox>
+		</VBox>
+	</VBox>
+</core:FragmentDefinition>

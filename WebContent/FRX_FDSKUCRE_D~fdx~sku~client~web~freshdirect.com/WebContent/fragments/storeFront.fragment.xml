@@ -1,0 +1,158 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:layout="sap.ui.layout">
+	<layout:Grid defaultSpan="L6 M6 S6">
+		<layout:content>
+			<layout:Grid>
+				<layout:content>
+					<Label design="Bold" class="sapUiSmallMarginTop" text="{i18n>PRODUCT_NAME}">
+						<layoutData>
+							<layout:GridData span="L4 M4 S4"/>
+						</layoutData>
+					</Label>
+					<Input class="inputFieldBorder sapUiTinyMarginTop" value="{oDashboardTabModel>/storeFrontDto/productName}">
+						<layoutData>
+							<layout:GridData span="L8 M8 S8"/>
+						</layoutData>
+					</Input>
+					<Label design="Bold" class="sapUiSmallMarginTop" text="{i18n>MERCHANT_SUGGESTED_SEARCH_TERMS}">
+						<layoutData>
+							<layout:GridData span="L4 M4 S4" linebreak="true"/>
+						</layoutData>
+					</Label>
+					<Input class="inputFieldBorder sapUiTinyMarginTop" value="{oDashboardTabModel>/storeFrontDto/merchantSuggSearchTerms}">
+						<layoutData>
+							<layout:GridData span="L8 M8 S8"/>
+						</layoutData>
+					</Input>
+					<Label text="{i18n>PRODUCT_WEBSITE_LINK}:" class="sapUiSmallMarginTop" design="Bold">
+						<layoutData>
+							<layout:GridData span="L4 M4 S4" linebreak="true"/>
+						</layoutData>
+					</Label>
+					<Input class="sapUiTinyMarginTop" value="{oDashboardTabModel>/storeFrontDto/productWebLink}">
+						<layoutData>
+							<layout:GridData span="L8 M8 S8"/>
+						</layoutData>
+					</Input>
+				</layout:content>
+			</layout:Grid>
+			<layout:Grid>
+				<layout:content>
+					<Label design="Bold" class="sapUiSmallMarginTop" text="{i18n>PRIMARY_STOREFRONT}:">
+						<layoutData>
+							<layout:GridData span="L4 M4 S4" linebreak="true"/>
+						</layoutData>
+					</Label>
+					<HBox>
+						<Input value="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/0/hierarchy}"
+							tooltip="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/0/hierarchy}" width="250%" enabled="false"></Input>
+						<Button icon="sap-icon://documents" type="Transparent" tooltip="Choose Placement" class="storeFrontIconClass"
+							press="openChoosePlacementDialog">
+							<customData>
+								<core:CustomData key="targetplacement" value="/storeFrontDto/storeFrontPlacementDtos/0"/>
+							</customData>
+						</Button>
+						<layoutData>
+							<layout:GridData span="L8 M8 S8"/>
+						</layoutData>
+					</HBox>
+					<Label design="Bold" class="sapUiSmallMarginTop" text="{i18n>ADDITIONAL_PLACEMENT_A}:">
+						<layoutData>
+							<layout:GridData span="L4 M4 S4" linebreak="true"/>
+						</layoutData>
+					</Label>
+					<HBox>
+						<Input value="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/1/hierarchy}"
+							tooltip="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/1/hierarchy}" width="250%" enabled="false"></Input>
+						<Button icon="sap-icon://documents" type="Transparent" tooltip="Choose Placement" class="storeFrontIconClass"
+							enabled="{oDashboardVisibilityModel>/additionalPlacementAenabled}" press="openChoosePlacementDialog">
+							<customData>
+								<core:CustomData key="targetplacement" value="/storeFrontDto/storeFrontPlacementDtos/1"/>
+							</customData>
+						</Button>
+						<layoutData>
+							<layout:GridData span="L8 M8 S8"/>
+						</layoutData>
+					</HBox>
+					<Label design="Bold" class="sapUiSmallMarginTop" text="{i18n>ADDITIONAL_PLACEMENT_B}:">
+						<layoutData>
+							<layout:GridData span="L4 M4 S4" linebreak="true"/>
+						</layoutData>
+					</Label>
+					<HBox>
+						<Input value="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/2/hierarchy}"
+							tooltip="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/2/hierarchy}" width="250%" enabled="false"></Input>
+						<Button icon="sap-icon://documents" type="Transparent" tooltip="Choose Placement" class="storeFrontIconClass"
+							enabled="{oDashboardVisibilityModel>/additionalPlacementBenabled}" press="openChoosePlacementDialog">
+							<customData>
+								<core:CustomData key="targetplacement" value="/storeFrontDto/storeFrontPlacementDtos/2"/>
+							</customData>
+						</Button>
+						<layoutData>
+							<layout:GridData span="L8 M8 S8"/>
+						</layoutData>
+					</HBox>
+					<Label design="Bold" class="sapUiSmallMarginTop" text="{i18n>ADDITIONAL_PLACEMENT_C}:">
+						<layoutData>
+							<layout:GridData span="L4 M4 S4" linebreak="true"/>
+						</layoutData>
+					</Label>
+					<HBox>
+						<Input value="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/3/hierarchy}"
+							tooltip="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/3/hierarchy}" width="250%" enabled="false"></Input>
+						<Button icon="sap-icon://documents" type="Transparent" tooltip="Choose Placement" class="storeFrontIconClass"
+							enabled="{oDashboardVisibilityModel>/additionalPlacementCenabled}" press="openChoosePlacementDialog">
+							<customData>
+								<core:CustomData key="targetplacement" value="/storeFrontDto/storeFrontPlacementDtos/3"/>
+							</customData>
+						</Button>
+						<layoutData>
+							<layout:GridData span="L8 M8 S8"/>
+						</layoutData>
+					</HBox>
+					<Label design="Bold" class="sapUiSmallMarginTop" text="{i18n>ADDITIONAL_PLACEMENT_D}:">
+						<layoutData>
+							<layout:GridData span="L4 M4 S4" linebreak="true"/>
+						</layoutData>
+					</Label>
+					<HBox>
+						<Input value="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/4/hierarchy}"
+							tooltip="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/4/hierarchy}" width="250%" enabled="false"></Input>
+						<Button icon="sap-icon://documents" type="Transparent" tooltip="Choose Placement" class="storeFrontIconClass"
+							enabled="{oDashboardVisibilityModel>/additionalPlacementDenabled}" press="openChoosePlacementDialog">
+							<customData>
+								<core:CustomData key="targetplacement" value="/storeFrontDto/storeFrontPlacementDtos/4"/>
+							</customData>
+						</Button>
+						<layoutData>
+							<layout:GridData span="L8 M8 S8"/>
+						</layoutData>
+					</HBox>
+				</layout:content>
+			</layout:Grid>
+			<Label design="Bold" class="sapUiSmallMarginTop" text="{i18n>PRODUCT_CONTENT_COPY}"/>
+			<TextArea class="productContentCopyTextArea" editable="{createNewTaxCodeModel>/DescriptionEditable}" placeholder="Enter Here"
+				value="{oDashboardTabModel>/storeFrontDto/productContentCopy}">
+				<layoutData>
+					<layout:GridData span="L12 M12 S12" linebreak="true"/>
+				</layoutData>
+			</TextArea>
+		</layout:content>
+	</layout:Grid>
+	<Toolbar class="SkubasicAtrbToolBarClass">
+		<ToolbarSpacer/>
+			<Button type="Accept" text="{i18n>COMPLETE_STORE_FRONT}" press="onCompleteTask">
+				<customData>
+					<core:CustomData key="target" value="STORE_FRONT"/>
+				</customData>
+			</Button>
+	</Toolbar>
+	<Panel expandable="true" class="iconPanelHdng" headerText="{i18n>PRODUCT_TAGS}">
+		<content>
+			<layout:Grid defaultSpan="L2 M2 S2" content="{oDashboardTabModel>/storeFrontDto/storeFrontPlacementDtos/0/productTagsDtos}">
+				<layout:content>
+					<CheckBox text="{oDashboardTabModel>tagName}" selected="{oDashboardTabModel>value}"/>
+				</layout:content>
+			</layout:Grid>
+		</content>
+	</Panel>
+</core:FragmentDefinition>

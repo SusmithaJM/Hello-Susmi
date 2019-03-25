@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<HBox justifyContent="End">
+		<Label text="File type:" design="Bold" style="margin-top:15%"/>
+		<Select selectedKey="" class="IconTabSelectClass sapUiTinyMarginTop">
+			<core:Item key="" text=""/>
+		</Select>
+		<Input value="" class="fileUploadInputStyle"/>
+		<Button text="Browse" type="Accept" class="commitBtnClass"/>
+		<Button text="Upload" type="Accept" class="commitBtnClass"/>
+	</HBox>
+	<VBox class="VBox">
+		<Table>
+			<columns>
+				<Column>
+					<Label text="File Name" design="Bold"/>
+				</Column>
+				<Column>
+					<Label text="File Type" design="Bold"/>
+				</Column>
+				<Column>
+					<Label text="Uploaded By" design="Bold"/>
+				</Column>
+				<Column>
+					<Label text="Uploaded on" design="Bold"/>
+				</Column>
+				<Column>
+					<Label text="Notes" design="Bold"/>
+				</Column>
+				<Column></Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<Text text="a"/>
+					<Select selectedKey="" items="{oDropdownModel>/fileType}" class="IconTabSelectClass">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/></Select>
+					<Text text="a"/>
+					<Text text="a"/>
+					<Text text="a"/>
+					<Button icon="sap-icon://delete" type="Reject"/>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</VBox>
+</core:FragmentDefinition>

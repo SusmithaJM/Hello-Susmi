@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"
+  	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Popover class="popOverStyle" placement="Bottom" showHeader="false" contentWidth="11rem">
+		<VBox>
+			<Input placeholder="No. of SKUs" visible="{oDropdownModel>/createVisible}" 
+				value="{path:'oDropdownModel>/noOfSkus', type:'sap.ui.model.type.Integer'}"/>
+			<Button text="{i18n>CREATE_NEW}" visible="{oDropdownModel>/createVisible}" type="Transparent" press="onCreateNewSKU"/>
+			<Button text="{i18n>CREATE_BY_REFERENCE}" visible="{oDropdownModel>/createVisible}"
+				enabled="{oDashboardVisibilityModel>/createRefernceEnable}" type="Transparent" press="onCreateReferenceSKU"/>
+			<Button text="{i18n>IDEATIONS}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			<Button text="{i18n>BASIC_ATTRIBUTES}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			<Button text="{i18n>WEIGHTS_DIMS}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			<Button text="{i18n>BINNING}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			<Button text="{i18n>SOURCING_INFO_(PRI)}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			<Button text="{i18n>ORDERING_INFO(PRI)}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			<Button text="{i18n>SOURCING_INFO(SEC)}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			<Button text="{i18n>ORDERING_INFO(SEC)}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			<Button text="{i18n>MERCHANDISING}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			<Button text="{i18n>STORE_FRONT_ATTRIBUTES}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			<Button text="{i18n>PRODUCT_TAGS}" visible="{oDropdownModel>/modifyVisible}" type="Transparent" press="onModifyDropdownClick"/>
+			
+			<!--<Button text="{i18n>PRODUCT_IMAGE}" visible="{oDropdownModel>/uploadVisible}" type="Transparent" press="onUpload"/>
+			<Button text="{i18n>NUTRITION_IMAGE}" visible="{oDropdownModel>/uploadVisible}" type="Transparent" press="onUpload"/>-->
+			
+			<Button text="{i18n>BASIC_PRODUCT_ATTRIBUTE}" visible="{oDropdownModel>/templateVisible}" type="Transparent" press="onDownloadTemplate" 
+				customData:name="BASIC_PRODUCT_ATTRIBUTE"/>
+			<Button text="{i18n>WEIGHT_DIMS}" visible="{oDropdownModel>/templateVisible}" type="Transparent" press="onDownloadTemplate" 
+				customData:name="WEIGHT_DIMS"/>
+			<Button text="{i18n>COST_SHEET}" visible="{oDropdownModel>/templateVisible}" type="Transparent" press="onDownloadTemplate" 
+				customData:name="COST_SHEET"/>
+			<Button text="{i18n>ORDERING_INFO}" visible="{oDropdownModel>/templateVisible}" type="Transparent" press="onDownloadTemplate" 
+				customData:name="ORDERING_INFO"/>
+			<Button text="{i18n>ERPSY_NUTRITIO_DATA}" visible="{oDropdownModel>/templateVisible}" type="Transparent" press="onDownloadTemplate" 
+				customData:name="ERPSY_NUTRITIO_DATA"/>
+			<Button text="{i18n>CMS_DATA}" visible="{oDropdownModel>/templateVisible}" type="Transparent" press="onDownloadTemplate" 
+				customData:name="CMS_DATA"/>
+			<Button text="{i18n>BOM_DATA}" visible="{oDropdownModel>/templateVisible}" type="Transparent" press="onDownloadTemplate" 
+				customData:name="BOM_DATA"/>
+			<Button text="{i18n>ROUTING_DATA}" visible="{oDropdownModel>/templateVisible}" type="Transparent" press="onDownloadTemplate" 
+				customData:name="ROUTING_DATA"/>
+			
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

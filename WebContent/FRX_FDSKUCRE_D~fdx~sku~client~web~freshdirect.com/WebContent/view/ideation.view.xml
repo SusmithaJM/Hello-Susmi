@@ -1,0 +1,132 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="fd_skutrial.controller.ideation"
+	xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title">
+				<content>
+					<l:Grid defaultSpan="L3 M6 S12" class="gridClass">
+						<l:content>
+							<Label design="Bold" text="{i18n>MATERIAL_TYPE}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" change="a" class="selectFragClass sapUiTinyMarginTop" items="{oDropdownModel>/materialType}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>mT}"/>
+							</Select>
+							<Label design="Bold" text="{i18n>UPC}" class="labelBold sapUiSmallMarginTop"></Label>
+							<HBox>
+								<CheckBox selected="false" select="UPCCheckboxSelected" class="UPCIcon"></CheckBox>
+								<Input maxLength="20" class="sapUiTinyMarginTop" value="{oIdeationModel>/upc}" change="UPCvalid"></Input>
+								<Image src="images/invalid_icon.png" width="1rem" tooltip="Invalid" class="UPCValidationIcon"
+									visible="{oIdeationModel>/UPCInvalidVisiblity}"/>
+								<Image src="images/valid_icon.png" width="1rem" tooltip="valid" class="UPCValidationIcon" visible="{oIdeationModel>/UPCValidVisiblity}"/>
+							</HBox>
+							<!--<Label design="Bold" text="{i18n>BUOM}" class="labelBold sapUiSmallMarginTop"></Label>-->
+							<!--<Select forceSelection="false" class="selectFragClass sapUiTinyMarginTop comboBoxBorder"></Select>-->
+							<!--<Label design="Bold" text="{i18n>PLU_CODE}" class="labelBold sapUiSmallMarginTop"></Label>-->
+							<!--<Input class="sapUiTinyMarginTop" value="{oIdeationModel>/PLUCode}"></Input>-->
+							<Label design="Bold" text="{i18n>BRAND}" class="labelBold sapUiSmallMarginTop"></Label>
+							<HBox>
+								<Select forceSelection="false" change="b" class="selectBrandFragClass sapUiTinyMarginTop" items="{oDropdownModel>/brand}">
+									<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>b}"/>
+								</Select>
+								<Image src="images/add_icon.png" width="1rem" tooltip="Add Brand" class="addBrand" press="onAddBrand"/>
+							</HBox>
+							<Label design="Bold" text="{i18n>DESCRIPTION}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Input class="sapUiTinyMarginTop" value="{oIdeationModel>/prodDesc}"></Input>
+							<Label design="Bold" text="{i18n>PACKAGE_TYPE}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" class="selectFragClass sapUiTinyMarginTop comboBoxBorder" items="{oDropdownModel>/packageType}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>pt}"/>
+							</Select>
+							<Label design="Bold" text="{i18n>PACKAGE_COUNT}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Input class="sapUiTinyMarginTop" value="{oIdeationModel>/packageCount}"></Input>
+							<Label design="Bold" text="{i18n>INDIVIDUAL_PACKAGE_SIZE}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Input class="sapUiTinyMarginTop" value="{oIdeationModel>/indPackageSize}"></Input>
+							<Label design="Bold" text="{i18n>INDIVIDUAL_PACKAGE_SIZE_UOM}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" class="selectFragClass sapUiTinyMarginTop comboBoxBorder" items="{oDropdownModel>/IndPackUOM}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>ip}"/>
+							</Select>
+							<VBox>
+								<Label design="Bold" text="{i18n>SAP_PRODUCT_DESCRIPTION}" class="labelBold sapUiSmallMarginTop"></Label>
+								<Label design="Bold" text="{i18n>SAP_PRODUCT_DESCRIPTION_TOOLTIP}" class="tooltip"></Label>
+								<layoutData>
+									<l:GridData linebreak="true"/>
+								</layoutData>
+							</VBox>
+							<HBox>
+								<TextArea class="createSKUtextArea sapUiTinyMarginTop"
+									value="{parts:['oIdeationModel>/indPackageSize','oIdeationModel>/brand','oIdeationModel>/prodDesc','oIdeationModel>/indPackageSizeUOM','oIdeationModel>/packageCount'],formatter:'.sapProdDescfun'}"
+									enabled="{oIdeationModel>/sapProdDescEditEnabled}"></TextArea>
+								<Image src="images/invalid_icon.png" width="1rem" tooltip="Invalid" class="validationIcon"
+									visible="{oIdeationModel>/sapProdDescInvalidVisiblity}"/>
+								<Image src="images/valid_icon.png" width="1rem" tooltip="valid" class="validationIcon" visible="{oIdeationModel>/sapProdDescValidVisiblity}"/>
+								<core:Icon src="sap-icon://edit" class="createSKUFragEdit" press="sapProdDescEdit"/>
+							</HBox>
+							<!--<Label design="Bold" text="{i18n>MERCHANT_PRODUCT_NAME}" class="labelBold sapUiSmallMarginTop"></Label>-->
+							<!--<TextArea class="createSKUtextArea sapUiTinyMarginTop" value="{oIdeationModel>/merchantProductName}"></TextArea>-->
+							<!--<Label design="Bold" text="{i18n>MERCHANT_PRODUCT_FLAVOUR}" class="labelBold sapUiSmallMarginTop"></Label>-->
+							<!--<Input class="sapUiTinyMarginTop" maxLength="40" value="{oIdeationModel>/merchantProductFlavour}"></Input>-->
+							<Label design="Bold" text="{i18n>PURCHASING_GROUP}" class="labelBold sapUiSmallMarginTop">
+								<layoutData>
+									<l:GridData linebreak="true"/>
+								</layoutData>
+							</Label>
+							<Select forceSelection="false" change="c" class=" selectFragClass sapUiTinyMarginTop" items="{oDropdownModel>/packageGroup}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>pg}"/>
+							</Select>
+							<Label design="Bold" text="{i18n>STORAGE_TEMP_ZONE}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" change="d" class="selectFragClass sapUiTinyMarginTop" items="{oDropdownModel>/storageTemp}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>st}"/>
+							</Select>
+							<VBox>
+								<Label design="Bold" text="{i18n>TARGET_ACTIVATION}" class="labelBold"></Label>
+								<Label design="Bold" text="{i18n>TARGET_ACTIVATION_TOOLTIP}" class="tooltip"></Label>
+							</VBox>
+							<CheckBox selected="false" select="tarActASAPfn" class="sapUiTinyMarginTop"></CheckBox>
+							<Label design="Bold" text="{i18n>TARGET_ACTIVATION_DATE}" class="labelBold sapUiSmallMarginTop"></Label>
+							<DatePicker enabled="{oIdeationModel>/tarActDateenabled}" value="{oIdeationModel>/tarActDate}" change="onTargetActivationDateChange"
+								displayFormat="MM/dd/yyyy" valueFormat="MM/dd/yyyy" class="sapUiTinyMarginTop" placeholder="MM/DD/YYYY"></DatePicker>
+							<Label design="Bold" text="{i18n>TIER1}" width="100%" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" change="onTier1Selection" width="100%" items="{oDropdownModel>/tier1}"
+								class="selectFragClass sapUiTinyMarginTop comboBoxBorder">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>t1}"/>
+							</Select>
+							<Label design="Bold" text="{i18n>TIER2}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" change="onTier2Selection" width="100%" items="{oDropdownModel>/tier2array/0}"
+								class="selectFragClass sapUiTinyMarginTop comboBoxBorder">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>t2}"/>
+							</Select>
+							<Label design="Bold" text="{i18n>TIER3}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" change="onTier3Selection" width="100%" items="{oDropdownModel>/tier3array/0}"
+								class="selectFragClass sapUiTinyMarginTop comboBoxBorder">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>t3}"/>
+							</Select>
+							<Label design="Bold" text="{i18n>TIER4}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" change="e" width="100%" items="{oDropdownModel>/tier4array/0}"
+								class="selectFragClass sapUiTinyMarginTop comboBoxBorder">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>t4}"/>
+							</Select>
+							<Label design="Bold" text="{i18n>CATEGORY_ATTRIBUTE1}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" change="f" width="100%" items="{oDropdownModel>/tier2array/0}"
+								class="selectFragClass sapUiTinyMarginTop comboBoxBorder">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>t2}"/>
+							</Select>
+							<Label design="Bold" text="{i18n>CATEGORY_ATTRIBUTE2}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" change="g" width="100%" items="{oDropdownModel>/tier2array/0}"
+								class="selectFragClass sapUiTinyMarginTop comboBoxBorder">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>t2}"/>
+							</Select>
+							<Label design="Bold" text="{i18n>CATEGORY_ATTRIBUTE3}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" change="h" width="100%" items="{oDropdownModel>/tier2array/0}"
+								class="selectFragClass sapUiTinyMarginTop comboBoxBorder">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>t3}"/>
+							</Select>
+							<Label design="Bold" text="{i18n>CATEGORY_ATTRIBUTE4}" class="labelBold sapUiSmallMarginTop"></Label>
+							<Select forceSelection="false" change="i" width="100%" items="{oDropdownModel>/tier2array/0}"
+								class="selectFragClass sapUiTinyMarginTop comboBoxBorder">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>t2}"/>
+							</Select>
+						</l:content>
+					</l:Grid>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

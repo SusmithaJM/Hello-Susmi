@@ -1,0 +1,104 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:layout="sap.ui.layout">
+	<Toolbar class="SkubasicAtrbToolBarClass">
+		<ToolbarSpacer/>
+		<Label text="{i18n>MATERIAL_TYPE} :" design="Bold"/>
+		<Text text="{oDashboardTabModel>/ideationDto/materialType}"/>
+		<ToolbarSpacer/>
+	</Toolbar>
+	<layout:Grid defaultSpan="L3 M6 S12" width="100%" class="sapUiTinyMarginTop">
+		<layout:content>
+			<Label text="{i18n>AVERAGE_FORECAST_WEEKLY_VOLUME} :" design="Bold" class="sapUiTinyMarginTop"></Label>
+			<Input value="{oDashboardTabModel>/binningDto/avgForecasteWeeklyVolume}" editable = "false"/>
+			<Label text="{i18n>MINIMUM_ITEM_ORDER_QUANTITY}: " design="Bold" class="sapUiTinyMarginTop"></Label>
+			<Input value="{oDashboardTabModel>/binningDto/minItemOrderQuantity}" editable = "false"/>
+			<Label text="{i18n>UNIT_PER_CASE}: " design="Bold" class="sapUiTinyMarginTop"></Label>
+			<Input value="{oDashboardTabModel>/binningDto/unitPerCase}" editable = "false"/>
+			<Label text="{i18n>CASES_PER_PALLET}: " design="Bold" class="sapUiTinyMarginTop"></Label>
+			<Input value="{oDashboardTabModel>/binningDto/casesPerPallet}" editable = "false"/>
+			<Label text="{i18n>PICK_DEPT}" design="Bold" class="sapUiTinyMarginTop"></Label>
+			<Select forceSelection="false" selectedKey="{oDashboardTabModel>/binningDto/pickDepartment}" items="{oDropdownModel>/pickDepartment}" class="IconTabSelectClass"
+				enabled="{oDashboardVisibilityModel>/isBinningEditable}">
+				<core:Item key="{oDropdownModel>Zzdept}" text="{oDropdownModel>Zzdesc}"/>
+				<customData>				
+					<core:CustomData key="target" value="TAB"/>
+				</customData>
+			</Select>
+			<Label text="{i18n>PICK_METHOD}" design="Bold" class="sapUiTinyMarginTop"></Label>
+			<Select forceSelection="false" selectedKey="{oDashboardTabModel>/binningDto/pickMethod}" items="{oDropdownModel>/pickMethod}" class="IconTabSelectClass"
+				enabled="{oDashboardVisibilityModel>/isBinningEditable}">
+				<core:Item key="{oDropdownModel>Zzpick}" text="{oDropdownModel>Zzdesc}"/>
+				<customData>
+					<core:CustomData key="target" value="TAB"/>
+				</customData>
+			</Select>
+			</layout:content>
+	</layout:Grid>
+	
+	<Toolbar class="SkubasicAtrbToolBarClass">
+		<ToolbarSpacer/>
+			<Button type="Accept" text="{i18n>MERCHANT_BINNING}" press="onCompleteTask">
+				<customData>
+					<core:CustomData key="target" value="MERCHANT_BINNING"/>
+				</customData>
+			</Button>
+	</Toolbar>
+	
+	<layout:Grid defaultSpan="L3 M6 S12" width="100%" class="sapUiTinyMarginTop">
+		<layout:content>
+			<Label text="{i18n>IS_MIN_ORDER_QTY}" design="Bold" class="sapUiSmallMarginEnd sapUiTinyMarginTop">
+				<layoutData>
+					<layout:GridData linebreak="true"/>
+				</layoutData>
+			</Label>
+			<Select forceSelection="false" selectedKey="{oDashboardTabModel>/binningDto/isMinimumOrderQtyAcceptable}" items="{oDropdownModel>/conditions}"
+				change="onChangeBinningMinOrder" class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isBinningEditable}">
+				<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+			</Select>
+			<Label text="{i18n>APPLICABLE_FOR_SHUTTLE}" design="Bold" class="sapUiSmallMarginEnd sapUiSmallMarginBegin sapUiTinyMarginTop"
+				visible="{oDashboardVisibilityModel>/binningVisibleMOQ}">
+				<layoutData>
+					<layout:GridData linebreak="true"/>
+				</layoutData>
+			</Label>
+			<Select forceSelection="false" selectedKey="{oDashboardTabModel>/binningDto/applicableForShuttle}" items="{oDropdownModel>/conditions}" class="IconTabSelectClass"
+				visible="{oDashboardVisibilityModel>/binningVisibleMOQ}" enabled="{oDashboardVisibilityModel>/isBinningEditable}">
+				<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+			</Select>
+			<Label forceSelection="false" text="{i18n>RESERVE_PALLET_POSITION_AVAILABLE}" design="Bold" class="sapUiSmallMarginEnd sapUiSmallMarginBegin sapUiTinyMarginTop"
+				visible="{oDashboardVisibilityModel>/binningVisibleMOQ}">
+				<layoutData>
+					<layout:GridData linebreak="true"/>
+				</layoutData>
+			</Label>
+			<Select forceSelection="false" selectedKey="{oDashboardTabModel>/binningDto/reservePalletPositionAvailable}" items="{oDropdownModel>/conditions}"
+				class="IconTabSelectClass" visible="{oDashboardVisibilityModel>/binningVisibleMOQ}" enabled="{oDashboardVisibilityModel>/isBinningEditable}">
+				<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+			</Select>
+			<Label text="{i18n>PRODUCT_ZALT}" design="Bold" class="sapUiSmallMarginEnd sapUiSmallMarginBegin sapUiTinyMarginTop"
+				visible="{oDashboardVisibilityModel>/binningVisibleMOQ}">
+				<layoutData>
+					<layout:GridData linebreak="true"/>
+				</layoutData>
+			</Label>
+			<Select forceSelection="false" selectedKey="{oDashboardTabModel>/binningDto/zAltProduct}" items="{oDropdownModel>/conditions}" class="IconTabSelectClass"
+				visible="{oDashboardVisibilityModel>/binningVisibleMOQ}" enabled="{oDashboardVisibilityModel>/isBinningEditable}">
+				<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+			</Select>
+			
+		</layout:content>
+	</layout:Grid>
+	<VBox class="sapUiSmallMarginBegin" >
+		<Label text="{i18n>COMMENT}:" design="Bold" class="sapUiTinyMarginTop"></Label>
+		<TextArea cols="50" rows="10" placeholder="Enter Here" maxLength="500"
+			value="{path:'oDashboardTabModel>/binningDto/comments', type:'sap.ui.model.type.String'}"
+			editable="{oDashboardVisibilityModel>/isBinningEditable}" class="skuBinningComntTxtAreaClass"></TextArea>
+	</VBox>
+	<Toolbar class="SkubasicAtrbToolBarClass">
+		<ToolbarSpacer/>
+			<Button type="Accept" text="{i18n>BINNING_COMPLETE}" press="onCompleteTask">
+				<customData>
+					<core:CustomData key="target" value="BINNING"/>
+				</customData>
+			</Button>
+	</Toolbar>
+</core:FragmentDefinition>

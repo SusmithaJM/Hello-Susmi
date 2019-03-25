@@ -1,0 +1,1903 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:Table="sap.ui.table" xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<Table:Table id="SKU_DASHBOARD_TABLE" selectionMode="MultiToggle" fixedColumnCount="8" enableColumnFreeze="true" visibleRowCount="4"
+		rows="{newDashboardModel>/}">
+		<Table:columns>
+			<!-- Ideation -->
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+				<Label text="{i18n>PROJECT_ID}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>projectID}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="8rem" hAlign="Center" visible="true">
+				<Label text="{i18n>REQUEST_ID}" tooltip="{i18n>REQUEST_ID}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>requestID}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="2.5rem" hAlign="Center" visible="true">
+				<Label text="{i18n>I}" tooltip="I"/>
+				<Table:template>
+					<Image src="{newDashboardModel>iImage}"></Image>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="2.5rem" hAlign="Center" visible="true">
+				<Label text="{i18n>F}" tooltip="F"/>
+				<Table:template>
+					<Image src="{newDashboardModel>fImage}"></Image>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="2.5rem" hAlign="Center" visible="true">
+				<Label text="{i18n>C}" tooltip="C"/>
+				<Table:template>
+					<Image src="{newDashboardModel>cImage}"></Image>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="8rem" hAlign="Center" visible="true">
+				<Label text="{i18n>REFERENCE_GTIN}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>upc}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="true">
+				<Label text="{i18n>BRAND}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>brand}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+				<Label text="{i18n>DESCRIPTION}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>description}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>MATERIAL_TYPE}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>materialType}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>UPCED_PRODUCT}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>upcedProduct}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="4.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>PACKAGE_COUNT}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>packageCount}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="4.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>PACKAGE_TYPE}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>packageType}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>INDIVIDUAL_PACKADE_SIZE}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>individualPackageSize}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>INDIVIDUAL_PACKADE_SIZE_UOM}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>individualPackageSizeUOM}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>SAP_PRODUCTDESCRIPTION}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>sapProductDescription}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>PURCHASING_GROUP}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>purchasingGroup}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>STORAGE_TEMP_ZONE}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>storageTempZone}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>TARGET_ACTIVATION_DATE}" tooltip="{i18n>TARGET_ACTIVATION_DATE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>targetActivationDate}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>TARGET_ACTIVATION_DATE_ASAP}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>targetActivationDateASAP}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>TIER1}" tooltip="{i18n>TIER1}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>tier1}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>TIER2}" tooltip="{i18n>TIER2}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>tier2}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>TIER3}" tooltip="{i18n>TIER3}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>tier3}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>TIER4}" tooltip="{i18n>TIER4}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>tier4}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>ATTRIBUTE1}" tooltip="{i18n>ATTRIBUTE1}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>attribute1}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>ATTRIBUTE2}" tooltip="{i18n>ATTRIBUTE2}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>attribute2}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>ATTRIBUTE3}" tooltip="{i18n>ATTRIBUTE3}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>attribute3}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>ATTRIBUTE4}" tooltip="{i18n>ATTRIBUTE4}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>attribute4}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>CREATED_DATE}" tooltip="{i18n>CREATED_DATE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>createdDate}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="Created By" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>createdBy}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>SUBMITTED_DATE}" tooltip="{i18n>SUBMITTED_DATE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>submittedDate}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/ideationVisible}">
+				<Label text="{i18n>UPDATED_DATE}" tooltip="{i18n>UPDATED_DATE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>updatedDate}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!-- Basic Attributes -->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>STORAGE_TEMP_RANGE}" tooltip="{i18n>STORAGE_TEMP_RANGE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>storageTempRange}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>STORAGE_TEMO_OTHER_TEXT}" tooltip="{i18n>STORAGE_TEMO_OTHER_TEXT}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>storageTempOtherText}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>STORAGE_TEMP_MIN}" tooltip="{i18n>STORAGE_TEMP_MIN}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>storageTempMin}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>STORAGE_TEMP_MAX}" tooltip="{i18n>STORAGE_TEMP_MAX}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>storageTempMax}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>STORAGE_CONDITION}" tooltip="{i18n>STORAGE_CONDITION}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>storageConditions}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>STORAGE_CONDITION_TEXT}" tooltip="{i18n>STORAGE_CONDITION_TEXT}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>storageConditionsText}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>VARIABLE_WEIGHT_PRODUCT}" tooltip="{i18n>VARIABLE_WEIGHT_PRODUCT}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>variableWeightProduct}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>PRODUCT_DATE_CODED}" tooltip="{i18n>PRODUCT_DATE_CODED}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>productDateCoded}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>VARIABLE_WEIGHT_LABEL_PRODUCT}" tooltip="{i18n>VARIABLE_WEIGHT_LABEL_PRODUCT}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>variableWeightLabelProduct}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>PRODUCT_DATING}" tooltip="{i18n>PRODUCT_DATING}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>productDating}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>VENDOR_ATTRIBUTES_1}" tooltip="{i18n>VENDOR_ATTRIBUTES_1}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>vendorAttributes1}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>VENDOR_ATTRIBUTES_2}" tooltip="{i18n>VENDOR_ATTRIBUTES_2}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>vendorAttributes2}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>VENDOR_ATTRIBUTES_3}" tooltip="{i18n>VENDOR_ATTRIBUTES_3}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>vendorAttributes3}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>BATCH_LOT_CODED}" tooltip="{i18n>BATCH_LOT_CODED}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>batchLotCoded}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>NUTRITION_PANEL_TYPE}" tooltip="{i18n>NUTRITION_PANEL_TYPE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>nutritionPanelType}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>TOTAL_SHELF_LIFE}" tooltip="{i18n>TOTAL_SHELF_LIFE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>totalShelfLife}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>MIN_SHELF_LIFE_REQ}" tooltip="{i18n>MIN_SHELF_LIFE_REQ}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>minimumShelfLiferequiredonReceipt}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>JUICE_PERCENTAGE}" tooltip="{i18n>JUICE_PERCENTAGE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>juicePercentage}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>ALCOHOL_PERCENTAGE}" tooltip="{i18n>ALCOHOL_PERCENTAGE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>/alcoholPercentage}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="Primary Source Minimum Shelf Life Required upon receipt" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>primarySourceMinimumShelfLifeRequireduponreceipt}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="Secondary Source Minimum Shelf Life Required upon receipt" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>secondarySourceMinimumShelfLifeRequireduponreceipt}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="Guaranteed Days to fresh" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>guaranteedDaystofresh}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>BOTTLES_DEPOSIT_REQ}" tooltip="{i18n>BOTTLES_DEPOSIT_REQ}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>bottlesDepositRequired}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>BRAND_OWNER}" tooltip="{i18n>BRAND_OWNER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>brandOwner}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>BRAND_OWNER_CONTACT_NO}" tooltip="{i18n>BRAND_OWNER_CONTACT_NO}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>brandOwnerContactName}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>BRAND_OWNER_CONTACT_EMAIL}" tooltip="{i18n>BRAND_OWNER_CONTACT_EMAIL}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>brandOwnerContactEmail}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>BRAND_OWNER_CONTACT_TITLE}" tooltip="{i18n>BRAND_OWNER_CONTACT_TITLE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>brandOwnerContactTitle}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>BRAND_OWNER_CONTACT_PHONE}" tooltip="{i18n>BRAND_OWNER_CONTACT_PHONE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>brandOwnerContactPhone}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="15rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>PRODUCT_WEBSITE_LINK}" tooltip="{i18n>PRODUCT_WEBSITE_LINK}"/>
+				<Table:template>
+					<Link text="{newDashboardModel>productWebsiteLink}"></Link>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>GDSN_CAPABLE}" tooltip="{i18n>GDSN_CAPABLE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>GDSNCapable}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/basicAttrVisible}">
+				<Label text="{i18n>GDSN_PUBLISHED_TO_FD}" tooltip="{i18n>GDSN_PUBLISHED_TO_FD}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>GDSNPublishedtoFD}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!-- Binning -->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/binningVisible}">
+				<Label text="{i18n>AVERAGE_FORECAST_WEEKLY_VOLUME}" tooltip="{i18n>AVERAGE_FORECAST_WEEKLY_VOLUME}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>averageForecastWeeklyVolume}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/binningVisible}">
+				<Label text="{i18n>MINIMUM_ITEM_ORDER_QUANTITY}" tooltip="{i18n>MINIMUM_ITEM_ORDER_QUANTITY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>minimumItemOrderQuantity}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/binningVisible}">
+				<Label text="{i18n>UNIT_PER_CASE}" tooltip="{i18n>UNIT_PER_CASE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>unitpercase1}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/binningVisible}">
+				<Label text="{i18n>CASES_PER_PALLET}" tooltip="{i18n>CASES_PER_PALLET}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>casesperpallet}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/binningVisible}">
+				<Label text="{i18n>APPLICABLE_FOR_SHUTTLE}" tooltip="{i18n>APPLICABLE_FOR_SHUTTLE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>applicableforshuttle}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/binningVisible}">
+				<Label text="{i18n>RESERVE_PALLET_POSITION_AVAILABLE}" tooltip="{i18n>RESERVE_PALLET_POSITION_AVAILABLE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>reservePalletPositionsavailable}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!-- Sourcing Info Primary-->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>SOLE_SOURCED}" tooltip="{i18n>SOLE_SOURCED}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>soleSourced}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>VENDOR_NUMBER}" tooltip="{i18n>VENDOR_NUMBER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>vendorNumber}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>VENDOR_NAME}" tooltip="{i18n>VENDOR_NAME}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>vendorName}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>SOURCE_TYPE}" tooltip="{i18n>SOURCE_TYPE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceType}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>SOURCE_IS_NEW_SOURCE_FOR_FD}" tooltip="{i18n>SOURCE_IS_NEW_SOURCE_FOR_FD}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceisnewSourcetoFD}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>COVERED_UNDER_SOURCE_CONTARCT}" tooltip="{i18n>COVERED_UNDER_SOURCE_CONTARCT}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>coveredunderSourcecontract}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>SOURCE_CONTRACT_ID}" tooltip="{i18n>SOURCE_CONTRACT_ID}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceContractID}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>CONTACT_NAME}" tooltip="{i18n>CONTACT_NAME}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>contactName}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="Contact Title" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>contactTitle}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>EMAIL}" tooltip="{i18n>EMAIL}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>email}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>PHONE_NUMBER}" tooltip="{i18n>PHONE_NUMBER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>phoneNumber}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>SOURCE_WILL_DELIVER}" tooltip="{i18n>SOURCE_WILL_DELIVER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceWillDeliver}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="6rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>PAYMENT_TERMS}" tooltip="{i18n>PAYMENT_TERMS}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>paymentTerms}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>INCOTERMS}" tooltip="{i18n>INCOTERMS}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>incoterms}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>SOURCE_ALLOWS_CUST_PICK_UP}" tooltip="{i18n>SOURCE_ALLOWS_CUST_PICK_UP}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceAllowsCustomerPickup}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>FIRST_ORDER_DELIVERY_PICKUP}" tooltip="{i18n>FIRST_ORDER_DELIVERY_PICKUP}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>firstorderDeliveryorPickup}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="Ship from Location" tooltip="{i18n>LOCATION_NAME}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>shipfromLocation}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>LOCATION_NAME}" tooltip="{i18n>LOCATION_NAME}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>locationName}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>STREET_ADDRESS}" tooltip="{i18n>STREET_ADDRESS}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>streetAddress}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>STATE}" tooltip="{i18n>STATE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>state}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>CITY}" tooltip="{i18n>CITY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>city}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/sourcePrimaryVisible}">
+				<Label text="{i18n>ZIP}" tooltip="{i18n>ZIP}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>zip}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!-- Cost Sheet Primary-->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="{i18n>Hierarchy_Chosen}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>HierarchyChosen}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="{i18n>Orderable}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Orderable}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="{i18n>Bracket_Pricing}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>BracketPricing}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="{i18n>Costing_UOM}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>CostingUOM}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="{i18n>Scrap_allowance_applicable_on} " tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>ScrapallowanceApplicableon}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="{i18n>Temp_OIs_effective_on}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>TempOIsEffectiveon}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="{i18n>OIs_applied_on}" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>OIsappliedon}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Billback on Accrual applicable on" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>BillbackonAccrualapplicableon}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="No. of Bottles/EA" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NoofBottlesEA}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Applicable State" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>ApplicableState}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket 1 Range" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket1RangeHigh}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket1 Gross Price($/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket1GrossPriceCS}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket1 Gross Price($/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket1GrossPriceEA}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket 2 Range" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket2RangeHigh}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket2 Gross Price($/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket2GrossPriceCS}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket2 Gross Price($/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket2GrossPriceEA}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket 3 Range" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket3RangeHigh}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket3 Gross Price($/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket3GrossPriceCS}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket3 Gross Price($/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket3GrossPriceEA}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket 4 Range" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket4RangeHigh}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket4 Gross Price($/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket4GrossPriceCS}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket4 Gross Price($/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket4GrossPriceEA}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket 5 Range High" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket5RangeHigh}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket 5 Range Low" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket5RangeLow}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket5 Gross Price($/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket5GrossPriceCS}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Bracket5 Gross Price($/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket5GrossPriceEA}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Pick Up Cost Selected Bracket" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>PickUpCostSelectedBracket}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Net Item Cost Pre-Header fees (Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPre-Headerfees(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Net Header Cost (Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetHeaderCost(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Net Item Cost Post-Header fees (Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-Headerfees(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Net Item Cost Post-Header fees and Accruals (Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderfeesandAccruals(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Net Item Cost Post-Header fees and EPD (Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderfeesandEPD(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Dead Net Item Inbound cost(Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>DeadNetItemInboundcost4(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Delivered Cost Selected Bracket" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>DeliveredCostSelectedBracket}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Net Item Cost Pre-Header fees (Delivered - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPre-Headerfees(Delivered - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Net Header Cost (Delivered-CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetHeaderCost(Delivered-CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Net Item Cost Post-Header fees (Delivered-CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-Headerfees(Delivered-CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Net Item Cost Post-Header fees and Accruals (Delivered - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderfeesandAccruals(Delivered - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Net Item Cost Post-Header fees and EPD (Delivered - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderfeesandEPD(Delivered - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Dead Net Item Inbound cost (Delivered)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>DeadNetItemInboundcost5(Delivered)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Cost of Delivery included (Cost/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>costofDeliveryincludedCS}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/costSheetPrimaryVisible}">
+				<Label text="Cost of Delivery included (Cost/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>costofDeliveryincludedEA}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!-- Ordering Info Primary-->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>SOURCE_ITEM_NO}" tooltip="{i18n>SOURCE_ITEM_NO}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceItemNumber}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>SOURCE_PRODUCT_DESC}" tooltip="{i18n>SOURCE_PRODUCT_DESC}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceProductDesc}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>ORDER_UNIT_MEASURE}" tooltip="{i18n>ORDER_UNIT_MEASURE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>orderUnitofMeasure}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>ORDER_UNIT_UPC}" tooltip="{i18n>ORDER_UNIT_UPC}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>orderUnitUPC}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>UNIT_PER_CASE}" tooltip="{i18n>UNIT_PER_CASE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>unitpercase}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>CASES_PER_LAYER}" tooltip="{i18n>CASES_PER_LAYER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>casesPerLayer}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>LAYERS_PER_PALLET}" tooltip="{i18n>LAYERS_PER_PALLET}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>layersPerPallet}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>CASES_PER_PALLET}" tooltip="{i18n>CASES_PER_PALLET}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>casesPerPallet}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>MINIMUM_ITEM_ORDER_QUANTITY}" tooltip="{i18n>MINIMUM_ITEM_ORDER_QUANTITY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>minimumItemOrderQuantity1}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>ORDER_MULTIPLE}" tooltip="{i18n>ORDER_MULTIPLE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>orderMultiple}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>ORDER_MAXIMUM}" tooltip="{i18n>ORDER_MAXIMUM}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>orderMaximum}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>MIN_ORDER_LEVL_ORDER_QUANTITY}" tooltip="{i18n>MIN_ORDER_LEVL_ORDER_QUANTITY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>minimumOrderLevelOrderQuantity}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>MIN_GUARANTED_SHELF_LIFE_DERIVED}" tooltip="{i18n>MIN_GUARANTED_SHELF_LIFE_DERIVED}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>minimumDaysofShelfLifeRequiredonReceipt}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoPrimaryVisible}">
+				<Label text="{i18n>COUNTRY_OF_ORIGIN}" tooltip="{i18n>COUNTRY_OF_ORIGIN}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>countryOfOrigin}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!-- Sourcing Info Secondary-->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>SOLE_SOURCED}" tooltip="{i18n>SOLE_SOURCED}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>soleSourced}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>VENDOR_NUMBER}" tooltip="{i18n>VENDOR_NUMBER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>vendorNumber}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>VENDOR_NAME}" tooltip="{i18n>VENDOR_NAME}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>vendorName}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>SOURCE_TYPE}" tooltip="{i18n>SOURCE_TYPE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceType}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>SOURCE_IS_NEW_SOURCE_FOR_FD}" tooltip="{i18n>SOURCE_IS_NEW_SOURCE_FOR_FD}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceisnewSourcetoFD}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>COVERED_UNDER_SOURCE_CONTARCT}" tooltip="{i18n>COVERED_UNDER_SOURCE_CONTARCT}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>coveredunderSourcecontract}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>SOURCE_CONTRACT_ID}" tooltip="{i18n>SOURCE_CONTRACT_ID}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceContractID}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>CONTACT_NAME}" tooltip="{i18n>CONTACT_NAME}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>contactName}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="Contact Title" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>contactTitle}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>EMAIL}" tooltip="{i18n>EMAIL}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>email}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>PHONE_NUMBER}" tooltip="{i18n>PHONE_NUMBER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>phoneNumber}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>SOURCE_WILL_DELIVER}" tooltip="{i18n>SOURCE_WILL_DELIVER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceWillDeliver}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>PAYMENT_TERMS}" tooltip="{i18n>PAYMENT_TERMS}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>paymentTerms}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>INCOTERMS}" tooltip="{i18n>INCOTERMS}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>incoterms}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>SOURCE_ALLOWS_CUST_PICK_UP}" tooltip="{i18n>SOURCE_ALLOWS_CUST_PICK_UP}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceAllowsCustomerPickup}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>FIRST_ORDER_DELIVERY_PICKUP}" tooltip="{i18n>FIRST_ORDER_DELIVERY_PICKUP}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>firstorderDeliveryorPickup}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="Ship from Location" tooltip="{i18n>LOCATION_NAME}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>shipfromLocation}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>LOCATION_NAME}" tooltip="{i18n>LOCATION_NAME}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>locationName}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>STREET_ADDRESS}" tooltip="{i18n>STREET_ADDRESS}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>streetAddress}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>STATE}" tooltip="{i18n>STATE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>state}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>CITY}" tooltip="{i18n>CITY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>city}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/sourceInfoSecondaryVisible}">
+				<Label text="{i18n>ZIP}" tooltip="{i18n>ZIP}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>zip}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!-- Cost Sheet Secondary-->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Hierarchy Chosen" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>HierarchyChosen}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Orderable" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Orderable}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket Pricing" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>BracketPricing}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Costing UOM" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>CostingUOM}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Scrap allowance applicable on " tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>ScrapallowanceApplicableon}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Temp OIs effective on" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>TempOIsEffectiveon}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="OIs applied on" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>OIsappliedon}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Billback on Accrual applicable on" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>BillbackonAccrualapplicableon}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="No. of Bottles/EA" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NoofBottles/EA}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Applicable State" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>ApplicableState}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket 1 Range" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket1Range}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket1 Gross Price($/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket1GrossPrice($/CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket1 Gross Price($/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket1GrossPrice($/EA)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket 2 Range" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket2Range}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket2 Gross Price($/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket2GrossPrice($/CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket2 Gross Price($/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket2GrossPrice($/EA)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket 3 Range" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket3Range}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket3 Gross Price($/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket3GrossPrice($/CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket3 Gross Price($/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket3GrossPrice($/EA)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket 4 Range" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket4Range}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket4 Gross Price($/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket4GrossPrice($/CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket4 Gross Price($/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket4GrossPrice($/EA)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket 5 Range" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket5Range}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket5 Gross Price($/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket5GrossPrice($/CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Bracket5 Gross Price($/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>Bracket5GrossPrice($/EA)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Pick Up Cost Selected Bracket" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>PickUpCostSelectedBracket}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Net Item Cost Pre-Header fees (Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPre-Headerfees(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Net Header Cost (Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetHeaderCost(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Net Item Cost Post-Header fees (Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-Headerfees(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Net Item Cost Post-Header fees and Accruals (Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderfeesandAccruals(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Net Item Cost Post-Header fees and EPD (Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderfeesandEPD(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Dead Net Item Inbound cost(Pick Up - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>DeadNetItemInboundcost4(Pick Up - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Delivered Cost Selected Bracket" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>DeliveredCostSelectedBracket}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Net Item Cost Pre-Header fees (Delivered - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPre-Headerfees(Delivered - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Net Header Cost (Delivered-CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetHeaderCost(Delivered-CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Net Item Cost Post-Header fees (Delivered-CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-Headerfees(Delivered-CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Net Item Cost Post-Header fees and Accruals (Delivered - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderfeesandAccruals(Delivered - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Net Item Cost Post-Header fees and EPD (Delivered - CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderfeesandEPD(Delivered - CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Dead Net Item Inbound cost (Delivered)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>DeadNetItemInboundcost5(Delivered)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Cost of Delivery included (Cost/CS)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>costofDeliveryincluded(Cost/CS)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/costSheetSecondaryVisible}">
+				<Label text="Cost of Delivery included (Cost/EA)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>costofDeliveryincluded(Cost/EA)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!-- Ordering Info Secondary-->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>SOURCE_ITEM_NO}" tooltip="{i18n>SOURCE_ITEM_NO}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceItemNumber}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>SOURCE_PRODUCT_DESC}" tooltip="{i18n>SOURCE_PRODUCT_DESC}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>sourceProductDesc}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>ORDER_UNIT_MEASURE}" tooltip="{i18n>ORDER_UNIT_MEASURE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>orderUnitofMeasure}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>ORDER_UNIT_UPC}" tooltip="{i18n>ORDER_UNIT_UPC}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>orderUnitUPC}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>UNIT_PER_CASE}" tooltip="{i18n>UNIT_PER_CASE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>unitpercase}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>CASES_PER_LAYER}" tooltip="{i18n>CASES_PER_LAYER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>casesPerLayer}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>LAYERS_PER_PALLET}" tooltip="{i18n>LAYERS_PER_PALLET}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>layersPerPallet}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>CASES_PER_PALLET}" tooltip="{i18n>CASES_PER_PALLET}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>casesPerPallet}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>MINIMUM_ITEM_ORDER_QUANTITY}" tooltip="{i18n>MINIMUM_ITEM_ORDER_QUANTITY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>minimumItemOrderQuantity}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>ORDER_MULTIPLE}" tooltip="{i18n>ORDER_MULTIPLE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>orderMultiple}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>ORDER_MAXIMUM}" tooltip="{i18n>ORDER_MAXIMUM}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>orderMaximum}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>MIN_ORDER_LEVL_ORDER_QUANTITY}" tooltip="{i18n>MIN_ORDER_LEVL_ORDER_QUANTITY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>minimumOrderLevelOrderQuantity}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>MIN_GUARANTED_SHELF_LIFE_DERIVED}" tooltip="{i18n>MIN_GUARANTED_SHELF_LIFE_DERIVED}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>minimumDaysofShelfLifeRequiredonReceipt}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center"
+				visible="{oDashboardVisibilityModel>/orderingInfoSecondaryVisible}">
+				<Label text="{i18n>COUNTRY_OF_ORIGIN}" tooltip="{i18n>COUNTRY_OF_ORIGIN}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>countryOfOrigin}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!-- DMM -->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/DMMVisible}">
+				<Label text="{i18n>STRATEGIC_JUSTIFICATION}" tooltip="{i18n>STRATEGIC_JUSTIFICATION}"/>
+				<Table:template>
+					<Button icon="sap-icon://comment" type="Transparent"></Button>
+					<!-- <Text text="{newDashboardModel>strategicJustification}"></Text>-->
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/DMMVisible}">
+				<Label text="{i18n>RENEGOTIATION_SOURCE_DONE}" tooltip="{i18n>RENEGOTIATION_SOURCE_DONE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>re-Negotiationwithsourcedone}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/DMMVisible}">
+				<Label text="{i18n>APPROVED}" tooltip="{i18n>APPROVED}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>approved}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/DMMVisible}">
+				<Label text="{i18n>EXCEPTION_COMMENT}" tooltip="{i18n>EXCEPTION_COMMENT}"/>
+				<Table:template>
+					<Button icon="sap-icon://comment" type="Transparent"></Button>
+					<!--  <Text text="{newDashboardModel>exceptionComment}"></Text>-->
+				</Table:template>
+			</Table:Column>
+			<!-- Merchandising -->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>REFERENCE_MATERIAL_NO_OF_FORECASTING}" tooltip="{i18n>REFERENCE_MATERIAL_NO_OF_FORECASTING}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>referenceMaterialNumberforForecasting}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>REFERENCE_MATERIAL_NO_DESC_FORECASTING}" tooltip="{i18n>REFERENCE_MATERIAL_NO_DESC_FORECASTING}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>referenceMaterialDescforForecasting}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>AVRG_WEEKLY_UNIT_VOL}" tooltip="{i18n>AVRG_WEEKLY_UNIT_VOL}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>referenceAverageActualWeeklyUnitVolumne}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>PERCENATGE_REF_SKU_DEMAND}" tooltip="{i18n>PERCENATGE_REF_SKU_DEMAND}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>percentageofReferenceSKUDemand}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>AVRG_WEEKLY_UNIT_DEMAND}" tooltip="{i18n>AVRG_WEEKLY_UNIT_DEMAND}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>averageWeeklyunitDemand}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FIRST_PO_QUANTITY}" tooltip="{i18n>FIRST_PO_QUANTITY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>firstPOquantity(in cases)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>INCREMENTALITY_CLASSIFICATION}" tooltip="{i18n>INCREMENTALITY_CLASSIFICATION}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>incrementalityClassification}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>INCREMENTALITY_PERCENTAGE}" tooltip="{i18n>INCREMENTALITY_PERCENTAGE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>incrementalityPercentage}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK1_PER}" tooltip="{i18n>FORECAST_WEEK1_PER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek1(%)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK1}" tooltip="{i18n>FORECAST_WEEK1}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek1}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK2_PER}" tooltip="{i18n>FORECAST_WEEK2_PER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek2(%)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK2}" tooltip="{i18n>FORECAST_WEEK2}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek2}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK3_PER}" tooltip="{i18n>FORECAST_WEEK3_PER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek3(%)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK3}" tooltip="{i18n>FORECAST_WEEK3}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek3}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK4_PER}" tooltip="{i18n>FORECAST_WEEK4_PER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek4(%)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK4}" tooltip="{i18n>FORECAST_WEEK4}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek4}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK5_PER}" tooltip="{i18n>FORECAST_WEEK5_PER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek5(%)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK5}" tooltip="{i18n>FORECAST_WEEK5}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek5}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK6_PER}" tooltip="{i18n>FORECAST_WEEK6_PER}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek6(%)}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>FORECAST_WEEK6}" tooltip="{i18n>FORECAST_WEEK6}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>ForecastWeek6}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>MSRP}" tooltip="{i18n>MSRP}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>MSRP}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>MERCHANT_SUGGESTED_PRICE_FOR_EACH}" tooltip="{i18n>MERCHANT_SUGGESTED_PRICE_FOR_EACH}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>merchantsuggetsedpriceforEach}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>MERCHANT_SUGGESTED_PRICE_FOR_CASE}" tooltip="{i18n>MERCHANT_SUGGESTED_PRICE_FOR_CASE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>merchantSuggetsedpriceforCase}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>MARKET_FINAL_PRICE}" tooltip="{i18n>MARKET_FINAL_PRICE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>marketfinalpriceforEach}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/merchandizingVisible}">
+				<Label text="{i18n>MARKET_FINAL_PRICE_CASE}" tooltip="{i18n>MARKET_FINAL_PRICE_CASE}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>MarketfinalpriceforCase}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!--  Store Front Attributes -->
+			<Table:Column sortProperty="" filterProperty="" width="6rem" hAlign="Center" visible="{oDashboardVisibilityModel>/storefrontVisible}">
+				<Label text="{i18n>PRODUCT_NAME}" tooltip="{i18n>PRODUCT_NAME}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>productName}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/storefrontVisible}">
+				<Label text="{i18n>MERCHANT_SUGGESTED_SEARCH_TERMS}" tooltip="{i18n>MERCHANT_SUGGESTED_SEARCH_TERMS}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>merchantSuggestedTerms}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/storefrontVisible}">
+				<Label text="{i18n>PLACEMENT_ON_STOREFRONT}" tooltip="{i18n>PLACEMENT_ON_STOREFRONT}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>placementonStorefront}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/storefrontVisible}">
+				<Label text="{i18n>ADDITIONAL_PLACEMENT_ON_STOREFRONTFRONT_A}" tooltip="{i18n>ADDITIONAL_PLACEMENT_ON_STOREFRONTFRONT_A}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>additionalPlacementonsorefrontA}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/storefrontVisible}">
+				<Label text="{i18n>ADDITIONAL_PLACEMENT_ON_STOREFRONTFRONT_B}" tooltip="{i18n>ADDITIONAL_PLACEMENT_ON_STOREFRONTFRONT_B}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>additionalPlacementonsorefrontB}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/storefrontVisible}">
+				<Label text="{i18n>ADDITIONAL_PLACEMENT_ON_STOREFRONTFRONT_C}" tooltip="{i18n>ADDITIONAL_PLACEMENT_ON_STOREFRONTFRONT_C}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>additionalPlacementonsorefrontC}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/storefrontVisible}">
+				<Label text="{i18n>ADDITIONAL_PLACEMENT_ON_STOREFRONTFRONT_D}" tooltip="{i18n>ADDITIONAL_PLACEMENT_ON_STOREFRONTFRONT_D}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>additionalPlacementonsorefrontD}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/storefrontVisible}">
+				<Label text="{i18n>PRODUCT_CONTENT_COPY}" tooltip="{i18n>PRODUCT_CONTENT_COPY}"/>
+				<Table:template>
+					<Button icon="sap-icon://comment" type="Transparent"></Button>
+					<!-- <Text text="{newDashboardModel>productContentCopy}"></Text> -->
+				</Table:template>
+			</Table:Column>
+			<!-- Product Tags -->
+			<Table:Column sortProperty="" filterProperty="" width="6rem" hAlign="Center" visible="{oDashboardVisibilityModel>/productTagsVisible}">
+				<Label text="Certifications" tooltip="{i18n>PRODUCT_CONTENT_COPY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>certifications}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="8rem" hAlign="Center" visible="{oDashboardVisibilityModel>/productTagsVisible}">
+				<Label text="Global Tags" tooltip="{i18n>PRODUCT_CONTENT_COPY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>globalTags}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/productTagsVisible}">
+				<Label text="Category Specification" tooltip="{i18n>PRODUCT_CONTENT_COPY}"/>
+				<Table:template>
+					<Text text="{newDashboardModel>categorySpecification}"></Text>
+				</Table:template>
+			</Table:Column>
+			<!-- CFM -->
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Net Item Cost Pre-Header Fees (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPre-HeaderFeesCostUoMPri}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Net Item Cost Post-Header Fees(Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderFeesCostUoMPri}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Net Item Cost Post-Header Fees and Accurals (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderFeesandAccuralsCostUoMPri}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Net Item Cost Post-Header Fees and EPD (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderFeesandEPDCostUoMPri}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Dead Net Item Inbound Cost (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>DeadNetItemInboundCost1CostUoMPri}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="CFM Adjustment($) (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>CFMAdjustmentCostUoMPriD}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="CFM Adjustment(%) (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>CFMAdjustmentCostUoMPriP}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Dead Net Item Inbound Cost (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>DeadNetItemInboundCostCostUoMPri}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Price (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>PriceCostUoMPri}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Gross Margin (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>GrossMarginCostUoMPri}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Gross Margin Percentage (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>GrossMarginPercentageCostUoMPri}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Min Order Quantity (Cost/UoM) Pri" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>MinOrderQuantityCostUoMPri}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Net Item Cost Pre-Header Fees (Cost/Unit) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPre-HeaderFeesCostUnitSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Net Item Cost Post-Header Fees(Cost/Unit) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderFeesCostUnitSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Net Item Cost Post-Header Fees and Accurals (Cost/Unit) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderFeesandAccuralsCostUnitSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Net Item Cost Post-Header Fees and EPD (Cost/Unit) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>NetItemCostPost-HeaderFeesandEPDCostUnitSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Dead Net Item Inbound Cost (Cost/Unit) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>DeadNetItemInboundCost2CostUnitSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="CFM Adjustment($) (Cost/UoM) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>CFMAdjustmentCostUoMSecD}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="CFM Adjustment(%) (Cost/UoM) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>CFMAdjustmentCostUoMSecP}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Dead Net Item Inbound Cost (Cost/Unit) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>DeadNetItemInboundCost3CostUnitSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Price (Cost/Unit) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>PriceCostUnitSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Gross Margin (Cost/Unit) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>GrossMarginCostUnitSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Gross Margin Percentage(Cost/Unit) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>GrossMarginPercentageCostUnitSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Min Order Quantity (Cost/UoM) Sec" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>MinOrderQuantityCostUoMSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Avg Forecast Weekly unit demand (Cost/UoM)" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>AvgForecastWeeklyunitdemandCostUoM}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Reference Material" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>ReferenceMaterial}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="7rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Reference Material Description" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>ReferenceMaterialDescription}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="GMROI" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>GMROI}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Annual $ Gain/Loss Primary VS Secondary " tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>annualDollarGainLossPriVsSec}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Annual $ Gain/Loss in Category" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>annualDollarGainLossinCategory}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="NPV/CS" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>npvcs}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="NPV/EA" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>npvea}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="IRR" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>irr}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Approved" tooltip=""/>
+				<Table:template>
+					<Text text="{newDashboardModel>approved}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column sortProperty="" filterProperty="" width="5rem" hAlign="Center" visible="{oDashboardVisibilityModel>/cfmVisible}">
+				<Label text="Comments" tooltip=""/>
+				<Table:template>
+					<Button icon="sap-icon://comment" type="Transparent"></Button>
+				</Table:template>
+			</Table:Column>
+		</Table:columns>
+	</Table:Table>
+</core:FragmentDefinition>

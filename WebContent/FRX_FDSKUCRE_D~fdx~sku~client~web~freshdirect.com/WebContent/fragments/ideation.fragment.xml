@@ -1,0 +1,584 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:l="sap.ui.layout">
+	<Toolbar class="SkubasicAtrbToolBarClass" visible="{oDashboardVisibilityModel>/reactivationSku}">
+		<ToolbarSpacer/>
+		<Label text="Reactivation SKU:" design="Bold"/>
+		<ToolbarSpacer/>
+	</Toolbar>
+	<l:Grid defaultSpan="L6 M6 S12" class="gridClass" id="ideationId">
+		<l:content>
+			<l:Grid defaultSpan="L6 M6 S12" class="gridClass">
+				<l:content>
+					<Label design="Bold" text="{i18n>PROJECT_ID}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/projectId/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/projectId/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Input class="sapUiTinyMarginTop" value="{oDashboardTabModel>/projectId}"
+						maxLength="{oDashboardVisibilityModel>/Ideation/fields/projectId/length}"
+						editable="{oDashboardVisibilityModel>/Ideation/fields/projectId/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/projectId/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/projectId/mandatory}"></Input>
+					<Label design="Bold" text="{i18n>MATERIAL_TYPE}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/materialType/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/materialType/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" items="{oDropdownModel>/materialType}" class="selectFragClass sapUiTinyMarginTop"
+						selectedKey="{oDashboardTabModel>/ideationDto/materialType}" enabled="{oDashboardVisibilityModel>/Ideation/fields/materialType/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/materialType/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/materialType/mandatory}">
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+					<Label design="Bold" text="{i18n>MANUFACTURER}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/manufacturer/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/manufacturer/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<HBox>
+						<Input filterSuggests="false" id="idManufacturer" suggest="onSuggestMfg" startSuggestion="1" showSuggestion="true"
+							maxSuggestionWidth="480px" placeholder="Enter character for suggestions" suggestionItemSelected="onMfgSelection" class="sapUiTinyMarginTop"
+							suggestionItems="{oDropdownModel>/allManufacturerList}" maxLength="{oDashboardVisibilityModel>/Ideation/fields/manufacturer/length}"
+							editable="{oDashboardVisibilityModel>/Ideation/fields/manufacturer/editable}" change="onMfgValueChange"
+							visible="{oDashboardVisibilityModel>/Ideation/fields/manufacturer/visible}"
+							required="{oDashboardVisibilityModel>/Ideation/fields/manufacturer/mandatory}" value="{oDashboardTabModel>/ideationDto/manufacturer}">
+							<customData>
+								<core:CustomData key="target" value="MM_TAB_MANUFACTURER"/>
+							</customData>
+							<suggestionItems>
+								<core:ListItem text="{oDropdownModel>value}" key="{oDropdownModel>key}"/>
+							</suggestionItems>
+						</Input>
+						<Button icon="sap-icon://sys-add" type="Transparent" tooltip="Add Manufacturer" class="addBrand" press="openAddMfgPopup"
+							enabled="{oDashboardVisibilityModel>/Ideation/fields/manufacturer/editable}"
+							visible="{oDashboardVisibilityModel>/Ideation/fields/manufacturer/visible}"></Button>
+						<Text text="(New)" visible="{oDashboardVisibilityModel>/newMFGText}" class="newBrandTextStyle"></Text>
+					</HBox>
+					<Label design="Bold" text="{i18n>MANUFACTURER_GLN}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/manufacturerGLN/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/manufacturerGLN/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Input class="sapUiTinyMarginTop" value="{oDashboardTabModel>/ideationDto/manufacturerGLN}"
+						maxLength="{oDashboardVisibilityModel>/Ideation/fields/manufacturerGLN/length}"
+						editable="{oDashboardVisibilityModel>/Ideation/fields/manufacturerGLN/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/manufacturerGLN/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/manufacturerGLN/mandatory}"></Input>
+					<Label design="Bold" text="{i18n>BRAND}" class="sapUiSmallMarginTop" required="{oDashboardVisibilityModel>/Ideation/fields/brand/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/brand/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<HBox>
+						<Input filterSuggests="false" id="idBrand" suggest="onSuggestBrand" startSuggestion="1" showSuggestion="true" maxSuggestionWidth="480px"
+							placeholder="Enter character for suggestions" suggestionItemSelected="onBrandSelection" value="{oDashboardTabModel>/ideationDto/brand}"
+							class="sapUiTinyMarginTop" suggestionItems="{oDropdownModel>/allBrandList}" change="onBrandValueChange"
+							maxLength="{oDashboardVisibilityModel>/Ideation/fields/brand/length}" editable="{oDashboardVisibilityModel>/Ideation/fields/brand/editable}"
+							visible="{oDashboardVisibilityModel>/Ideation/fields/brand/visible}" required="{oDashboardVisibilityModel>/Ideation/fields/brand/mandatory}">
+							<customData>
+								<core:CustomData key="target" value="MM_TAB_BRAND"/>
+							</customData>
+							<suggestionItems>
+								<core:ListItem text="{oDropdownModel>value}" key="{oDropdownModel>key}"/>
+							</suggestionItems>
+						</Input>
+						<Button icon="sap-icon://sys-add" type="Transparent" tooltip="Add Brand" class="addBrand" press="openAddBrandPopup"
+							enabled="{oDashboardVisibilityModel>/Ideation/fields/brand/editable}" visible="{oDashboardVisibilityModel>/Ideation/fields/brand/visible}"></Button>
+						<Text text="(New)" visible="{oDashboardVisibilityModel>/newBrandText}" class="newBrandTextStyle"></Text>
+					</HBox>
+					<Label design="Bold" text="{i18n>PACKAGE_TYPE}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/packageType/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/packageType/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" class="selectFragClass sapUiTinyMarginTop" items="{oDropdownModel>/packageTypeList}"
+						selectedKey="{oDashboardTabModel>/ideationDto/packageType}" change="setSAPProductDesc"
+						enabled="{oDashboardVisibilityModel>/Ideation/fields/packageType/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/packageType/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/packageType/mandatory}">
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+					<Label design="Bold" text="{i18n>INDIVIDUAL_PACKAGE_SIZE}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSize/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSize/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Input class="sapUiTinyMarginTop" value="{oDashboardTabModel>/ideationDto/individualPackageSize}" change="setSAPProductDesc"
+						maxLength="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSize/length}"
+						editable="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSize/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSize/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSize/mandatory}"></Input>
+				</l:content>
+			</l:Grid>
+			<l:Grid defaultSpan="L6 M6 S12" class="gridClass">
+				<l:content>
+					<Label design="Bold" text="{i18n>REQUEST_ID}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/requestId/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/requestId/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Input class="sapUiTinyMarginTop" enabled="false" value="{oDashboardTabModel>/requestId}"
+						maxLength="{oDashboardVisibilityModel>/Ideation/fields/requestId/length}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/requestId/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/requestId/mandatory}"/>
+					<Label design="Bold" text="{i18n>NON_UPCED_PRODUCT}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/isNonUpcProduct/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/isNonUpcProduct/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Switch state="{path:'oDashboardTabModel>/ideationDto/isNonUpcProduct',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"
+						customTextOn="Yes" customTextOff="No" class="basicSwitchBtnClass switchClass" change="onChangeUPCedProduct"
+						enabled="{oDashboardVisibilityModel>/Ideation/fields/isNonUpcProduct/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/isNonUpcProduct/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/isNonUpcProduct/mandatory}"></Switch>
+					<Label design="Bold" text="{i18n>REFERENCE_GTIN}" class="sapUiSmallMarginTop ideationLabelClass"
+						required="{oDashboardVisibilityModel>/Ideation/fields/referenceGtin/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/referenceGtin/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<HBox>
+						<Input class="sapUiTinyMarginTop" value="{oDashboardTabModel>/ideationDto/referenceGtin}" change="upcCheckDigitValidation"
+							maxLength="{oDashboardVisibilityModel>/Ideation/fields/referenceGtin/length}"
+							editable="{oDashboardVisibilityModel>/Ideation/fields/referenceGtin/editable}"
+							visible="{oDashboardVisibilityModel>/Ideation/fields/referenceGtin/visible}"
+							required="{oDashboardVisibilityModel>/Ideation/fields/referenceGtin/mandatory}"></Input>
+						<Image src="images/invalidGTIN.png" width="1rem" tooltip="Invalid" class="UPCValidationIcon"
+							visible="{oDashboardVisibilityModel>/UPCInvalidVisiblity}"/>
+						<Image src="images/validGTIN.png" width="1rem" tooltip="valid" class="UPCValidationIcon"
+							visible="{oDashboardVisibilityModel>/UPCValidVisiblity}"/>
+						<Text text="(New)" visible="{oDashboardVisibilityModel>/UPCNewVisiblity}"></Text>
+						<Text text="(GDSN Capable)" visible="{oDashboardVisibilityModel>/UPCGDSNVisiblity}"></Text>
+					</HBox>
+					<Label design="Bold" text="{i18n>DESCRIPTION}" class="sapUiSmallMarginTop ideationLabelClass"
+						required="{oDashboardVisibilityModel>/Ideation/fields/description/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/description/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Input class="sapUiTinyMarginTop" value="{oDashboardTabModel>/ideationDto/description}" change="setSAPProductDesc"
+						maxLength="{oDashboardVisibilityModel>/Ideation/fields/description/length}"
+						editable="{oDashboardVisibilityModel>/Ideation/fields/description/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/description/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/description/mandatory}"></Input>
+					<Label design="Bold" text="{i18n>PACKAGE_COUNT}" class="sapUiSmallMarginTop ideationLabelClass"
+						required="{oDashboardVisibilityModel>/Ideation/fields/packageCount/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/packageCount/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Input class="sapUiTinyMarginTop" type="Number" value="{oDashboardTabModel>/ideationDto/packageCount}" change="setSAPProductDesc"
+						maxLength="{oDashboardVisibilityModel>/Ideation/fields/packageCount/length}"
+						editable="{oDashboardVisibilityModel>/Ideation/fields/packageCount/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/packageCount/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/packageCount/mandatory}"></Input>
+					<Label design="Bold" text="{i18n>INDIVIDUAL_PACKAGE_SIZE_UOM}" class="sapUiSmallMarginTop ideationLabelClass"
+						required="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeUom/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeUom/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" class="selectFragClass sapUiTinyMarginTop" items="{oDropdownModel>/packageSizeUOMList}"
+						selectedKey="{oDashboardTabModel>/ideationDto/individualPackageSizeUom}" change="setSAPProductDesc"
+						enabled="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeUom/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeUom/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeUom/mandatory}">
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+				</l:content>
+			</l:Grid>
+		</l:content>
+	</l:Grid>
+	<l:Grid class="gridClass ideationGridClass">
+		<l:content>
+			<VBox>
+				<Label design="Bold" text="{i18n>SAP_PRODUCT_DESCRIPTION}" class="sapUiSmallMarginTop"
+					required="{oDashboardVisibilityModel>/Ideation/fields/sapProductDescription/mandatory}"
+					visible="{oDashboardVisibilityModel>/Ideation/fields/sapProductDescription/visible}"></Label>
+				<Label design="Bold" text="{i18n>SAP_PRODUCT_DESCRIPTION_TOOLTIP}" class="tooltip"
+					visible="{oDashboardVisibilityModel>/Ideation/fields/sapProductDescription/visible}"></Label>
+				<layoutData>
+					<l:GridData span="XL2 L2 M2 S2"/>
+				</layoutData>
+			</VBox>
+			<HBox>
+				<TextArea class="createSKUtextArea sapUiTinyMarginTop" value="{oDashboardTabModel>/ideationDto/sapProductDescription}"
+					enabled="{oDashboardVisibilityModel>/sapProdDescEditEnabled}"
+					maxLength="{oDashboardVisibilityModel>/Ideation/fields/sapProductDescription/length}"
+					visible="{oDashboardVisibilityModel>/Ideation/fields/sapProductDescription/visible}"
+					required="{oDashboardVisibilityModel>/Ideation/fields/sapProductDescription/mandatory}"></TextArea>
+				<layoutData>
+					<l:GridData span="XL6 L6 M6 S6"/>
+				</layoutData>
+			</HBox>
+			<HBox>
+				<core:Icon src="sap-icon://edit" class="createSKUFragEdit" press="onSAPProdDescEdit"
+					editable="{oDashboardVisibilityModel>/Ideation/fields/sapProductDescription/editable}"
+					visible="{oDashboardVisibilityModel>/Ideation/fields/sapProductDescription/visible}"></core:Icon>
+			</HBox>
+		</l:content>
+	</l:Grid>
+	<Panel headerText="FD Sellable" class="iconPanelHdng" width="99.4%">
+		<content>
+			<VBox class="dashboardHeaderPanelClass">
+				<HBox>
+					<CheckBox text="{i18n>EACH_EA}" select="onFdSellableCheckBoxSelect" class="sapUiTinyMarginTop"
+						selected="{oDashboardTabModel>/ideationDto/eachCheck}" enabled="{oDashboardVisibilityModel>/Ideation/fields/eachCheck/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/eachCheck/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/eachCheck/mandatory}"></CheckBox>
+				</HBox>
+				<l:Grid defaultSpan="L4 M6 S12" width="100%">
+					<l:content>
+						<HBox alignItems="Center">
+							<Label text="{i18n>GTIN} :" design="Bold" required="{oDashboardVisibilityModel>/Ideation/fields/gtinEA/mandatory}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/gtinEA/visible}"/>
+							<Input value="{oDashboardTabModel>/ideationDto/gtinEA}" change="checkUPCValidity"
+								maxLength="{oDashboardVisibilityModel>/Ideation/fields/gtinEA/length}"
+								editable="{oDashboardVisibilityModel>/Ideation/fields/gtinEA/editable}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/gtinEA/visible}"
+								required="{oDashboardVisibilityModel>/Ideation/fields/gtinEA/mandatory}"/>
+							<Image src="images/invalidGTIN.png" width="1rem" tooltip="Invalid" class="UPCValidationIcon"
+								visible="{oDashboardVisibilityModel>/UPCEachInvalidVisiblity}"/>
+							<Image src="images/validGTIN.png" width="1rem" tooltip="valid" class="UPCValidationIcon"
+								visible="{oDashboardVisibilityModel>/UPCEachValidVisiblity}"/>
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>INDIVIDUAL_PACKAGE_COUNT} :" design="Bold"
+								required="{oDashboardVisibilityModel>/Ideation/fields/individualPackageCountEA/mandatory}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/individualPackageCountEA/visible}"/>
+							<Input value="{oDashboardTabModel>/ideationDto/individualPackageCountEA}"
+								maxLength="{oDashboardVisibilityModel>/Ideation/fields/individualPackageCountEA/length}"
+								editable="{oDashboardVisibilityModel>/Ideation/fields/individualPackageCountEA/editable}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/individualPackageCountEA/visible}"
+								required="{oDashboardVisibilityModel>/Ideation/fields/individualPackageCountEA/mandatory}"/>
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>INDIVIDUAL_PACKAGE_SIZE} :" design="Bold"
+								required="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeEA/mandatory}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeEA/visible}"/>
+							<Input value="{oDashboardTabModel>/ideationDto/individualPackageSizeEA}"
+								maxLength="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeEA/length}"
+								editable="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeEA/editable}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeEA/visible}"
+								required="{oDashboardVisibilityModel>/Ideation/fields/individualPackageSizeEA/mandatory}"/>
+						</HBox>
+					</l:content>
+				</l:Grid>
+			</VBox>
+			<VBox class="dashboardHeaderPanelClass">
+				<HBox>
+					<CheckBox text="{i18n>INNER_PK}" select="onFdSellableCheckBoxSelect" class="sapUiTinyMarginTop"
+						selected="{oDashboardTabModel>/ideationDto/innerCheck}" enabled="{oDashboardVisibilityModel>/Ideation/fields/innerCheck/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fieldsinnerCheck/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/innerCheck/mandatory}"></CheckBox>
+				</HBox>
+				<l:Grid defaultSpan="L4 M6 S12" width="100%">
+					<l:content>
+						<HBox alignItems="Center">
+							<Label text="{i18n>GTIN} :" design="Bold" required="{oDashboardVisibilityModel>/Ideation/fields/gtinIN/mandatory}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/gtinIN/visible}"/>
+							<Input value="{oDashboardTabModel>/ideationDto/gtinIN}" change="checkUPCValidity"
+								maxLength="{oDashboardVisibilityModel>/Ideation/fields/gtinIN/length}"
+								editable="{oDashboardVisibilityModel>/Ideation/fields/gtinIN/editable}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/gtinIN/visible}"
+								required="{oDashboardVisibilityModel>/Ideation/fields/gtinIN/mandatory}"/>
+							<Image src="images/invalidGTIN.png" width="1rem" tooltip="Invalid" class="UPCValidationIcon"
+								visible="{oDashboardVisibilityModel>/UPCInnerInvalidVisiblity}"/>
+							<Image src="images/validGTIN.png" width="1rem" tooltip="valid" class="UPCValidationIcon"
+								visible="{oDashboardVisibilityModel>/UPCInnerValidVisiblity}"/>
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>N0_INDIVIDUAL_PACKAGES_INNER} :" design="Bold"
+								required="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackageIN/mandatory}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackageIN/visible}"/>
+							<Input value="{oDashboardTabModel>/ideationDto/noOfIndividualPackageIN}"
+								maxLength="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackageIN/length}"
+								editable="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackageIN/editable}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackageIN/visible}"
+								required="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackageIN/mandatory}"/>
+						</HBox>
+					</l:content>
+				</l:Grid>
+			</VBox>
+			<VBox class="dashboardHeaderPanelClass">
+				<HBox>
+					<CheckBox text="{i18n>CASE_CS}" select="onFdSellableCheckBoxSelect" class="sapUiTinyMarginTop"
+						selected="{oDashboardTabModel>/ideationDto/caseCheck}" enabled="{oDashboardVisibilityModel>/Ideation/fields/caseCheck/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/caseCheck/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/caseCheck/mandatory}"></CheckBox>
+				</HBox>
+				<l:Grid defaultSpan="L4 M6 S12" width="100%">
+					<l:content>
+						<HBox alignItems="Center">
+							<Label text="{i18n>GTIN} :" design="Bold" required="{oDashboardVisibilityModel>/Ideation/fields/gtinCS/mandatory}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/gtinCS/visible}"/>
+							<Input value="{oDashboardTabModel>/ideationDto/gtinCS}" change="checkUPCValidity"
+								maxLength="{oDashboardVisibilityModel>/Ideation/fields/gtinCS/length}"
+								editable="{oDashboardVisibilityModel>/Ideation/fields/gtinCS/editable}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/gtinCS/visible}"
+								required="{oDashboardVisibilityModel>/Ideation/fields/gtinCS/mandatory}"/>
+							<Image src="images/invalidGTIN.png" width="1rem" tooltip="Invalid" class="UPCValidationIcon"
+								visible="{oDashboardVisibilityModel>/UPCCaseInvalidVisiblity}"/>
+							<Image src="images/validGTIN.png" width="1rem" tooltip="valid" class="UPCValidationIcon"
+								visible="{oDashboardVisibilityModel>/UPCCaseValidVisiblity}"/>
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>N0_INDIVIDUAL_INNER_CASE} :" design="Bold"
+								required="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualInnersPerCS/mandatory}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualInnersPerCS/visible}"/>
+							<Input value="{oDashboardTabModel>/ideationDto/noOfIndividualInnersPerCS}"
+								maxLength="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualInnersPerCS/length}"
+								editable="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualInnersPerCS/editable}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualInnersPerCS/visible}"
+								required="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualInnersPerCS/mandatory}"/>
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>N0_INDIVIDUAL_PACKAGES_CASE} :" design="Bold"
+								required="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackagesPerCS/mandatory}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackagesPerCS/visible}"/>
+							<Input value="{oDashboardTabModel>/ideationDto/noOfIndividualPackagesPerCS}"
+								maxLength="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackagesPerCS/length}"
+								editable="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackagesPerCS/editable}"
+								visible="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackagesPerCS/visible}"
+								required="{oDashboardVisibilityModel>/Ideation/fields/noOfIndividualPackagesPerCS/mandatory}"/>
+						</HBox>
+					</l:content>
+				</l:Grid>
+			</VBox>
+		</content>
+	</Panel>
+	<l:Grid class="gridClass">
+		<l:content>
+			<VBox>
+				<Label design="Bold" text="{i18n>PURCHASING_GROUP}" class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+					required="{oDashboardVisibilityModel>/Ideation/fields/purchasingGroup/mandatory}"
+					visible="{oDashboardVisibilityModel>/Ideation/fields/purchasingGroup/visible}"></Label>
+				<layoutData>
+					<l:GridData span="XL2 L2 M2 S2"/>
+				</layoutData>
+			</VBox>
+			<HBox>
+				<Select forceSelection="false" class="selectFragClass sapUiTinyMarginTop" items="{oDropdownModel>/purchasingGroup}"
+					selectedKey="{oDashboardTabModel>/ideationDto/purchasingGroup}"
+					enabled="{oDashboardVisibilityModel>/Ideation/fields/purchasingGroup/editable}"
+					visible="{oDashboardVisibilityModel>/Ideation/fields/purchasingGroup/visible}"
+					required="{oDashboardVisibilityModel>/Ideation/fields/purchasingGroup/mandatory}">
+					<core:Item key="{oDropdownModel>Ekgrp}" text="{oDropdownModel>Eknam}"/>
+				</Select>
+			</HBox>
+		</l:content>
+	</l:Grid>
+	<l:Grid defaultSpan="L6 M6 S12" class="gridClass">
+		<l:content>
+			<l:Grid defaultSpan="L6 M6 S12" class="gridClass">
+				<l:content>
+					<Label design="Bold" text="{i18n>PROFIT_CENTER}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/profitCenter/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/profitCenter/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" class="selectFragClass sapUiTinyMarginTop" items="{oDropdownModel>/profitCenter}"
+						selectedKey="{oDashboardTabModel>/ideationDto/profitCenter}" enabled="{oDashboardVisibilityModel>/Ideation/fields/profitCenter/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/profitCenter/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/profitCenter/mandatory}">
+						<core:ListItem key="{oDropdownModel>Prctr}" text="{oDropdownModel>Mctxt}" additionalText="{oDropdownModel>Prctr}"/>
+					</Select>
+					<VBox>
+						<Label design="Bold" text="{i18n>TARGET_ACTIVATION}" class="labelBold"
+							required="{oDashboardVisibilityModel>/Ideation/fields/targetActivation/mandatory}"
+							visible="{oDashboardVisibilityModel>/Ideation/fields/targetActivation/visible}"></Label>
+						<Label design="Bold" text="{i18n>TARGET_ACTIVATION_TOOLTIP}" class="tooltip wordWrapClass"
+							visible="{oDashboardVisibilityModel>/Ideation/fields/targetActivation/visible}"></Label>
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</VBox>
+					<CheckBox select="onTarActASAP" class="sapUiTinyMarginTop" selected="{oDashboardTabModel>/ideationDto/targetActivation}"
+						enabled="{oDashboardVisibilityModel>/Ideation/fields/targetActivation/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/targetActivation/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/targetActivation/mandatory}"></CheckBox>
+					<Label design="Bold" text="{i18n>TIER1}" class="sapUiSmallMarginTop" required="{oDashboardVisibilityModel>/Ideation/fields/tier1/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/tier1/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" change="onTier1Selection" items="{oDropdownModel>/tier1List}"
+						selectedKey="{oDashboardTabModel>/ideationDto/tier1}" class="selectFragClass sapUiTinyMarginTop"
+						enabled="{oDashboardVisibilityModel>/Ideation/fields/tier1/editable}" visible="{oDashboardVisibilityModel>/Ideation/fields/tier1/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/tier1/mandatory}">
+						<customData>
+							<core:CustomData key="target" value="MM_IDEATION_TIER1"/>
+						</customData>
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+					<Label design="Bold" text="{i18n>TIER2}" class="sapUiSmallMarginTop" required="{oDashboardVisibilityModel>/Ideation/fields/tier2/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/tier2/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" change="onTier2Selection" items="{oDropdownModel>/tier2List}"
+						selectedKey="{oDashboardTabModel>/ideationDto/tier2}" class="selectFragClass sapUiTinyMarginTop"
+						enabled="{oDashboardVisibilityModel>/Ideation/fields/tier2/editable}" visible="{oDashboardVisibilityModel>/Ideation/fields/tier2/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/tier2/mandatory}">
+						<customData>
+							<core:CustomData key="target" value="MM_IDEATION_TIER2"/>
+						</customData>
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+					<Label design="Bold" text="{i18n>TIER3}" class="sapUiSmallMarginTop" required="{oDashboardVisibilityModel>/Ideation/fields/tier3/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/tier3/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" change="onTier3Selection" items="{oDropdownModel>/tier3List}"
+						selectedKey="{oDashboardTabModel>/ideationDto/tier3}" class="selectFragClass sapUiTinyMarginTop"
+						enabled="{oDashboardVisibilityModel>/Ideation/fields/tier3/editable}" visible="{oDashboardVisibilityModel>/Ideation/fields/tier3/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/tier3/mandatory}">
+						<customData>
+							<core:CustomData key="target" value="MM_IDEATION_TIER3"/>
+						</customData>
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+					<Label design="Bold" text="{i18n>TIER4}" class="sapUiSmallMarginTop" required="{oDashboardVisibilityModel>/Ideation/fields/tier4/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/tier4/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" items="{oDropdownModel>/tier4List}" selectedKey="{oDashboardTabModel>/ideationDto/tier4}"
+						class="selectFragClass sapUiTinyMarginTop" enabled="{oDashboardVisibilityModel>/Ideation/fields/tier4/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/tier4/visible}" required="{oDashboardVisibilityModel>/Ideation/fields/tier4/mandatory}">
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+				</l:content>
+			</l:Grid>
+			<l:Grid defaultSpan="L6 M6 S12" class="gridClass">
+				<l:content>
+					<Label design="Bold" text="{i18n>STORAGE_TEMP_ZONE}" class="sapUiSmallMarginTop ideationLabelClass"
+						required="{oDashboardVisibilityModel>/Ideation/fields/storageTemperatureZone/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/storageTemperatureZone/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Select forceSelection="false" class="selectFragClass sapUiTinyMarginTop" items="{oDropdownModel>/storageTempZone}"
+						selectedKey="{oDashboardTabModel>/ideationDto/storageTemperatureZone}"
+						enabled="{oDashboardVisibilityModel>/Ideation/fields/storageTemperatureZone/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/storageTemperatureZone/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/storageTemperatureZone/mandatory}">
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+					<Label design="Bold" text="{i18n>TARGET_ACTIVATION_DATE}" class="sapUiSmallMarginTop ideationLabelClass"
+						required="{oDashboardVisibilityModel>/Ideation/fields/targetActivationDate/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/targetActivationDate/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<DatePicker
+						enabled="{parts:['oDashboardVisibilityModel>/tarActDateEnabled', 'oDashboardTabModel>/ideationDto/targetActivation'], formatter:'freshdirect.SKU.formatter.formatter.enableTargetActivationDate'}"
+						dateValue="{path:'oDashboardTabModel>/ideationDto/targetActivationDate', formatter: 'freshdirect.SKU.formatter.formatter.formatTargetActDateUI'}"
+						change="onTargetActivationDateChange" displayFormat="MM/dd/yyyy" valueFormat="yyyy-MM-dd" class="sapUiTinyMarginTop"
+						placeholder="MM/DD/YYYY"></DatePicker>
+					<Label design="Bold" text="{i18n>ATTRIBUTE1}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/attribute1/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/attribute1/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Input filterSuggests="false" suggest="onSuggestAttribute1" startSuggestion="1" showSuggestion="true" maxSuggestionWidth="480px"
+						placeholder="Enter character for suggestions" suggestionItemSelected="onAttribute1Selection" class="sapUiTinyMarginTop"
+						suggestionItems="{oDropdownModel>/attribute1}" value="{oDashboardTabModel>/ideationDto/attribute1}"
+						maxLength="{oDashboardVisibilityModel>/Ideation/fields/attribute1/length}"
+						editable="{oDashboardVisibilityModel>/Ideation/fields/attribute1/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/attribute1/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/attribute1/mandatory}">
+						<suggestionItems>
+							<core:Item text="{oDropdownModel>attribute}"/>
+						</suggestionItems>
+					</Input>
+					<Label design="Bold" text="{i18n>ATTRIBUTE2}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/attribute2/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/attribute2/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Input filterSuggests="false" suggest="onSuggestAttribute2" startSuggestion="1" showSuggestion="true" maxSuggestionWidth="480px"
+						placeholder="Enter character for suggestions" suggestionItemSelected="onAttribute2Selection" class="sapUiTinyMarginTop"
+						suggestionItems="{oDropdownModel>/attribute2}" value="{oDashboardTabModel>/ideationDto/attribute2}"
+						maxLength="{oDashboardVisibilityModel>/Ideation/fields/attribute2/length}"
+						editable="{oDashboardVisibilityModel>/Ideation/fields/attribute2/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/attribute2/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/attribute2/mandatory}">
+						<suggestionItems>
+							<core:Item text="{oDropdownModel>attribute}"/>
+						</suggestionItems>
+					</Input>
+					<Label design="Bold" text="{i18n>ATTRIBUTE3}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/attribute3/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/attribute3/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Input filterSuggests="false" suggest="onSuggestAttribute3" startSuggestion="1" showSuggestion="true" maxSuggestionWidth="480px"
+						placeholder="Enter character for suggestions" suggestionItemSelected="onAttribute3Selection" class="sapUiTinyMarginTop"
+						suggestionItems="{oDropdownModel>/attribute3}" value="{oDashboardTabModel>/ideationDto/attribute3}"
+						maxLength="{oDashboardVisibilityModel>/Ideation/fields/attribute3/length}"
+						editable="{oDashboardVisibilityModel>/Ideation/fields/attribute3/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/attribute3/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/attribute3/mandatory}">
+						<suggestionItems>
+							<core:Item text="{oDropdownModel>attribute}"/>
+						</suggestionItems>
+					</Input>
+					<Label design="Bold" text="{i18n>ATTRIBUTE4}" class="sapUiSmallMarginTop"
+						required="{oDashboardVisibilityModel>/Ideation/fields/attribute4/mandatory}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/attribute4/visible}">
+						<layoutData>
+							<l:GridData span="XL4 L4 M6 S6"/>
+						</layoutData>
+					</Label>
+					<Input filterSuggests="false" suggest="onSuggestAttribute4" startSuggestion="1" showSuggestion="true" maxSuggestionWidth="480px"
+						placeholder="Enter character for suggestions" suggestionItemSelected="onAttribute4Selection" class="sapUiTinyMarginTop"
+						suggestionItems="{oDropdownModel>/attribute4}" value="{oDashboardTabModel>/ideationDto/attribute4}"
+						maxLength="{oDashboardVisibilityModel>/Ideation/fields/attribute4/length}"
+						editable="{oDashboardVisibilityModel>/Ideation/fields/attribute4/editable}"
+						visible="{oDashboardVisibilityModel>/Ideation/fields/attribute4/visible}"
+						required="{oDashboardVisibilityModel>/Ideation/fields/attribute4/mandatory}">
+						<suggestionItems>
+							<core:Item text="{oDropdownModel>attribute}"/>
+						</suggestionItems>
+					</Input>
+				</l:content>
+			</l:Grid>
+		</l:content>
+	</l:Grid>
+</core:FragmentDefinition>

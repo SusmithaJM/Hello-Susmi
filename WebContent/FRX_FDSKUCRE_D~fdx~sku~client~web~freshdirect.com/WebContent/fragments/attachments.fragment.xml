@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<Table items="{oDashboardTabModel>/fileUploadDtos}" class="sapUiTinyMarginTop sapUiSmallMarginBegin sapUiMediumMarginEnd">
+		<columns>
+			<Column>
+				<Text text="{i18n>FILE_NAME}" class=""/>
+				<Label text="{i18n>ATTCHMENT_FILE_NAME}" design="Bold"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>FILE_TYPE}" class=""/>
+				<Label text="{i18n>ATTCHMENT_FILE_TYPE}" design="Bold"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>UPLOADED_TYPE}" class=""/>
+				<Label text="{i18n>ATTCHMENT_UPLOADED_BY}" design="Bold"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>UPLOADED_ON}" class=""/>
+				<Label text="{i18n>ATTCHMENT_UPLOADED_ON}" design="Bold"/>
+			</Column>
+			<Column>
+				<Text text="" class=""/>
+				<Label text="{i18n>ATTCHMENT_NOTES}" design="Bold"/>
+			</Column>
+			<Column>
+				<Label text=""/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem >
+				<cells >
+					<Label text="{oDashboardTabModel>fileName}"/>
+					<Label text="{oDashboardTabModel>fileType}"/>
+					<Label text="{oDashboardTabModel>updatedBy}"/>
+					<Label text="{parts:['oDashboardTabModel>updatedOn', 'oDashboardTabModel>fileType'], formatter:'freshdirect.SKU.formatter.formatter.formatDateObject'}"/>
+					<Button icon="sap-icon://notes" type="Transparent" press="openAttachmentNotes"/>
+					<Button icon="sap-icon://delete" type="Transparent" press="onDeleteAttachment"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

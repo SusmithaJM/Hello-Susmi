@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:l="sap.ui.layout" xmlns:Table="sap.ui.table">
+	<Dialog title="Success Error Messages" width="50%">
+		<Table:Table id="MM_SUCCESS_ERROR_TBL" rows="{oSuccessErrorMsgsModel>/responseMsgs}" visibleRowCount="{oSuccessErrorMsgsModel>/visibleRowCount}" selectionMode="None">
+			<Table:columns>
+				<Table:Column width="40%">
+					<Label text="Message" design="Bold"/>
+					<Table:template>
+						<Text text="{oSuccessErrorMsgsModel>message}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="40%">
+					<Label text="Request ID" design="Bold"/>
+					<Table:template>
+						<Text text="{oSuccessErrorMsgsModel>requestId}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="20%">
+					<Label text="Status" design="Bold"/>
+					<Table:template>
+						<Image src="{path:'oSuccessErrorMsgsModel>status', formatter:'freshdirect.SKU.formatter.formatter.formatSuccessErrorImage'}" width="1rem"/>
+					</Table:template>
+				</Table:Column>
+			</Table:columns>
+		</Table:Table>
+		<endButton>
+			<Button text="Ok" press="closeErrorMsgPopUp"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

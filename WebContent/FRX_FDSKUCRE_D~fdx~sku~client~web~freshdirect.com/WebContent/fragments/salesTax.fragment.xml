@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:layout="sap.ui.layout">
+	<layout:Grid defaultSpan="L3 M3 S6" width="100%">
+		<layout:content>
+			<Label text="{i18n>CATEGORY}:" design="Bold" class="sapUiSmallMarginTop">
+				<layoutData>
+					<layout:GridData span="L2 M4 S6"></layout:GridData>
+				</layoutData>
+			</Label>
+			<Select selectedKey="" items="{page3Model>/salesTaxCategory}" class="IconTabSelectClass sapUiTinyMarginTop">
+				<core:Item key="{}" text="{page3Model>/category}"/>
+			</Select>
+			<Label text="{i18n>SUB_CATEGORY}:" design="Bold" class="sapUiSmallMarginTop">
+				<layoutData>
+					<layout:GridData span="L2 M4 S6" linebreak="true"></layout:GridData>
+				</layoutData>
+			</Label>
+			<Select selectedKey="" items="{page3Model>/salesTaxCategory}" class="IconTabSelectClass sapUiTinyMarginTop">
+				<core:Item key="{}" text="{page3Model>/subCategory}"/>
+			</Select>
+			<Label text="{i18n>AVALARA_TAX_CODE}:" design="Bold" class="sapUiSmallMarginTop">
+				<layoutData>
+					<layout:GridData span="L2 M4 S6" linebreak="true"></layout:GridData>
+				</layoutData>
+			</Label>
+			<Select selectedKey="" class="IconTabSelectClass sapUiTinyMarginTop">
+				<core:Item key="" text=""/>
+			</Select>
+		</layout:content>
+	</layout:Grid>
+</core:FragmentDefinition>

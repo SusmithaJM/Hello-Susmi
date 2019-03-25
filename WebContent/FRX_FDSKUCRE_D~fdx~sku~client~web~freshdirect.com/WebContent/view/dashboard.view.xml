@@ -1,0 +1,46 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" class="sapUiSizeCompact"
+	controllerName="freshdirect.SKU.controller.dashboard" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title" class="sapUiSizeCompact pageBackground" showHeader="false">
+		<content>
+			<Panel>
+				<Bar>
+					<contentLeft>
+						<Button type="Transparent" text="{i18n>CREATE}" press="onDropdownClick"/>
+						<Button type="Transparent" text="{i18n>MODIFY}" press="onDropdownClick"
+							enabled="{oDashboardVisibilityModel>/modifyBtnEnabled}"/>
+						<Button type="Transparent" text="{i18n>PROMOTE_TO_PHASE}"/>
+					</contentLeft> 
+					<contentRight>
+						<Button type="Transparent" text="{i18n>CLEAR_FILTER}" press="onClearFilter"></Button>
+						<Button type="Transparent" text="{i18n>EXPORT}" press="onExportClick"/>
+						<Button type="Transparent" text="{i18n>DOWNLOAD_TEMPLATES}" press="onDropdownClick"/>
+						<Button type="Transparent" text="{i18n>UPLOAD}" press="openDocUploadUI"/>
+					</contentRight>
+				</Bar>
+				<HBox>
+					<VBox width="80%"/>
+					<Button icon="sap-icon://documents" type="Transparent" press="onCopyOverAllPress"
+						visible="{path:'oDashboardTableModel>/listRequestDto/0/copyOverVisible',formatter : 'freshdirect.SKU.formatter.formatter.formatBooleanVal1'}"/>
+					<HBox>  
+						<Button icon="sap-icon://navigation-left-arrow" press="onNavItem1" enabled="{oDropdownModel>/previousButtonEnabled1}" type="Transparent"/>
+						<Select selectedKey="{oDropdownModel>/selectKey}" width="10rem" change="setIconVisible" items="{oDropdownModel>/skuNavigationValues}"
+							class="IconTabSelectClass">
+							<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+						</Select>
+						<Button icon="sap-icon://navigation-right-arrow" press="onNavItem1" enabled="{oDropdownModel>/nextButtonEnabled1}" type="Transparent"/>
+					</HBox>
+				</HBox>
+				<VBox>
+					<core:Fragment fragmentName="freshdirect.SKU.fragments.dashboardTable" type="XML"/>
+					<IconTabBar id="iconTabId" visible="{oDashboardVisibilityModel>/tabVisible}" class="skuIconTabStyleClass" select="onIconBarSelect" selectedKey="{oDashboardVisibilityModel>/selTabKey}"/>
+					<HBox justifyContent="End">
+						<Button text="{i18n>CANCEL}" type="Reject" class="cancelBtnStyle" visible="{oDashboardVisibilityModel>/tabCancelBtnVisible}" press="onDashboardTabCancel"/>
+						<Button text="{i18n>SAVE}" type="Accept" press="onIdeationSave" class="cancelBtnStyle"
+							visible="{oDashboardVisibilityModel>/tabSaveBtnVisible}"/>
+						<Button text="{i18n>SUBMIT}" type="Accept" press="openHierarchiesPopUp" visible="{oDashboardVisibilityModel>/tabSubmitBtnVisible}"/>
+					</HBox>
+				</VBox>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<VBox class="sapUiSmallMargin">
+		<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+			<items>
+				<HBox>
+					<Label text="{i18n>SOLE_SOURCED_PRODUCT}:" design="Bold" visible="{oDashboardVisibilityModel>/soleSourcedProductVisible}" class="sapUiTinyMarginTop"/>
+					<Switch state="{path:'oDashboardTabModel>/sourceInfoDtos/soleSrcedProduct',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"
+						customTextOn="Yes" customTextOff="No" class="basicSwitchBtnClass sapUiTinyMarginBegin" visible="{oDashboardVisibilityModel>/soleSourcedProductVisible}"
+						enabled="false"></Switch>
+				</HBox>
+				<HBox>
+					<Button text="{i18n>ADD_DISTRIBUTER}" type="Accept" class="commitBtnClass" press="onOpenDistributor" visible="{oDashboardVisibilityModel>/addDistributerVisible}"/>
+					<Button text="{i18n>ADD_SOURCE}" type="Accept" class="commitBtnClass" press="onAddSource" visible="{oDashboardVisibilityModel>/addSourceVisible}">
+						<customData>
+							<core:CustomData key="target" value="MM_SOURCE_DETAILS"/>
+						</customData>
+					</Button>
+					<Button text="{i18n>VIEW_SOURCES}" type="Accept" class="commitBtnClass" press="flipSourceViews"
+						visible="{oDashboardVisibilityModel>/viewSourcesVisible}" enabled="{oDashboardVisibilityModel>/viewSourceBtnEnabled}">
+						<customData>
+							<core:CustomData key="target" value="MM_VIEW_SOURCES"/>
+						</customData>
+					</Button>
+				</HBox>
+			</items>
+		</FlexBox>
+	</VBox>
+	<NavContainer width="98%" height="16em" id="MM_NAV_CONTAINER">
+		<Page showHeader="false" id="MM_VIEW_SOURCES">
+			<core:Fragment fragmentName="freshdirect.SKU.fragments.viewSources" type="XML"/>
+		</Page>
+		<Page showHeader="false" id="MM_SOURCE_DETAILS">
+			<core:Fragment fragmentName="freshdirect.SKU.fragments.sourceDetails" type="XML"/>
+		</Page>
+	</NavContainer>
+</core:FragmentDefinition>

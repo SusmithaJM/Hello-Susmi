@@ -1,0 +1,76 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:layout="sap.ui.layout">
+	<Panel expandable="true" class="iconPanelHdng" headerText="{i18n>MERCHANT_INPUTS}" expanded="true">
+		<content>
+			<layout:Grid>
+				<layout:content>
+					<Label text="{i18n>RENEGOTIATION_SOURCE_DONE}" design="Bold">
+						<layoutData>
+							<layout:GridData span="L3 M3 S3"/>
+						</layoutData>
+					</Label>
+					<Switch state="{path:'oDashboardTabModel>/dmmDto/reNegotiationsWithSourceDone',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"
+						customTextOn="Yes" customTextOff="No" class="basicSwitchBtnClass" change="onSwitchChange" name="RENEGOTIATION_SOURCE_DONE" enabled="{oDashboardVisibilityModel>/isDMMEditable}">
+						<customData>
+								<core:CustomData key="target" value="TAB"/>
+							</customData>
+						</Switch>
+					<Label text="{i18n>STRATEGIC_JUSTIFICATION}" design="Bold">
+						<layoutData>
+							<layout:GridData span="L3 M3 S3" linebreak="true"/>
+						</layoutData>
+					</Label>
+					<TextArea placeholder="{i18n>TEXT_AREA}" width="33rem" height="6rem" value="{path:'oDashboardTabModel>/dmmDto/strategicJustification', type:'sap.ui.model.type.String'}" maxLength="500" editable="{oDashboardVisibilityModel>/isDMMEditable}"> 
+						<layoutData>
+							<layout:GridData span="L6 M9 S9"/>
+						</layoutData>
+					</TextArea>
+				</layout:content>
+			</layout:Grid>
+			<Toolbar class="SkubasicAtrbToolBarClass">
+				<ToolbarSpacer/>
+				<Button type="Accept" text="{i18n>MERCHANT_NEGOTIATIONS}" press="onCompleteTask">
+					<customData>
+						<core:CustomData key="target" value="MERCHANT_NEGOTIATIONS"/>
+					</customData>
+				</Button>
+			</Toolbar>
+		</content>
+	</Panel>
+	<Panel expandable="true" class="iconPanelHdng" headerText="{i18n>DMM_INPUTS}" expanded="true">
+		<content>
+			<layout:Grid>
+				<layout:content>
+					<Label text="{i18n>APPROVED}" design="Bold">
+						<layoutData>
+							<layout:GridData span="L3 M3 S3"/>
+						</layoutData>
+					</Label>
+					<Switch state="{path:'oDashboardTabModel>/dmmDto/approved',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"
+						customTextOn="Yes" customTextOff="No" class="basicSwitchBtnClass" change="onSwitchChange" name="APPROVED" enabled="{oDashboardVisibilityModel>/isDMMEditable}">
+						<customData>
+								<core:CustomData key="target" value="TAB"/>
+							</customData>
+						</Switch>
+					<Label text="{i18n>EXCEPTION_COMMENT}" design="Bold">
+						<layoutData>
+							<layout:GridData span="L3 M3 S3" linebreak="true"/>
+						</layoutData>
+					</Label>
+					<TextArea placeholder="{i18n>TEXT_AREA}" width="33rem" height="6rem" value="{path:'oDashboardTabModel>/dmmDto/exceptionComment', type:'sap.ui.model.type.String'}" maxLength="500" editable="{oDashboardVisibilityModel>/isDMMEditable}">
+						<layoutData>
+							<layout:GridData span="L6 M9 S9"/>
+						</layoutData>
+					</TextArea>
+				</layout:content>
+			</layout:Grid>
+			<Toolbar class="SkubasicAtrbToolBarClass">
+				<ToolbarSpacer/>
+				<Button type="Accept" text="{i18n>DMM_APPROVAL}" press="onCompleteTask">
+					<customData>
+						<core:CustomData key="target" value="DMM"/>
+					</customData>
+				</Button>
+			</Toolbar>
+		</content>
+	</Panel>
+</core:FragmentDefinition>

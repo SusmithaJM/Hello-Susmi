@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:l="sap.ui.layout"
+	xmlns:layout="sap.ui.layout">
+	<Dialog showHeader="false" >
+	<Bar>
+	<contentLeft>
+	<core:Icon src="sap-icon://nav-back" width="1rem" height="1rem" visible="{oDashboardVisibilityModel>/storeFrontBackVisible}" press="navBackPlacementViews"></core:Icon>
+	</contentLeft>
+	<contentMiddle>
+	<Text text="{skuTempObjectModel>/choosePlacementTitle}" class="storeFrontTitleClass"></Text>
+	</contentMiddle>
+	</Bar>
+	<!--<Bar>
+	<contentLeft>
+	--><Text text="{skuTempObjectModel>/selectedPath}"></Text>
+	<!--</contentLeft>
+	</Bar>
+	
+		--><NavContainer width="98%" height="12rem" id="SF_NAV_CONTAINER">
+			<Page showHeader="false" id="VIEW_1">
+				<SelectList items="{oDropdownModel>/websites}" selectedKey="{skuTempObjectModel>/taxonomy}" selectionChange="flipPlacementViews">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+				</SelectList>
+			</Page>
+			<Page showHeader="false" id="VIEW_2">
+				<SelectList items="{oDropdownModel>/superDepartments}" selectedKey="{skuTempObjectModel>/superDepartment}" selectionChange="flipPlacementViews">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+				</SelectList>
+			</Page>
+			<Page showHeader="false" id="VIEW_3">
+				<SelectList items="{oDropdownModel>/departments}" selectedKey="{skuTempObjectModel>/department}" selectionChange="flipPlacementViews">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+				</SelectList>
+			</Page>
+			<Page showHeader="false" id="VIEW_4">
+				<SelectList items="{oDropdownModel>/category}" selectedKey="{skuTempObjectModel>/category}" selectionChange="flipPlacementViews">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+				</SelectList>
+			</Page>
+			<Page showHeader="false" id="VIEW_5">
+				<SelectList items="{oDropdownModel>/subCategories}" selectedKey="{skuTempObjectModel>/subCategory}" selectionChange="flipPlacementViews">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+				</SelectList>
+			</Page>
+			<Page showHeader="false" id="VIEW_6">
+				<SelectList items="{oDropdownModel>/subSubCategories}" selectedKey="{skuTempObjectModel>/subSubCategory}" selectionChange="flipPlacementViews">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+				</SelectList>
+			</Page>
+		</NavContainer>
+		<HBox justifyContent="End">
+		<Button text="{i18n>OK}" type="Transparent" press="onSelectPlacement"></Button>
+		</HBox>
+		
+	</Dialog>
+</core:FragmentDefinition>

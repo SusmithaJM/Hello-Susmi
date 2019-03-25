@@ -1,0 +1,507 @@
+/* Enter your custom styles here */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Dashboard_View_Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.skuIconTabStyleClass .sapMITBContent{
+	border:1px solid #bfbfbf !important;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Dashboard_View_End >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Dashboard_Table_Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.cancelBtnStyle {
+	margin-right: 3px;
+}
+.popOverStyle {
+	padding-left: 1rem !important;
+	padding-right: 1rem !important;
+}
+.selectBrandFragClass {
+	border-top-style: none;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-left-style: none;
+	width: 100%;
+}
+.uploadVBoxClass{
+	border: 1px solid gainsboro;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .2);
+    border-radius: 1px;
+    margin : 22px;
+    padding : 1.2rem;
+   /* margin: 1rem;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .5);
+    border-radius: 5px;*/
+}
+.uploadDialogTextareaStyle .sapMInputBaseInner{
+	box-shadow: 0 0 0px rgba(0, 0, 0, .12), 0 1px 1px rgba(0, 0, 0, .2);
+    border: 1px solid #f9f6f6;
+    border-radius: 5px;
+}
+.uploadDialogBrowseBtnStyle{
+	margin-left: 13px;
+    margin-top: 11px;
+}
+.uploadDialogBtnStyle{
+	margin-left : 4px;
+}
+.headerStyle .sapMBarMiddle {
+    text-align: left !important;
+}
+.fileUploadInputStyle {
+	padding-left: 1rem !important;
+	padding-right: 1rem !important;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Dashboard_Table_End >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Common_Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.iconPanelHdng .sapMPanelExpandableIcon {
+	left: 95%;
+}
+.iconPanelHdng .sapMPanelBGTranslucent {
+	background: white;
+}
+.iconPanelHdng {
+	background: #ceeaca;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .5);
+	border-radius: 5px;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+}
+.iconPanelHdng .sapMPanelHdr {
+	text-shadow: none;
+}
+.basicSwitchBtnClass .sapMSwtOn {
+	background: #346f51;
+	border-color: #346f51;
+}
+.basicSwitchBtnClass .sapMSwtOff {
+	background: #e62f2d;
+	border-color: #d66868;
+}
+.basicSwitchBtnClass .sapMSwtHoverable.sapMSwtOn:not (.sapMSwtAcceptReject
+	):hover {
+	background: #346f51 !important;
+}
+.basicSwitchBtnClass .sapMSwtHoverable.sapMSwtOff:not (.sapMSwtAcceptReject
+	):hover {
+	background: #e62f2d !important;
+	border-color: #d66868;
+}
+.basicSwitchBtnClass .sapMSwtOff .sapMSwtText {
+	color: white !important;
+}
+.basicSwitchBtnClass .sapMSwtOff .sapMSwtHandle {
+	background: white !important;
+}
+.gridClass .sapMInputBaseInner {
+	color: #000000;
+	border-top: 0px !important;
+	background: #ffffff;
+	border: 1px solid #bfbfbf;
+	-webkit-appearance: none;
+	border-radius: 0;
+	vertical-align: top;
+	margin: 0;
+	-moz-appearance: textfield;
+	font-size: 0.7rem;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: normal;
+	height: 1.6rem;
+	padding: 0 0.7rem;
+	border-left: 0px !important;
+	border-right: 0px !important;
+}
+.selectFragClass {
+	width: auto !important;
+	border-top-style: none;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-left-style: none;
+}
+.commitBtnClass {
+	margin-right: 1.7rem;
+}
+.wordWrapClass .sapMLabel {
+	word-wrap: break-word;
+	white-space: normal;
+}
+.inputVisible .sapMInputBaseInner {
+    border-bottom: 0px !important;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Common_End >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Ideation_Tab_Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.dashboardHeaderPanelClass{
+	border: 1px solid #eae4e4;
+    border-radius: 6px;
+    padding: 4px;
+    margin-top: 1rem;
+}
+.ideationFdSellableLabelClass{
+	padding : 0.5rem !important;
+}
+.switchClass{
+	margin-top : 0.6rem;
+}
+.UPCValidationIcon.sapMImg {
+	padding-top: 0.8rem;
+	margin-left: 3rem;
+}
+.addBrand.sapMImg {
+	margin-left: 1.2rem !important;
+	padding-top: 0.8remx;
+}
+.newBrandTextStyle{
+    margin-top: 0.6rem;
+    margin-left: 0.6rem;
+    color: green;
+}
+.ideationLabelClass.sapUiRespGrid.sapUiRespGridVSpace1>div {
+	margin-left: 7.5rem;
+}
+.ideationGridClass.sapUiRespGrid.sapUiRespGridHSpace1 {
+	padding: 0 0.8rem;
+	margin-left : 0.7rem;
+}
+.createSKUFragEdit.sapUiIcon {
+	cursor: default;
+	text-align: center;
+	display: inline-block;
+	padding-top: 2rem;
+}
+.createSKUtextArea.sapMInputBase.sapMTextArea .sapMTextAreaInner {
+	-webkit-overflow-scrolling: touch;
+	line-height: 1.4;
+	height: 100%;
+	width: 330%;
+	border-bottom-style: solid;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Ideation_Tab_End >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Avalara_Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.createNewTaxCodefragTitle.sapMDialog>header.sapMDialogTitle .sapMTitle {
+	color: #508171;
+	font-weight: Bold;
+}
+.createNewTaxCode.sapUiSizeCompact.sapMDialog,.sapUiSizeCompact .sapMDialog {
+	min-height: 2.5rem;
+	padding-bottom: 2.5rem;
+	padding-top: 2.5rem;
+	width: 25%;
+}
+.createNewTaxCode .sapUiRespGrid.sapUiRespGridVSpace1>div {
+	margin-bottom: 0rem !important;
+}
+.dialogClass .sapMDialog .sapMDialogSection {
+	background: #ffffff;
+}
+.avalaraTaxToolbar.sapMTB {
+	height: 3rem;
+	background: #ceeaca;
+	border: 1px solid #ceeaca;
+}
+.avalaraTaxToolbar .sapMTitle {
+	color: #508171;
+	font-weight: Bold;
+}
+.fragTitle.sapMDialog>header.sapMDialogTitle .sapMTitle {
+	color: #000000;
+	font-weight: bold;
+}
+.fragTitle.sapMPopup-CTX .sapMIBar.sapMHeader-CTX {
+	background-color: #ffffff;
+	filter: none;
+	background-image: none;
+}
+.createTaxCodeTextArea.sapMTextArea .sapMTextAreaInner {
+	-webkit-overflow-scrolling: touch;
+	line-height: 1.4;
+	height: 100%;
+	width: 170%;
+}
+.createTaxCodeTextArea.sapMInputBaseInner {
+	color: #000000;
+	background: #ffffff;
+	border: 1px solid #bfbfbf;
+	-webkit-appearance: none;
+	border-radius: 0;
+	vertical-align: top;
+	margin: 0;
+	-moz-appearance: textfield;
+	font-size: 0.7rem;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: normal;
+	padding: 0 0.7rem;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Avalara_End >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Comments_Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.generatedCommnent {
+	color: grey;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Comments_End >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Binning Css Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* .BinngMaterilTypeClss1 {
+    font-weight: Bold;
+}
+ */
+.BinningMatrTypeHbClass {
+    margin-left: 20rem;
+}
+
+/* .BinngMaterilTypeClss {
+    margin-left: 1rem;
+} */
+
+/* .BinningGridClass {
+    margin-top: 2rem;
+} */
+
+.pageNumberStyleClass {
+    padding-top: 8px;
+}
+.paginationNumbers {
+    width: 1.5rem;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+}
+.skuBinningComntTxtAreaClass{
+	width: 30rem;
+}
+.skuBinningComntTxtAreaClass .sapMInputBaseInner{
+	border: 1px solid #bfbfbf !important;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Binning Css End>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Store Front Css Start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.storeFrontIconClass{
+	margin-left: 13rem;
+}
+
+.storeFrontTitleClass.sapMText {
+    font-family: Open Sans !important;
+    font-size: 1rem !important;
+}
+
+.productContentCopyTextArea .sapMInputBaseInner{
+	border: 1px solid #bfbfbf !important;
+}
+
+.productContentCopyTextArea.sapMTextArea .sapMTextAreaInner {
+	-webkit-overflow-scrolling: touch;
+	line-height: 1.4;
+	height: 6rem;
+    width: 840%
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Store Front Css End>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Weight & Dims Css Start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.SkuWegtDmsBarClass{
+	height:5rem !important;
+	background-color:white;
+	margin-top:-1rem;
+}
+.SkuWegtDmsBtmToolBarClass{
+	height:4rem !important;
+	background-color:white;
+}
+.sapUiTableHdrTitle {
+    text-align: center !important;
+    margin-top: 0.3rem;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Weight & Dims Css End>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Basic Attribute Css Start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.SkubasicAtrbToolBarClass{
+	height:2rem !important;
+	background-color:white;    
+	border-bottom: 0px solid #cccccc !important;
+	
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Basic Attribute Css End>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Product_Source_Sourcing Css Start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.formBoxStyle {
+	background: lightgrey;
+	margin: 0rem;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 1px 1px rgba(0, 0, 0, .5);
+	border-radius: 5px;
+}
+.promotBtnClass .sapMBtnTransparent{
+	border: 1px solid #bfbfbf !important;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Product_Source_Sourcing Css End>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+	
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Product_Source_SourceDetail_Css_Start>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.skuProductSrcLayClass{
+    border:1px solid #bfbfbf !important;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Product_Source_SourceDetail_Css_End>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+		
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<COSTSHEET_PANEL_CSS_START>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.costSheetTableBgColor{
+    background-color: #efefef !important;
+}
+.costSheet .sapUiRespGridMedia-Std-LargeDesktop.sapUiRespGridHSpace1>.sapUiRespGridSpanXL2 {
+  	width: 15.55555556%;
+    width: -webkit-calc(16.666666666666668% - 1rem);
+    width: calc(16.666666666666668% - 1rem);
+    text-align: center;
+}
+
+.costSheetBorderBox {
+    background: #FFFFFF;
+    margin: 1rem;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 4px 6px rgba(0, 0, 0, .5);
+    border-radius: 1px;
+}
+
+.sapUiRespGrid.sapUiRespGridVSpace1>div {
+    margin-bottom: 0rem;
+}
+
+.wordWrapClass.sapMLabel {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.SKUCOSTbrtrprng1 {
+    font-size: 1rem !important;
+}
+.SKUCOSTbrtrange1 {
+    font-size: .5rem !important;
+}
+.costMaintableclass .sapMListTbl th {
+    background: #FFFFFF;
+    border-top: 0px solid #FFFFFF;
+}
+
+.costMaintableclass .sapMListTblCell:nth-child(9) {
+    background-color: #EFEFEF !important;
+}
+.costMaintableclass .sapMListTblCell:nth-child(8) {
+   	background-color: #EFEFEF !important;
+}
+.costMaintableclass .sapMListTblCell:nth-child(6) {
+    background-color: #EFEFEF !important;
+}
+.costMaintableclass .sapMListTblCell:nth-child(5) {
+    background-color: #EFEFEF !important;
+} 
+.oCardNeGDataClass {
+    font-weight: 600 !important;
+    color: #09BC39 !important
+}
+.oCardNeGDataClass .sapMInputBaseInner {
+    font-weight: 600 !important;
+    color: #09BC39 !important
+}
+.cSToolBarBoxClass{
+	text-align: center !important;
+	height:100%;
+	margin-right: -0.2% !important;
+}
+.cSToolBarBoxMarginCls{
+	margin-right: 1.4% !important;
+}
+.costSheetLabelClss{
+	text-align: center !important;
+}
+.cSConToolBarClass{
+	height:4rem !important;
+	border-bottom: 0px solid;
+}
+.cSToolBarClass{
+	height:2rem !important;
+	border-bottom: 0px;
+}
+.bracketAlignClass{
+	place-content: center;
+}
+.condTextClass{
+  font-weight: bold !important;	
+}
+.costSheetBorderBox {
+    background: #fff;
+    margin: 1rem;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .5);
+    border-radius: 5px;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<COSTSHEET_PANEL_CSS_END>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<CFM_TAB_CSS_START>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.SKUCFMPRMBOXCLASS {
+    margin-left: 1rem !important;
+    font-size: 1.5rem !important;
+    color: #989898 !important;
+}
+.skuCfmBorderBox {
+    background: #EFEFEF;
+    margin: 1rem;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .5);
+    border-radius: 5px;
+}
+.CFMToolBarBoxClass{
+	text-align: center !important;
+	height:100%;
+	width:20rem;
+}
+.skuCFMInputBgClass .sapMInputBaseInner{
+	background: #efefef !important;
+}
+.skuCFMInputNoBorder .sapMInputBaseInner{
+	border: 0px !important;
+}
+.skuCFMComntTxtAreaClass{
+	width: 22.7rem !important;
+}
+.skuCFMComntTxtAreaClass .sapMInputBaseInner{
+	border: 1px solid #bfbfbf !important;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<CFM_TAB_CSS_END>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<NPC_TAB_CSS_START>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.skuNpcBorderBox {
+    background: #ffffff;
+    margin: 1rem;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .5);
+    border-radius: 5px;
+}
+.skuNpcComntTxtAreaClass{
+	width: 100% !important;
+}
+.skuNpcComntTxtAreaClass .sapMInputBaseInner{
+	border: 1px solid #bfbfbf !important;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<NPC_TAB_CSS_END>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< DETAIL_REPORT_START >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+.tabClass {
+	background: #ceeaca;
+	padding-left: 20px;
+}
+.detailReportHdrBoxClass {
+	border: 1px solid gainsboro;
+	background: #fff;
+	margin : 7px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .5);
+	border-radius: 5px;
+}
+.detailReportToolbarClass{
+	background: #ceeaca;
+	padding-left : 1rem;
+}
+.sapUiGlobalBackgroundColor {
+	background-color: #f2f2f2 !important;
+	background-image: none !important;
+}
+.sapUiBody {
+	background-image : none !important;
+	background-color : #f2f2f2 !important;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< DETAIL_REPORT_END >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */

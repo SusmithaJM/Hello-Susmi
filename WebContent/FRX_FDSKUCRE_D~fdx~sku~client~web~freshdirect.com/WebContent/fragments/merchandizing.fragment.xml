@@ -1,0 +1,210 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:layout="sap.ui.layout">
+	<Panel expandable="true" headerText="{i18n>SALES_FORECAST}" class="iconPanelHdng" width="99.4%">
+		<content>
+			<HBox>
+				<VBox width="50%">
+					<layout:Grid defaultSpan="L6 M6 S12" width="100%">
+						<layout:content>
+							<Label text="{i18n>REFERENCE_MATERIAL_NO_OF_FORECASTING}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<HBox>
+								<Input value="{path:'oDashboardTabModel>/merchandisingDto/materialNo', type:'sap.ui.model.type.String'}" maxlength="18"
+									showSuggestion="true" suggest="getRefMatNumber" startSuggestion="3" 
+									suggestionItems="{oDropdownModel>/referenceMaterials}" suggestionItemSelected="onSelectRefMatSuggesion">
+								<suggestionItems>
+									<core:ListItem text="{oDropdownModel>materialNo}" additionalText="{oDropdownModel>materialDesc}"/>
+								</suggestionItems>
+								<customData>
+									<core:CustomData key="target" value="TAB"/>
+								</customData>
+								</Input>
+								<Image src="images/valuehelp.png" width="1rem" press="onRefMatDialogOpen" enabled="{oDashboardVisibilityModel>/isMerchandisingEditable}"/>
+							</HBox>
+							<Label text="{i18n>REFERENCE_MATERIAL_NO_DESC_FORECASTING}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{oDashboardTabModel>/merchandisingDto/materialNoDescription}" enabled="false"/>
+							<Label text="{i18n>REPLACEMENT_SKU}" design="Bold" class="sapUiTinyMarginTop"></Label>
+							<Switch state="{path:'oDashboardTabModel>/merchandisingDto/replacemet',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"
+								customTextOn="Yes" customTextOff="No" class="basicSwitchBtnClass" name="REPLACEMENT_SKU" change="onSwitchChange"
+								enabled="{oDashboardVisibilityModel>/isMerchandisingEditable}">
+								<customData>
+									<core:CustomData key="target" value="TAB"/>
+								</customData>
+							</Switch>
+						</layout:content>
+					</layout:Grid>
+					<VBox class="iconTabTableClass">
+						<Toolbar>
+							<content>
+								<Label text="{i18n>FORECAST_IN_UOM}" design="Bold"/>
+							</content>
+						</Toolbar>
+						<Table items="{oMerchandisingModel>/wkForecastData}" id="MM_MERCHANDISING_FORECAST_TBL">
+							<columns>
+								<Column>
+									<Text text="{i18n>WEEK1}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>WEEK2}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>WEEK3}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>WEEK4}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>WEEK5}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>WEEK6}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<HBox>
+										<Input value="{oMerchandisingModel>week1Input}" visible="{oMerchandisingModel>inputVisible}" maxlength="5" change="calulateWeeklyForecast"
+											name="WEEK1" editable="{oDashboardVisibilityModel>/isMerchandisingEditable}"/>
+										<Text text="{oMerchandisingModel>week1Text}" visible="{oMerchandisingModel>textVisible}"/>
+									</HBox>
+									<HBox>
+										<Input value="{oMerchandisingModel>week2Input}" visible="{oMerchandisingModel>inputVisible}" maxlength="5" change="calulateWeeklyForecast"
+											name="WEEK2" editable="{oDashboardVisibilityModel>/isMerchandisingEditable}"/>
+										<Text text="{oMerchandisingModel>week2Text}" visible="{oMerchandisingModel>textVisible}"/>
+									</HBox>
+									<HBox>
+										<Input value="{oMerchandisingModel>week3Input}" visible="{oMerchandisingModel>inputVisible}" maxlength="5" change="calulateWeeklyForecast"
+											name="WEEK3" editable="{oDashboardVisibilityModel>/isMerchandisingEditable}"/>
+										<Text text="{oMerchandisingModel>week3Text}" visible="{oMerchandisingModel>textVisible}"/>
+									</HBox>
+									<HBox>
+										<Input value="{oMerchandisingModel>week4Input}" visible="{oMerchandisingModel>inputVisible}" maxlength="5" change="calulateWeeklyForecast"
+											name="WEEK4" editable="{oDashboardVisibilityModel>/isMerchandisingEditable}"/>
+										<Text text="{oMerchandisingModel>week4Text}" visible="{oMerchandisingModel>textVisible}"/>
+									</HBox>
+									<HBox>
+										<Input value="{oMerchandisingModel>week5Input}" visible="{oMerchandisingModel>inputVisible}" maxlength="5" change="calulateWeeklyForecast"
+											name="WEEK5" editable="{oDashboardVisibilityModel>/isMerchandisingEditable}"/>
+										<Text text="{oMerchandisingModel>week5Text}" visible="{oMerchandisingModel>textVisible}"/>
+									</HBox>
+									<HBox>
+										<Input value="{oMerchandisingModel>week6Input}" visible="{oMerchandisingModel>inputVisible}" maxlength="5" change="calulateWeeklyForecast"
+											name="WEEK6" editable="{oDashboardVisibilityModel>/isMerchandisingEditable}"/>
+										<Text text="{oMerchandisingModel>week6Text}" visible="{oMerchandisingModel>textVisible}"/>
+									</HBox>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</VBox>
+				</VBox>
+				<VBox width="50%">
+					<layout:Grid defaultSpan="L6 M6 S12" width="100%">
+						<layout:content>
+							<Label text="{i18n>REF_AVRG_WEEKLY_UNIT_VOL}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{oDashboardTabModel>/merchandisingDto/referenceAvgActWeeklyUnitvolume}"
+								enabled="false" change="getAvgWeeklyUnitValue"/>
+							<Label text="{i18n>PERCENATGE_REF_SKU_DEMAND}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>/merchandisingDto/perSkuRefDemand',formatter:'freshdirect.SKU.formatter.formatter.formatPercentSign'}"
+								editable="{oDashboardVisibilityModel>/isMerchandisingEditable}" change="getAvgWeeklyUnitValue"/>
+							<Label text="{i18n>AVRG_WEEKLY_UNIT_DEMAND}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{oDashboardTabModel>/merchandisingDto/avgWeekUnitDemand}" maxlength="4" enabled="false"/>
+							<Label text="{i18n>FIRST_PO_QUANTITY}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>/merchandisingDto/firstPOQuantityCS', type:'sap.ui.model.type.Integer'}" editable="{oDashboardVisibilityModel>/isMerchandisingEditable}"/>
+							<Label text="{i18n>INCREMENTALITY_CLASSIFICATION}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Select selectedKey="{oDashboardTabModel>/merchandisingDto/incClassification}" items="{oDropdownModel>/incrementalityClassification}"
+								class="selectFragClass sapUiTinyMarginTop" enabled="{oDashboardVisibilityModel>/isMerchandisingEditable}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+								<customData>
+									<core:CustomData key="target" value="TAB"/>
+								</customData>
+							</Select>
+							<Label text="{i18n>INCREMENTALITY_PERCENTAGE}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>/merchandisingDto/incPercent',formatter:'freshdirect.SKU.formatter.formatter.formatPercentSign'}"
+								editable="{oDashboardVisibilityModel>/isMerchandisingEditable}">
+								<customData>
+									<core:CustomData key="target" value="TAB"/>
+								</customData>
+							</Input>
+						</layout:content>
+					</layout:Grid>
+				</VBox>
+			</HBox>
+			<Toolbar class="SkubasicAtrbToolBarClass">
+				<ToolbarSpacer/>
+				<Button type="Accept" text="{i18n>SALES_FORECAST}" press="onCompleteTask">
+					<customData>
+						<core:CustomData key="target" value="SALES_FORECAST"/>
+					</customData>
+				</Button>
+			</Toolbar>
+		</content>
+	</Panel>
+	<Panel expandable="true" headerText="{i18n>PRICING}" class="iconPanelHdng" width="99.4%">
+		<content>
+			<VBox>
+				<layout:Grid defaultSpan="L3 M6 S12" width="100%">
+				<layout:content>
+					<Label text="{i18n>MSRP}:" design="Bold" class="sapUiSmallMarginEnd sapUiTinyMarginTop"/>
+					<Input value="{path:'oDashboardTabModel>/merchandisingDto/msrp',formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}"
+						editable="{oDashboardVisibilityModel>/isMerchandisingEditable}" change="onInputValueChange">
+						<customData>
+							<core:CustomData key="target" value="TAB"/>
+						</customData>
+						</Input>
+					<Label text="{i18n>MERCHANT_SUGGESTED_PRICE_FOR_EACH}:" design="Bold" class="sapUiSmallMarginEnd sapUiTinyMarginTop">
+						<layoutData>
+							<layout:GridData linebreak="true"/>
+						</layoutData>
+					</Label>
+					<Input
+						value="{path:'oDashboardTabModel>/merchandisingDto/merchantSuggPriceEA',formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}"
+						editable="{oDashboardVisibilityModel>/isMerchandisingEditable}" change="onInputValueChange">
+						<customData>
+							<core:CustomData key="target" value="TAB"/>
+						</customData>
+						</Input>
+					<Label text="{i18n>MARKET_FINAL_PRICE}:" design="Bold" class="sapUiSmallMarginEnd sapUiTinyMarginTop"/>
+					<Input
+						value="{path:'oDashboardTabModel>/merchandisingDto/marketFinalPriceEA',formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}"
+						editable="{oDashboardVisibilityModel>/isMerchandisingEditable}" change="onInputValueChange">
+						<customData>
+							<core:CustomData key="target" value="TAB"/>
+						</customData>
+						</Input>
+					<Label text="{i18n>MERCHANT_SUGGESTED_PRICE_FOR_CASE}:" design="Bold" class="sapUiSmallMarginEnd sapUiTinyMarginTop">
+						<layoutData>
+							<layout:GridData linebreak="true"/>
+						</layoutData>
+					</Label>
+					<Input
+						value="{path:'oDashboardTabModel>/merchandisingDto/merchantSuggPriceCS',formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}"
+						editable="{oDashboardVisibilityModel>/isMerchandisingEditable}"  change="onInputValueChange">
+						<customData>
+							<core:CustomData key="target" value="TAB"/>
+						</customData>
+						</Input>
+					<Label text="{i18n>MARKET_FINAL_PRICE_CASE}:" design="Bold" class="sapUiSmallMarginEnd sapUiTinyMarginTop"/>
+					<Input
+						value="{path:'oDashboardTabModel>/merchandisingDto/marketFinalPriceCS',formatter:'freshdirect.SKU.formatter.formatter.formatDollarSign'}"
+						editable="{oDashboardVisibilityModel>/isMerchandisingEditable}" change="onInputValueChange">
+						<customData>
+							<core:CustomData key="target" value="TAB"/>
+						</customData>
+						</Input>
+				</layout:content>
+				</layout:Grid>	
+			<Toolbar class="SkubasicAtrbToolBarClass">
+					<ToolbarSpacer/>
+					<Button type="Accept" text="{i18n>MERCHANT_PRICING}" press="onCompleteTask">
+						<customData>
+							<core:CustomData key="target" value="MERCHANT_PRICING"/>
+						</customData>
+					</Button>
+					<Button type="Accept" text="{i18n>PRICING_REVIEW}" press="onCompleteTask">
+						<customData>
+							<core:CustomData key="target" value="PRICING"/>
+						</customData>
+					</Button>
+				</Toolbar>
+				</VBox>	
+		</content>
+	</Panel>
+</core:FragmentDefinition>

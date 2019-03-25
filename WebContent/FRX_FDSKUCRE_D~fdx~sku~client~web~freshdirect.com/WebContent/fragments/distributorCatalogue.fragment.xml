@@ -1,0 +1,105 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:Table="sap.ui.table" xmlns:l="sap.ui.layout">
+	<Dialog title="Available GDSN Hierarchies &amp; Distributors">
+		<l:Grid defaultSpan="L6 M6 S12" class="gridClass">
+			<l:content>
+				<l:Grid defaultSpan="L6 M6 S12" class="gridClass">
+					<l:content>
+						<Label design="Bold" text="SAP Product Desc" class="sapUiSmallMarginTop">
+							<layoutData>
+								<l:GridData span="XL3 L3 M6 S12"/>
+							</layoutData>
+						</Label>
+						<Input class="sapUiSmallMarginEnd" value="{oIdeationHierachiesPopUp>/shortDescription}" editable="false"></Input>
+					</l:content>
+				</l:Grid>
+				<l:Grid defaultSpan="L6 M6 S12" class="gridClass">
+					<l:content>
+						<Label design="Bold" text="Reference GTIN" class="sapUiSmallMarginTop">
+							<layoutData>
+								<l:GridData span="XL3 L3 M6 S12"/>
+							</layoutData>
+						</Label>
+						<Input class="sapUiSmallMarginEnd" value="{oIdeationHierachiesPopUp>/referenceGTIN}" editable="false"></Input>
+					</l:content>
+				</l:Grid>
+			</l:content>
+		</l:Grid>
+		<Table:Table rows="{oIdeationHierachiesPopUp>/gdsnHirachies}" selectionMode="Single" selectionBehavior="RowSelector"
+			visibleRowCount="{oIdeationHierachiesPopUp>/visibleRowCount}" enableColumnFreeze="true" rowSelectionChange="onSelectGDSNHierarchy">
+			<Table:columns>
+				<Table:Column width="10rem">
+					<Label text="EA Description" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>descriptionEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="8rem">
+					<Label text="EA GTIN" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>gtinEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="8rem">
+					<Label text="IN GTIN" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>gtinIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="8rem">
+					<Label text="CS GTIN" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>gtinCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="4rem">
+					<Label text="EA/IN" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>eaPerIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="4rem">
+					<Label text="IN/CS" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>inPerCs}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="4rem">
+					<Label text="EA/CS" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>eaPerCs}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.5rem">
+					<Label text="Dist 1 ($)" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>distributor1}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.5rem">
+					<Label text="Dist 2 ($)" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>distributor2}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.5rem">
+					<Label text="Dist 3 ($$)" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>distributor3}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column width="5.5rem">
+					<Label text="Dist 4 ($$)" design="Bold"/>
+					<Table:template>
+						<Text text="{oIdeationHierachiesPopUp>distributor4}"></Text>
+					</Table:template>
+				</Table:Column>
+			</Table:columns>
+		</Table:Table>
+		<beginButton>
+			<Button text="Cancel" press="onCancelIdeationTab"/><!-- onCancelSelectGDSNHierarchy
+		--></beginButton>
+		<endButton>
+			<Button text="Submit" press="onSubmitIdeationTab"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

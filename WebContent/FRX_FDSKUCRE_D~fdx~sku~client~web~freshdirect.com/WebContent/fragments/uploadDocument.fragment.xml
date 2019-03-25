@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>UPLOAD}" class="sapUiSizeCompact headerStyle">
+		<content>
+			<VBox class="uploadVBoxClass">
+				<HBox>
+					<Label text="{i18n>FILE_TYPE}:" design="Bold"></Label>
+					<Select forceSelection="false" class="selectBrandFragClass sapUiTinyMarginTop" items="{oDropdownModel>/fileTypes}" selectedKey="{oUploadModel>/fileType}">
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+				</HBox>
+				<HBox>
+					<u:FileUploader value="{oUploadModel>/fileUpload}" change="onBrowseSKUDocument"
+						fileAllowed="onFileAllowed" sameFileNameAllowed="true"></u:FileUploader> 
+				</HBox>
+				<TextArea maxLength="500" rows="5" cols="35" placeholder="Enter Comments.." value="{oUploadModel>/uploadComments}" class="uploadDialogTextareaStyle"></TextArea>
+				<HBox justifyContent="End">
+					<Button text="{i18n>CANCEL}" type="Reject" press="onCancelDocUpload"></Button>
+					<Button text="{i18n>UPLOAD}" type="Accept" press="onUploadSKUDocument" class="uploadDialogBtnStyle"></Button>
+				</HBox>
+			</VBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

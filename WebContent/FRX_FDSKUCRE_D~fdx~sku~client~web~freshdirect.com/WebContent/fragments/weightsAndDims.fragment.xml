@@ -1,0 +1,333 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:Table="sap.ui.table" xmlns:l="sap.ui.layout">
+	<Dialog title="Weights &amp; Dims">
+		<Table:Table id="" selectionMode="MultiToggle" selectionBehavior="RowSelector" fixedColumnCount="3" enableColumnFreeze="true"
+			visibleRowCount="6" rows="{oWeightsNDimsModel>/wtsDimsData}" rowSelectionChange="onWeightsAndDimsRowSelect" filter="onFilterColumn">
+			<Table:columns>
+				<Table:Column sortProperty="projectId" filterProperty="projectId" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>PROJECT_ID}" tooltip="{i18n>PROJECT_ID}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>projectId}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="requestId" filterProperty="requestId" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>REQUEST_ID}" tooltip="{i18n>REQUEST_ID}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>requestId}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>REFERENCE_GTIN}" tooltip="{i18n>REFERENCE_GTIN}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>referenceGtin}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="hierarchy" filterProperty="hierarchy" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="Hierarchies" tooltip="Hierarchies"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>hierarchy}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="gtinEA" filterProperty="gtinEA" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>GTIN-EA}" tooltip="{i18n>GTIN-EA}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>gtinEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="sellableEA" filterProperty="sellableEA" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>SELLABLE}" tooltip="{i18n>SELLABLE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>sellableEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="bottlePerEA" filterProperty="bottlePerEA" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>BOTTLE_EA}" tooltip="{i18n>BOTTLE_EA}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>bottlePerEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="netContentEA" filterProperty="netContentEA" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>NET_CONTENT}" tooltip="{i18n>NET_CONTENT}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>netContentEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>netContentUomEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="grossWTEA" filterProperty="grossWTEA" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>GROSS_WT}" tooltip="{i18n>GROSS_WT}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>grossWTEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>grossWTUomEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="variableEA" filterProperty="variableEA" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>VARIABLE}" tooltip="{i18n>VARIABLE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>variableEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>W}" tooltip="{i18n>W}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>weightEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>H}" tooltip="{i18n>H}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>heightEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>D}" tooltip="{i18n>D}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>depthEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>depthUomEA}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="gtinIN" filterProperty="gtinIN" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>GTIN_INNER}" tooltip="{i18n>GTIN_INNER}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>gtinIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="sellableIN" filterProperty="sellableIN" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>SELLABLE}" tooltip="{i18n>SELLABLE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>sellableIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="fdSellableIN" filterProperty="fdSellableIN" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>FD_SELLABLE}" tooltip="{i18n>FD_SELLABLE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>fdSellableIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="eachPerIN" filterProperty="eachPerIN" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>EA_INNER}" tooltip="{i18n>EA_INNER}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>eachPerIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="bottlePerIN" filterProperty="bottlePerIN" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>BOTTLE_IN}" tooltip="{i18n>BOTTLE_IN}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>bottlePerIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="grossWTIN" filterProperty="grossWTIN" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>GROSS_WT}" tooltip="{i18n>GROSS_WT}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>grossWTIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>grossWTUomIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>W}" tooltip="{i18n>W}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>weightIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>H}" tooltip="{i18n>H}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>heightIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>D}" tooltip="{i18n>D}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>depthIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="variableIN" filterProperty="variableIN" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>VARIABLE}" tooltip="{i18n>VARIABLE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>variableIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>depthUomIN}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="gtinCS" filterProperty="gtinCS" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>GTIN_CASE}" tooltip="{i18n>GTIN_CASE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>gtinCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="sellableCS" filterProperty="sellableCS" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>SELLABLE}" tooltip="{i18n>SELLABLE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>sellableCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="fdSellableCS" filterProperty="fdSellableCS" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>FD_SELLABLE}" tooltip="{i18n>FD_SELLABLE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>fdSellableCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>IN_CS}" tooltip="{i18n>IN_CS}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>innerPerCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>EA_CS}" tooltip="{i18n>EA_CS}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>eachPerCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="grossWTCS" filterProperty="grossWTCS" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>GROSS_WT}" tooltip="{i18n>GROSS_WT}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>grossWTCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>grossWTUomCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="variableCS" filterProperty="variableCS" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>VARIABLE}" tooltip="{i18n>VARIABLE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>variableCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>W}" tooltip="{i18n>W}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>weightCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>H}" tooltip="{i18n>H}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>heightCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>D}" tooltip="{i18n>D}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>depthCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>depthUomCS}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="gtinPAL" filterProperty="gtinPAL" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>GTIN_PALLET}" tooltip="{i18n>GTIN_PALLET}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>gtinPAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="sellablePAL" filterProperty="sellablePAL" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>SELLABLE}" tooltip="{i18n>SELLABLE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>sellablePAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="fdSellablePAL" filterProperty="fdSellablePAL" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>FD_SELLABLE}" tooltip="{i18n>FD_SELLABLE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>fdSellablePAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="casePerPAL" filterProperty="casePerPAL" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>CS_PAL}" tooltip="{i18n>CS_PAL}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>casePerPAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>EA_PAL}" tooltip="{i18n>EA_PAL}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>eachPerPAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>TIE}" tooltip="{i18n>TIE}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>tiePAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="highPAL" filterProperty="highPAL" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>HIGH}" tooltip="{i18n>HIGH}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>highPAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="grossWTPAL" filterProperty="grossWTPAL" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>GROSS_WT}" tooltip="{i18n>GROSS_WT}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>grossWTPAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>grossWTUomPAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>W}" tooltip="{i18n>W}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>weightPAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>H}" tooltip="{i18n>H}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>heightPAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>D}" tooltip="{i18n>D}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>depthPAL}"></Text>
+					</Table:template>
+				</Table:Column>
+				<Table:Column sortProperty="" filterProperty="" width="5.7rem" hAlign="Center" visible="true">
+					<Label text="{i18n>UOM}" tooltip="{i18n>UOM}"/>
+					<Table:template>
+						<Text text="{oWeightsNDimsModel>depthUomPAL}"></Text>
+					</Table:template>
+				</Table:Column>
+			</Table:columns>
+		</Table:Table>
+		<beginButton>
+			<Button text="Cancel" press="onModifyWnDCancel"/>
+		</beginButton>
+		<endButton>
+			<Button text="Submit" press="onModifyWnDSubmit"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

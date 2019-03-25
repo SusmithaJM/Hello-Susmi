@@ -1,0 +1,634 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:layout="sap.ui.layout">
+	<VBox class="costSheetBorderBox">
+		<Toolbar>
+			<content>
+				<Label text="{i18n>COSTING_PARAMETERS}" design="Bold"/>
+			</content>
+		</Toolbar>
+		<layout:Grid>
+			<layout:content>
+				<Label text="{i18n>CHOOSE_HIREARCHY}" class="sapUiSmallMarginTop" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Select forceSelection="false" class="sapUiTinyMarginTop IconTabSelectClass" items="{oDropdownModel>/hierarchyUnitDropDown}"
+					selectedKey="{oDashboardTabModel>costSheetDto/hierarchy}" change="onChangeCSHierarchy">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Select>
+				<Label text="{i18n>GTIN_EA}" class="sapUiSmallMarginTop" design="Bold" textAlign="Right">
+					 <layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData> 
+				</Label>
+				<Input width="100%" class="SKUCOSTbrtuominput" value="{oDashboardTabModel>costSheetDto/costSheetGtinEaValue}" enabled="{oDashboardVisibilityModel>/costSheetGtinEaEditable}" change="onBracketChange">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Input>	
+				<Label text="{i18n>GTIN_CS}" class="sapUiSmallMarginTop" design="Bold" textAlign="Right">
+					<layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData> 
+				</Label>
+				<Input width="100%" class="SKUCOSTbrtuominput" value="{oDashboardTabModel>costSheetDto/costSheetGtinCsValue}"  enabled="{oDashboardVisibilityModel>/costSheetGtinCsEditable}" change="onBracketChange">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>ORDERABLE}" class="sapUiSmallMarginTop" design="Bold">
+					<layoutData>
+						<layout:GridData linebreak="true" span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Label text="{i18n>EA}:" class="sapUiSmallMarginTop" textAlign="Right" width="100%">
+					 <layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Switch state="{path:'oDashboardTabModel>costSheetDto/orderEach',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+					customTextOn="YES" customTextOff="NO" class="sapUiTinyMarginTop basicSwitchBtnClass">
+					<layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData>
+				</Switch>
+				<Label text="{i18n>IN}:" class="sapUiSmallMarginTop" textAlign="Right" width="100%">
+					 <layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Switch state="{path:'oDashboardTabModel>costSheetDto/orderInner',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+					customTextOn="YES" customTextOff="NO" class="sapUiTinyMarginTop basicSwitchBtnClass">
+					<layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData>
+				</Switch>
+				<Label text="{i18n>CS}:" class="sapUiSmallMarginTop" textAlign="Right" width="100%">
+					<layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Switch state="{path:'oDashboardTabModel>costSheetDto/orderCase',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+					customTextOn="YES" customTextOff="NO" class="sapUiTinyMarginTop basicSwitchBtnClass">
+					<layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData>
+				</Switch>
+				<Label text="{i18n>PAL}:" class="sapUiSmallMarginTop" textAlign="Right" width="100%">
+					<layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Switch state="{path:'oDashboardTabModel>costSheetDto/orderPallet',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+					customTextOn="YES" customTextOff="NO" class="sapUiTinyMarginTop basicSwitchBtnClass">
+					<layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData>
+				</Switch>
+				<Label text="{i18n>BRACKET_PRICING_APPLICABLE}" class="sapUiSmallMarginTop" design="Bold">
+					<layoutData>
+						<layout:GridData linebreak="true" span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Switch customTextOn="Yes" customTextOff="No"
+					state="{path:'oDashboardTabModel>costSheetDto/bracketPricingApplicable',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+					class="sapUiTinyMarginTop basicSwitchBtnClass" change="onBracketPricingStateChange">
+					<layoutData>
+						<layout:GridData span="XL1 L1 M6 S6"/>
+					</layoutData>
+				</Switch>
+				<Label text="{i18n>COSTING_UOM}" width="100%" textAlign="Right" class="sapUiSmallMarginTop" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Select forceSelection="false" id="sCostingUOM" class="sapUiTinyMarginTop IconTabSelectClass" items="{oDropdownModel>/costingUOM}" change="onCostingUOMChange"
+					selectedKey="{oDashboardTabModel>costSheetDto/costUOM}">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Select>
+				<Label text="{i18n>EA_CS}:" textAlign="Right" width="100%" class="sapUiSmallMarginTop" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Input value="{path:'oDashboardTabModel>costSheetDto/eachPerCase', type:'sap.ui.model.type.Integer'}" change="bottleDeposit" enabled="{oDashboardVisibilityModel>/costSheetEACSEditable}">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Input>
+				<Label text="{i18n>SCRAP_ALLOWANCE_APPLICABLE_ON}:" class="sapUiSmallMarginTop" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6" linebreak="true"/>
+					</layoutData>
+				</Label>
+				<RadioButtonGroup columns="2" width="100%" select="scrapAllowance" class="sapUiTinyMarginTop" id="sRadioButtonScrap"
+					selectedIndex="{path:'oDashboardTabModel>costSheetDto/scrapAllowanceApplicableOn',formatter:'freshdirect.SKU.formatter.formatter.formatIntegerValue'}">
+					<buttons>
+						<RadioButton id="RB1-1" text="Gross"/>
+						<RadioButton id="RB1-2" text="Net of OIs"/>
+					</buttons>
+					<layoutData>
+						<layout:GridData span="XL3 L3 M6 S6"/>
+					</layoutData>
+				</RadioButtonGroup>
+				<Label text="{i18n>NO_OF_BOTTLES_EA}:" class="sapUiSmallMarginTop" textAlign="Right" width="100%" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Input value="{oDashboardTabModel>costSheetDto/numberOfBottlesPerEach}" class="" enabled="{oDashboardVisibilityModel>/costSheetBtlPerEaEditable}">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Input>
+				<!-- <Text text="{oDashboardTabModel>costSheetDto/numberOfBottlesPerEach}" class="sapUiSmallMarginTop">
+					<layoutData>
+					</layoutData>
+				</Text> -->
+				<Label text="{i18n>TEMP_OI_EFFECTIVE_ON}" class="sapUiSmallMarginTop" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6" linebreak="true"/>
+					</layoutData>
+				</Label>
+				<RadioButtonGroup columns="3" width="100%" class="sapUiTinyMarginTop"
+					selectedIndex="{path:'oDashboardTabModel>costSheetDto/billbackOnAccuralApplicableOn',formatter:'freshdirect.SKU.formatter.formatter.formatIntegerValue'}">
+					<buttons>
+						<RadioButton id="RB1-3" text="Order Date "/>
+						<RadioButton id="RB1-4" text="Delivery Date "/>
+					</buttons>
+					<layoutData>
+						<layout:GridData span="XL3 L3 M6 S6"/>
+					</layoutData>
+				</RadioButtonGroup>
+				<Label text="{i18n>APPLICABLE_STATE}:" class="sapUiSmallMarginTop" textAlign="Right" width="100%" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Label>
+				<Select class="sapUiTinyMarginTop IconTabSelectClass" items="{oDropdownModel>/applicableStateList}"  forceSelection="false" selectedKey="{oDashboardTabModel>costSheetDto/applicableState}" change="onApplicableStateSelect">
+					<core:Item key="{oDropdownModel>Bland}" text="{oDropdownModel>Bezei}"/>
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6"/>
+					</layoutData>
+				</Select>
+				<Label text="{i18n>OI_APPLIED_ON}" class="sapUiSmallMarginTop" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6" linebreak="true"/>
+					</layoutData>
+				</Label>
+				<RadioButtonGroup columns="3" width="100%"
+					selectedIndex="{path:'oDashboardTabModel>costSheetDto/oIsPercentsAppliedTo',formatter:'freshdirect.SKU.formatter.formatter.formatIntegerValue'}"
+					class="sapUiTinyMarginTop">
+					<buttons>
+						<RadioButton id="RB1-5" text="Unit Price "/>
+						<RadioButton id="RB1-6" text="Extended Amount "/>
+					</buttons>
+					<layoutData>
+						<layout:GridData span="XL3 L3 M6 S6"/>
+					</layoutData>
+				</RadioButtonGroup>
+				<Label text="{i18n>BILLBACK_ON_ACCRUAL_APPLICABLE_ON}" class="sapUiSmallMarginTop" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M6 S6" linebreak="true"/>
+					</layoutData>
+				</Label>
+				<RadioButtonGroup columns="3" width="100%" class="sapUiTinyMarginTop" id="sRadioButtonBillback" select="netHeaderCost2"
+					selectedIndex="{path:'oDashboardTabModel>costSheetDto/billbackOnAccuralApplicableOn',formatter:'freshdirect.SKU.formatter.formatter.formatIntegerValue'}">
+					<buttons>
+						<RadioButton text="Gross"/>
+						<RadioButton text="Net of OIs, Scrap, B/H"/>
+					</buttons>
+					<layoutData>
+						<layout:GridData span="XL3 L3 M6 S6"/>
+					</layoutData>
+				</RadioButtonGroup>
+			</layout:content>
+		</layout:Grid>
+	</VBox>
+	<VBox visible="{skuTempObjectModel>/bracketPricingVisibility}" class="costSheetBorderBox" text-align="center">
+		<Toolbar>
+			<content>
+				<Label text="{i18n>BRACKET_PRICING}" design="Bold"/>
+			</content>
+		</Toolbar>
+		<layout:Grid defaultSpan="L2 M3 S12" class="SKUCOSTbrtprng" text-align="center">
+			<Label text="{i18n>BRACKETS}" class="SKUCOSTbrtrprng1" design="Bold" text-align="center"/>
+			<Label text="{oDashboardTabModel>costSheetDto/bracketDtos/0/bracketType}" class="SKUCOSTbrtrprng1" design="Bold" text-align="center"/>
+			<Label text="{oDashboardTabModel>costSheetDto/bracketDtos/1/bracketType}" class="SKUCOSTbrtrprng1" design="Bold" text-align="center"/>
+			<Label text="{oDashboardTabModel>costSheetDto/bracketDtos/2/bracketType}" class="SKUCOSTbrtrprng1" design="Bold" text-align="center"/>
+			<Label text="{oDashboardTabModel>costSheetDto/bracketDtos/3/bracketType}" class="SKUCOSTbrtrprng1" design="Bold" text-align="center"/>
+			<Label text="{oDashboardTabModel>costSheetDto/bracketDtos/4/bracketType}" class="SKUCOSTbrtrprng1" design="Bold" text-align="center"/>
+		</layout:Grid>
+		<layout:Grid defaultSpan="L2 M3 S12" class="SKUCOSTbrtrange" >
+			<Label text="{i18n>CASE_COUNT_RANGE}" class="SKUCOSTbrtrange1 sapUiTinyMarginTop" design="Bold"/>
+			<Text
+				text="{parts:['oDashboardTabModel>costSheetDto/bracketDtos/1/uomCountMax','oDashboardTabModel>costSheetDto/bracketDtos/0/uomCountMax'],formatter:'freshdirect.SKU.formatter.formatter.formatCaseRangeCount'}"
+				class="SKUCOSTbrtrange1 sapUiTinyMarginTop"/>
+			<Text
+				text="{parts:['oDashboardTabModel>costSheetDto/bracketDtos/2/uomCountMax','oDashboardTabModel>costSheetDto/bracketDtos/1/uomCountMax'],formatter:'freshdirect.SKU.formatter.formatter.formatCaseRangeCount'}"
+				class="SKUCOSTbrtrange1 sapUiTinyMarginTop"/>
+			<Text
+				text="{parts:['oDashboardTabModel>costSheetDto/bracketDtos/3/uomCountMax','oDashboardTabModel>costSheetDto/bracketDtos/2/uomCountMax'],formatter:'freshdirect.SKU.formatter.formatter.formatCaseRangeCount'}"
+				class="SKUCOSTbrtrange1 sapUiTinyMarginTop"/>
+			<Text
+				text="{parts:['oDashboardTabModel>costSheetDto/bracketDtos/4/uomCountMax','oDashboardTabModel>costSheetDto/bracketDtos/3/uomCountMax'],formatter:'freshdirect.SKU.formatter.formatter.formatCaseRangeCount'}"
+				class="SKUCOSTbrtrange1 sapUiTinyMarginTop"/>
+			<Text
+				text="{parts:['oDashboardTabModel>costSheetDto/bracketDtos/4/uomCountMin','oDashboardTabModel>costSheetDto/bracketDtos/4/uomCountMax'],formatter:'freshdirect.SKU.formatter.formatter.formatCaseRangeCountMin'}"
+				class="SKUCOSTbrtrange1 sapUiTinyMarginTop"/>
+		</layout:Grid>
+		<layout:Grid defaultSpan="L2 M3 S12">
+			<Label text="{i18n>UOM_COUNTS}" class="SKUCOSTbrtuom sapUiTinyMarginTop" design="Bold"/>
+			<Input width="4rem" class="SKUCOSTbrtuominput" value="{oDashboardTabModel>costSheetDto/bracketDtos/0/uomCountMax}" type="Number"
+				enabled="{path:'oDashboardTabModel>costSheetDto/bracketDtos/1/uomCountMax',formatter:'freshdirect.SKU.formatter.formatter.bracketEnabled'}"
+				change="onBracketChange">
+				<customData>
+					<core:CustomData key="uomIndex" value="0"/>
+				</customData></Input>
+			<Input width="4rem" class="SKUCOSTbrtuominput" value="{oDashboardTabModel>costSheetDto/bracketDtos/1/uomCountMax}" type="Number"
+				enabled="{path:'oDashboardTabModel>costSheetDto/bracketDtos/2/uomCountMax',formatter:'freshdirect.SKU.formatter.formatter.bracketEnabled'}"
+				change="onBracketChange">
+				<customData>
+					<core:CustomData key="uomIndex" value="1"/>
+				</customData></Input>
+			<Input width="4rem" class="SKUCOSTbrtuominput" value="{oDashboardTabModel>costSheetDto/bracketDtos/2/uomCountMax}" type="Number"
+				enabled="{path:'oDashboardTabModel>costSheetDto/bracketDtos/3/uomCountMax',formatter:'freshdirect.SKU.formatter.formatter.bracketEnabled'}"
+				change="onBracketChange">
+				<customData>
+					<core:CustomData key="uomIndex" value="2"/>
+				</customData></Input>
+			<Input width="4rem" class="SKUCOSTbrtuominput" value="{oDashboardTabModel>costSheetDto/bracketDtos/3/uomCountMax}" type="Number"
+				enabled="{parts:['oDashboardTabModel>costSheetDto/bracketDtos/4/uomCountMax','oDashboardTabModel>costSheetDto/bracketDtos/4/uomCountMin'],formatter:'freshdirect.SKU.formatter.formatter.bracket4Enabled'}"
+				change="onBracketChange">
+				<customData>
+					<core:CustomData key="uomIndex" value="3"/>
+				</customData></Input>
+			<HBox>
+				<Input width="4.5rem" class="SKUCOSTbrtuominput" value="{oDashboardTabModel>costSheetDto/bracketDtos/4/uomCountMax}" type="Number"
+					placeholder="max" change="onBracketChange">
+					<customData>
+					<core:CustomData key="uomIndex" value="4"/>
+				</customData>
+				</Input>
+				<Input width="4.5rem" class="SKUCOSTbrtuominput" value="{oDashboardTabModel>costSheetDto/bracketDtos/4/uomCountMin}" type="Number"
+					placeholder="min" change="onBracketChange">
+					<customData>
+					<core:CustomData key="bracketIndex" value="5"/>
+				</customData>
+					</Input>
+			</HBox>
+			<Label text="{skuTempObjectModel>/GROSS_PRICE}" design="Bold" class="sapUiTinyMarginTop"></Label>
+			<Input width="4rem" class="SKUCOSTbrtuominput"
+				value="{path:'oDashboardTabModel>costSheetDto/bracketDtos/0/grossPricePerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+				enabled="{path:'oDashboardTabModel>costSheetDto/bracketDtos/0/uomCountMax',formatter:'freshdirect.SKU.formatter.formatter.grossPriceEditable'}"
+				change="onChangeBrtGrossPrice">
+				<customData>
+					<core:CustomData key="bracketIndex" value="0"/>
+				</customData>
+				</Input>
+			<Input width="4rem" class="SKUCOSTbrtuominput"
+				value="{path:'oDashboardTabModel>costSheetDto/bracketDtos/1/grossPricePerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+				enabled="{path:'oDashboardTabModel>costSheetDto/bracketDtos/0/uomCountMax',formatter:'freshdirect.SKU.formatter.formatter.grossPriceEditable'}"
+				change="onChangeBrtGrossPrice">
+				<customData>
+					<core:CustomData key="bracketIndex" value="1"/>
+				</customData>
+				</Input>
+			<Input width="4rem" class="SKUCOSTbrtuominput"
+				value="{path:'oDashboardTabModel>costSheetDto/bracketDtos/2/grossPricePerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+				enabled="{path:'oDashboardTabModel>costSheetDto/bracketDtos/0/uomCountMax',formatter:'freshdirect.SKU.formatter.formatter.grossPriceEditable'}"
+				change="onChangeBrtGrossPrice">
+				<customData>
+					<core:CustomData key="bracketIndex" value="2"/>
+				</customData>
+				</Input>
+			<Input width="4rem" class="SKUCOSTbrtuominput"
+				value="{path:'oDashboardTabModel>costSheetDto/bracketDtos/3/grossPricePerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+				enabled="{path:'oDashboardTabModel>costSheetDto/bracketDtos/0/uomCountMax',formatter:'freshdirect.SKU.formatter.formatter.grossPriceEditable'}"
+				change="onChangeBrtGrossPrice">
+				<customData>
+					<core:CustomData key="bracketIndex" value="3"/>
+				</customData>
+				</Input>
+			<Input width="4rem" class="SKUCOSTbrtuominput"
+				value="{path:'oDashboardTabModel>costSheetDto/bracketDtos/4/grossPricePerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+				enabled="{path:'oDashboardTabModel>costSheetDto/bracketDtos/0/uomCountMax',formatter:'freshdirect.SKU.formatter.formatter.grossPriceEditable'}"
+				change="onChangeBrtGrossPrice">
+				<customData>
+					<core:CustomData key="bracketIndex" value="4"/>
+				</customData>
+				</Input>
+			<Label text="{i18n>GROSS_PRICE($_EA)}" visible="{skuTempObjectModel>/GrossPriceEAVisible}" design="Bold" class="sapUiTinyMarginTop"/>
+			<Input width="4rem"
+				value="{path:'oDashboardTabModel>costSheetDto/bracketDtos/0/grossPricePerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+				visible="{skuTempObjectModel>/GrossPriceEAVisible}" class="sapUiTinyMarginTop" editable="false"/>
+			<Input width="4rem"
+				value="{path:'oDashboardTabModel>costSheetDto/bracketDtos/1/grossPricePerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+				visible="{skuTempObjectModel>/GrossPriceEAVisible}" class="sapUiTinyMarginTop" editable="false"/>
+			<Input width="4rem"
+				value="{path:'oDashboardTabModel>costSheetDto/bracketDtos/2/grossPricePerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+				visible="{skuTempObjectModel>/GrossPriceEAVisible}" class="sapUiTinyMarginTop" editable="false"/>
+			<Input width="4rem"
+				value="{path:'oDashboardTabModel>costSheetDto/bracketDtos/3/grossPricePerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+				visible="{skuTempObjectModel>/GrossPriceEAVisible}" class="sapUiTinyMarginTop" editable="false"/>
+			<Input width="4rem"
+				value="{path:'oDashboardTabModel>costSheetDto/bracketDtos/4/grossPricePerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+				visible="{skuTempObjectModel>/GrossPriceEAVisible}" class="sapUiTinyMarginTop" editable="false"/>
+		</layout:Grid>
+	</VBox>
+	<VBox class="costSheetBorderBox">
+		<Toolbar class="cSConToolBarClass">
+			<ToolbarSpacer/>
+			<VBox class="costSheetTableBgColor cSToolBarBoxClass cSToolBarBoxMarginCls" width="{oDashboardVisibilityModel>/costsheetToolBarBoxWidth}">
+				<Label text="{i18n>PICKUP_COST}" width="100%" class="costSheetLabelClss" design="Bold">
+				</Label>
+				<HBox class="bracketAlignClass">
+					<Label text="{i18n>BACKHAUL_BRACKET}" class="wordWrapClass sapUiSmallMarginTop" visible="{skuTempObjectModel>/bracketPricingVisibility}" design="Bold">
+					</Label>
+					<Select class="sapUiTinyMarginTop IconTabSelectClass costSheetTableBgColor" items="{oDropdownModel>/brackets}" visible="{skuTempObjectModel>/bracketPricingVisibility}"
+						selectedKey="{oDashboardTabModel>costSheetDto/backhaulBracket}" change="onBackhaulBracketSelection">
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+				</HBox>
+			</VBox>
+			<VBox class="costSheetTableBgColor cSToolBarBoxClass" width="{oDashboardVisibilityModel>/costsheetToolBarBoxWidth}">
+				<Label text="{i18n>DELIVERED_COST}" width="100%" class="costSheetLabelClss" design="Bold">
+				</Label>
+				<HBox class="bracketAlignClass">
+					<Label text="{i18n>NEGOTIATED_BRACKET}" class="wordWrapClass sapUiSmallMarginTop" visible="{skuTempObjectModel>/bracketPricingVisibility}" design="Bold">
+					</Label>
+					<Select class="sapUiTinyMarginTop IconTabSelectClass costSheetTableBgColor" items="{oDropdownModel>/brackets}" visible="{skuTempObjectModel>/bracketPricingVisibility}"
+						selectedKey="{oDashboardTabModel>costSheetDto/negotiatedBracket}" change="onNegotiatedBracketSelection">
+						<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+					</Select>
+				</HBox>
+			</VBox>
+		</Toolbar>
+		<Table items="{oDashboardTabModel>costSheetDto/conditionTypeDtos}" class="costMaintableclass">
+			<columns>
+				<Column >
+					<Label text="" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="{i18n>VALID_FROM}" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="{i18n>VALID_TO}" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="{skuTempObjectModel>/COST_CS}" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="{skuTempObjectModel>/COST_CS}" design="Bold"/>
+				</Column>
+				<Column visible="{skuTempObjectModel>/GrossPriceEAVisible}" hAlign="Center">
+					<Label text="{i18n>COST_EA}" design="Bold"/>
+				</Column>
+				<Column width="0.1rem" hAlign="Center">
+					<Label text="" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="{skuTempObjectModel>/COST_CS}" design="Bold"/>
+				</Column>
+				<Column visible="{skuTempObjectModel>/GrossPriceEAVisible}" hAlign="Center">
+					<Label text="{i18n>COST_EA}" design="Bold"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{oDashboardTabModel>pricingType}" design="Bold" class="condTextClass"/>
+						<DatePicker value="{oDashboardTabModel>validFrom}" displayFormat="yyyy/MM/dd" valueFormat="yyyy-MM-dd"
+							visible="{path:'oDashboardTabModel>validFromVisible',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+							editable="{path:'oDashboardTabModel>validFromEditable',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+							change="onFromDateChange"/>
+						<DatePicker value="{oDashboardTabModel>validTo}" displayFormat="yyyy/MM/dd" valueFormat="yyyy-MM-dd"
+							visible="{path:'oDashboardTabModel>validToVisible',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+							editable="{path:'oDashboardTabModel>validToEditable',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+							change="onToDateChange"/>
+						<Input visible="{path:'oDashboardTabModel>costPerCaseVisible',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+							value="{parts:['oDashboardTabModel>costPerCase','oDashboardTabModel>costingUnit'],formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+							editable="{path:'oDashboardTabModel>costPerCaseEditable',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+							change="onHandleCostPerCS"/>
+						<Text text="{path:'oDashboardTabModel>pickupCostPerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text="{path:'oDashboardTabModel>pickupCostPerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text=""/>
+						<Text text="{path:'oDashboardTabModel>deliveryCostPerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text="{path:'oDashboardTabModel>deliveryCostPerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</VBox>
+	<VBox class="costSheetBorderBox">
+		<Toolbar class="cSToolBarClass">
+			<Label text="{i18n>HEADER_COSTS_AND_DISCOUNTS}" design="Bold"/>
+			<ToolbarSpacer/>
+			<VBox class="costSheetTableBgColor cSToolBarBoxClass cSToolBarBoxMarginCls"  width="{oDashboardVisibilityModel>/costsheetToolBarBoxWidth}">
+				<Label text="{i18n>PICKUP_COST}" width="100%" design="Bold" class="costSheetLabelClss sapUiSmallMarginTop"/>
+			</VBox>
+		    <VBox class="costSheetTableBgColor cSToolBarBoxClass" width="{oDashboardVisibilityModel>/costsheetToolBarBoxWidth}">
+		    	<Label text="{i18n>DELIVERED_COST}" width="100%" design="Bold" class="costSheetLabelClss sapUiSmallMarginTop"/>
+		    </VBox>
+		</Toolbar>
+		<Table items="{oDashboardTabModel>costSheetDto/headerCostAndDiscountDtos}" class="costMaintableclass">
+			<columns>
+				<Column >
+					<Label text="{i18n>COST_CATEGORY}" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="{i18n>TYPE}" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="{skuTempObjectModel>/COST_CS}" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="{skuTempObjectModel>/COST_CS}" design="Bold"/>
+				</Column>
+				<Column visible="{skuTempObjectModel>/GrossPriceEAVisible}" hAlign="Center">
+					<Label text="{i18n>COST_EA}" design="Bold"/>
+				</Column>
+				<Column width="0.1rem" hAlign="Center">
+					<Label text="" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="{skuTempObjectModel>/COST_CS}" design="Bold"/>
+				</Column>
+				<Column visible="{skuTempObjectModel>/GrossPriceEAVisible}" hAlign="Center">
+					<Label text="{i18n>COST_EA}" design="Bold"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Input value="{oDashboardTabModel>costCategory}" change="onheaderCostChange"/>
+						<Select visible="{oDashboardTabModel>Type_editable}" selectedKey="{oDashboardTabModel>type}" forceSelection="false"
+							change="onheaderCostChange" class="IconTabSelectClass">
+							<core:Item text="Charge" key="1"/>
+							<core:Item text="Discount" key="2"/>
+						</Select>
+						<core:Icon src="sap-icon://notes"  press="openAddNotesFrag" visible="{oDashboardTabModel>Notes_visible}"/>
+						<Input editable="{path:'oDashboardTabModel>costPercentageEditable',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+							change="onheaderCostChange"
+							value="{parts:['oDashboardTabModel>costPercentage','oDashboardTabModel>costingUnit'],formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text="{path:'oDashboardTabModel>pickupCostPerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text="{path:'oDashboardTabModel>pickupCostPerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text=""/>
+						<Text text="{path:'oDashboardTabModel>deliveryCostPerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text="{path:'oDashboardTabModel>deliveryCostPerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<Table items="{oDashboardTabModel>costSheetDto/lowerHeaderCostAndDiscountDtos}" class="costMaintableclass">
+			<columns>
+				<Column></Column>
+				<Column hAlign="Center"></Column>
+				<Column hAlign="Center"></Column>
+				<Column hAlign="Center"></Column>
+				<Column hAlign="Center"></Column>
+				<Column visible="{skuTempObjectModel>/GrossPriceEAVisible}" hAlign="Center"></Column>
+				<Column width="0.1rem" hAlign="Center"></Column>
+				<Column hAlign="Center"></Column>
+				<Column visible="{skuTempObjectModel>/GrossPriceEAVisible}" hAlign="Center"></Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{oDashboardTabModel>costCategory}" design="Bold" class="condTextClass"/>
+						<Text visible="false"/>
+						<Input visible="{path:'oDashboardTabModel>costPercentageVisible',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+							editable="{path:'oDashboardTabModel>costPercentageEditable',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+							value="{parts:['oDashboardTabModel>costPercentage','oDashboardTabModel>costingUnit'],formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"
+							change="onDiscountChange"/>
+						<Text visible="false"/>
+						<Text text="{path:'oDashboardTabModel>pickupCostPerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text="{path:'oDashboardTabModel>pickupCostPerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text=""/>
+						<Text text="{path:'oDashboardTabModel>deliveryCostPerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text="{path:'oDashboardTabModel>deliveryCostPerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</VBox>
+	<VBox class="costSheetBorderBox">
+		<Toolbar class="cSToolBarClass">
+			<Label text="{i18n>COST_OF_DELIVERY_INCLUDED}" design="Bold"/>
+		</Toolbar>
+		<layout:Grid>
+			<layout:content>
+				<Label text="" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL4 L4 M4 S4"/>
+					</layoutData>
+				</Label>
+				<Label text="{i18n>COST_CS}" textAlign="Right" width="100%" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M2 S2"/>
+					</layoutData>
+				</Label>
+				<Text
+					text="{path:'oDashboardTabModel>costSheetDto/costOfDeliveryIncludedCostPerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M2 S2"/>
+					</layoutData>
+				</Text>
+				<Label text="{i18n>COST_EA}" textAlign="Right" width="100%" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M2 S2"/>
+					</layoutData>
+				</Label>
+				<Text
+					text="{path:'oDashboardTabModel>costSheetDto/costOfDeliveryIncludedCostPerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}" design="Bold">
+					<layoutData>
+						<layout:GridData span="XL2 L2 M2 S2"/>
+					</layoutData>
+				</Text>
+			</layout:content>
+		</layout:Grid>
+	</VBox>
+	<VBox class="costSheetBorderBox">
+		<Toolbar class="cSToolBarClass">
+			<Label text="{i18n>NON_PRODUCT_COSTS}" design="Bold"/>
+			<ToolbarSpacer/>
+			<VBox class="costSheetTableBgColor cSToolBarBoxClass cSToolBarBoxMarginCls" width="{oDashboardVisibilityModel>/costsheetToolBarBoxWidth}">
+				<Label text="{i18n>PICKUP_COST}" width="100%" design="Bold" class="costSheetLabelClss sapUiSmallMarginTop"/>
+			</VBox>
+		    <VBox class="costSheetTableBgColor cSToolBarBoxClass" width="{oDashboardVisibilityModel>/costsheetToolBarBoxWidth}">
+		    	<Label text="{i18n>DELIVERED_COST}" width="100%" design="Bold" class="costSheetLabelClss sapUiSmallMarginTop"/>
+		    </VBox>
+		</Toolbar>
+		<Table items="{oDashboardTabModel>costSheetDto/npcDtos}" class="costMaintableclass">
+			<columns>
+				<Column >
+					<Label text="{i18n>COST_CATEGORY}" design="Bold"/></Column>
+				<Column hAlign="Center">
+					<Label text="{i18n>SCALING_FACTOR}" design="Bold"/></Column>
+				<Column hAlign="Center">
+					<Label text="" design="Bold"/></Column>
+				<Column hAlign="Center">
+					<Label text="{i18n>TOTAL_NPC}" design="Bold"/></Column>
+				<Column hAlign="Center">
+					<Label text="{skuTempObjectModel>/COST_CS}" design="Bold"/>
+				</Column>
+				<Column visible="{skuTempObjectModel>/GrossPriceEAVisible}" hAlign="Center">
+					<Label text="{i18n>COST/EA}" design="Bold"/>
+				</Column>
+				<Column width="0.1rem" hAlign="Center">
+					<Label text="" design="Bold"/>
+				</Column>
+				<Column hAlign="Center">
+					<Label text="{skuTempObjectModel>/COST_CS}" design="Bold"/>
+				</Column>
+				<Column visible="{skuTempObjectModel>/GrossPriceEAVisible}" hAlign="Center">
+					<Label text="{i18n>COST/EA}" design="Bold"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{oDashboardTabModel>costCategory}" design="Bold" class="condTextClass"/>
+						<Text text="{oDashboardTabModel>scalingFactor}"/>
+						<core:Icon src="sap-icon://notes" press="openAddNotesFrag" visible="{oDashboardTabModel>Notes_visible}"/>
+						<Input visible="{path:'oDashboardTabModel>scalingFactorVisible',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}"
+							value="{path:'oDashboardTabModel>totalNonProductCosts',formatter:'freshdirect.SKU.formatter.formatter.formatTotalNPC'}"
+							change="onTotalNPCChange"/>
+						<Text text="{path:'oDashboardTabModel>pickupCostPerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text="{path:'oDashboardTabModel>pickupCostPerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text=""/>
+						<Text text="{path:'oDashboardTabModel>deliveryCostPerCase',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+						<Text text="{path:'oDashboardTabModel>deliveryCostPerEach',formatter:'freshdirect.SKU.formatter.formatter.comaSeparator'}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</VBox>
+	<Toolbar class="SkubasicAtrbToolBarClass">
+		<ToolbarSpacer/>
+		<Button type="Accept" text="{i18n>COMPLETE_COST_SHEET}" press="onCompleteTask">
+			<customData>
+				<core:CustomData key="target" value="COST_SHEET"/>
+				</customData>
+		</Button>
+		<!--<Button type="Accept" text="{i18n>COST_SHEET_REVIEW}" press="onCompleteTask">
+			<customData>
+				<core:CustomData key="target" value="COST_SHEET_REVIEW"/>
+				</customData>
+		</Button>
+		<Button type="Accept" text="{i18n>COST_SHEET_APPROVAL}" press="onCompleteTask">
+			<customData>
+				<core:CustomData key="target" value="COST_SHEET_APPROVAL"/>
+				</customData>
+		</Button>	
+	--></Toolbar>
+</core:FragmentDefinition>

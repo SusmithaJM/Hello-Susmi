@@ -1,0 +1,188 @@
+{
+	"iconTab": [{
+		"key": "1",
+		"value": "Ideation"
+	}, {
+		"key": "2",
+		"value": "Basic Product Attributes"
+	}, {
+		"key": "3",
+		"value": "Binning"
+	}, {
+		"key": "4",
+		"value": "Sourcing Info (Pri)"
+	}, {
+		"key": "5",
+		"value": "Cost Sheet (Pri)"
+	}, {
+		"key": "6",
+		"value": "Ordering Info (Pri)"
+	}, {
+		"key": "7",
+		"value": "Sourcing Info (Sec)"
+	}, {
+		"key": "8",
+		"value": "Cost Sheet (Sec)"
+	}, {
+		"key": "9",
+		"value": "Ordering Info (Sec)"
+	}, {
+		"key": "10",
+		"value": "Merchandizing"
+	}, {
+		"key": "11",
+		"value": "DMM"
+	}, {
+		"key": "12",
+		"value": "Store Front Attributes"
+	}, {
+		"key": "13",
+		"value": "Product Tags"
+	}, {
+		"key": "14",
+		"value": "Commercial Finance"
+	}, {
+		"key": "15",
+		"value": "Attachments"
+	}, {
+		"key": "16",
+		"value": "Comments"
+	}],
+	"brackets": [{
+		"key": "1",
+		"value": "Bracket 1"
+	}, {
+		"key": "2",
+		"value": "Bracket 2"
+	}, {
+		"key": "3",
+		"value": "Bracket 3"
+	}, {
+		"key": "4",
+		"value": "Bracket 4"
+	}, {
+		"key": "5",
+		"value": "Bracket 5"
+	}],
+	"costingUOM": [{
+		"key": "CS",
+		"value": "CS"
+	}, {
+		"key": "EA",
+		"value": "EA"
+	}],
+	"conditions": [{
+		"key": "",
+		"value": ""
+	},{
+		"key": "true",
+		"value": "Yes"
+	}, {
+		"key": "false",
+		"value": "No"
+	}],
+	"switchState": [{
+		"key": "01",
+		"value": "Yes"
+	}, {
+		"key": "02",
+		"value": "No"
+	}],
+	"storeFront":[{
+		"value": "FD",
+		"key": "fd"
+	}, {
+		"value": "FK",
+		"key": "fk"
+	}, {
+		"value": "COS",
+		"key": "cos"
+	}],
+	"unitDropDown":[{
+		"key": "ALL",
+		"value": "All"
+	},{
+		"key": "EACH",
+		"value": "Each"
+	}, {
+		"key": "INNER",
+		"value": "Inner"
+	},
+	{
+		"key": "CASE",
+		"value": "Case"
+	},
+	{
+		"key": "PALLET",
+		"value": "Pallet"
+}	],
+	"skuNavigationValues": [{
+			"key": "1",
+			"value": "KPIs and Status"
+		},
+		{
+			"key": "2",
+			"value": "Ideation"
+		},
+		{
+			"key": "3",
+			"value": "Basic Product Attributes"
+		},
+		{
+			"key": "4",
+			"value": "Binning"
+		},
+		{
+			"key": "5",
+			"value": "Sourcing Info (Pri)"
+		},
+		{
+			"key": "6",
+			"value": "Cost Sheet (Pri)"
+		},
+		{
+			"key": "7",
+			"value": "Ordering Info (Pri)"
+		},
+		{
+			"key": "8",
+			"value": "Sourcing Info (Sec)"
+		},
+		{
+			"key": "9",
+			"value": "Cost Sheet (Sec)"
+		},
+		{
+			"key": "10",
+			"value": "Ordering Info (Sec)"
+		},
+		{
+			"key": "11",
+			"value": "Merchandizing"
+		},
+		{
+			"key": "12",
+			"value": "DMM"
+		},
+		{
+			"key": "13",
+			"value": "Store Front Attributes"
+		},
+		{
+			"key": "14",
+			"value": "Product Tags"
+		},
+		{
+			"key": "15",
+			"value": "Commercial Finance"
+		},
+		{
+			"key": "16",
+			"value": "Attachments"
+		},
+		{
+			"key": "17",
+			"value": "Comments"
+		}
+	]
+}

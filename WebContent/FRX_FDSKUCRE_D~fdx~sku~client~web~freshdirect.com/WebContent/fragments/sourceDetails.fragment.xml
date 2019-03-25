@@ -1,0 +1,235 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:layout="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<VBox id="MM_SEL_SOURCE_VBOX" items="{oDashboardTabModel>/sourceInfoDtos}">
+		<VBox visible="{path:'oDashboardTabModel>isSelectedSrcVisible', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanValue'}">
+			<HBox>
+				<HBox>
+					<Label text="{i18n>VENDOR_NUMBER}: " width="100%" textAlign="Right" design="Bold" class="sapUiSmallMarginTop"></Label>
+					<Text text="{oDashboardTabModel>sourceInfoDto/vendorNumber}" class="sapUiSmallMarginTop sapUiTinyMarginBegin"/>
+				</HBox>
+				<HBox class="sapUiLargeMarginBegin">
+					<Label text="{i18n>VENDOR_NAME}: " width="100%" textAlign="Right" design="Bold" class="sapUiSmallMarginTop"></Label>
+					<Text text="{oDashboardTabModel>sourceInfoDto/vendorName}" class="sapUiSmallMarginTop sapUiTinyMarginBegin"/>
+				</HBox>
+				<HBox class="sapUiLargeMarginBegin">
+					<Label text="{i18n>TYPE}: " width="100%" textAlign="Right" design="Bold" class="sapUiSmallMarginTop"></Label>
+					<Text text="{oDashboardTabModel>sourceInfoDto/type}" class="sapUiSmallMarginTop sapUiTinyMarginBegin"/>
+				</HBox>
+			</HBox>
+			<Panel expandable="true" headerText="{i18n>PRIMARY_SOURCE_INFO}" class="iconPanelHdng" width="99.4%">
+				<content>
+					<layout:Grid defaultSpan="L3 M6 S12" width="100%">
+						<layout:content>
+							<Label text="{i18n>SOURCE_VENDOR_NO}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/vendorNumber', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}" showSuggestion="true" suggest="getSearchVendorNumber" startSuggestion="3"
+								suggestionItems="{oDropdownModel>/vendorNumberLookup}" suggestionItemSelected="onSelectVenSuggesion">
+								<suggestionItems>
+									<core:ListItem text="{oDropdownModel>Lifnr}" additionalText="{oDropdownModel>Mcod1}"/>
+								</suggestionItems>
+								<customData>
+									<core:CustomData key="target" value="TAB"/>
+								</customData>
+							</Input>
+							<Label text="{i18n>SOURCE_IS_NEW_SOURCE_FOR_FD}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Switch state="{path:'oDashboardTabModel>sourceInfoDto/isSrcNewForFD',formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"
+								name="IS_SOURCE_NEW_FOR_FD" customTextOn="Yes" customTextOff="No" class="basicSwitchBtnClass"
+								enabled="{oDashboardVisibilityModel>/isProductSourceEditable}" change="onSwitchChange"/>
+							<Label text="{i18n>VENDOR_NAME}:" design="Bold" class="sapUiTinyMarginTop">
+								<layoutData>
+									<layout:GridData linebreak="true"/>
+								</layoutData>
+							</Label>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/vendorName', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>COVERED_UNDER_SOURCE_CONTARCT}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>sourceInfoDto/isCoveredUnderSrcContract}"
+								items="{oDropdownModel>/conditions}" class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+							</Select>
+							<Label text="{i18n>SOURCE_TYPE}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>sourceInfoDto/sourceType}" items="{oDropdownModel>/sourceType}"
+								class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+							</Select>
+							<Label text="{i18n>SOURCE_CONTRACT_ID}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/sourceContractId', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}" name="SOURCE_CONTRACT_ID" change="onInputFieldChange"/>
+							<Label text="{i18n>CONTACT_NAME}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/contactName', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>PAYMENT_TERMS}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>sourceInfoDto/paymentTerm}" items="{oDropdownModel>/paymentTerm}"
+								class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>Zterm}" text="{oDropdownModel>Vtext}"/>
+							</Select>
+							<Label text="{i18n>CONTACT_TITLE}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/contactTitle', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>INCOTERMS}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>sourceInfoDto/incoterms}" items="{oDropdownModel>/incoterms}"
+								class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>Inco1}" text="{oDropdownModel>Bezei}"/>
+							</Select>
+							<Label text="{i18n>EMAIL}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/email', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>PHONE_NUMBER}:" design="Bold" class="sapUiTinyMarginTop">
+								<layoutData>
+									<layout:GridData linebreak="true"/>
+								</layoutData>
+							</Label>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/phoneNo', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>SOURCE_WILL_DELIVER}:" design="Bold" class="sapUiTinyMarginTop">
+								<layoutData>
+									<layout:GridData linebreak="true"/>
+								</layoutData>
+							</Label>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>sourceInfoDto/willSrcDeliver}" items="{oDropdownModel>/conditions}"
+								class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+							</Select>
+							<Label text="{i18n>LEAD_TIME}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/leadTime', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>SOURCE_ALLOWS_CUST_PICK_UP}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>sourceInfoDto/doSrcAllowCustPickup}" items="{oDropdownModel>/conditions}"
+								class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+							</Select>
+							<Label text="{i18n>FIRST_ORDER_DELIVERY_PICKUP}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>sourceInfoDto/isFirstOrderDelOrPickup}" items="{oDropdownModel>/conditions}"
+								class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+							</Select>
+						</layout:content>
+					</layout:Grid>
+					<VBox class="sapUiSmallMargin formBoxStyle">
+						<f:SimpleForm layout="ResponsiveGridLayout">
+							<Title text="{i18n>SHIP_FROM_LOCATION}"></Title>
+							<Label text="{i18n>STREET_ADDRESS1}" class="sapUiTinyMarginTop"></Label>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/locationName', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"></Input>
+							<Label text="{i18n>STREET_ADDRESS2}" class="sapUiTinyMarginTop"></Label>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/streetAddress', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"></Input>
+							<Label text="{i18n>COUNTRY}" class="sapUiTinyMarginTop"></Label>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>sourceInfoDto/country}" items="{oDropdownModel>/country}"
+								class="IconTabSelectClass" change="onCountrySelect" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>Land1}" text="{oDropdownModel>Landx}"/>
+								<layoutData>
+									<layout:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+								<customData>
+									<core:CustomData key="target" value="TAB"/>
+								</customData>
+							</Select>
+							<Label text="{i18n>STATE}" class="sapUiTinyMarginTop"></Label>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>sourceInfoDto/state}" items="{oDropdownModel>/state}"
+								class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>Bland}" text="{oDropdownModel>Bezei}"/>
+								<layoutData>
+									<layout:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</Select>
+							<Label text="{i18n>CITY}" class="sapUiTinyMarginTop"></Label>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/city', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<layoutData>
+									<layout:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</Input>
+							<Label text="{i18n>ZIP}" class="sapUiTinyMarginTop"></Label>
+							<Input value="{path:'oDashboardTabModel>sourceInfoDto/zip', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<layoutData>
+									<layout:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</Input>
+						</f:SimpleForm>
+					</VBox>
+					<Toolbar class="SkubasicAtrbToolBarClass">
+						<ToolbarSpacer/>
+						<Button type="Accept" text="{i18n>COMPLETE_SOURCE_IDENTIFICATION}" press="onCompleteTask">
+							<customData>
+								<core:CustomData key="target" value="PRI_SOURCE_IDENTIFICATION"/>
+							</customData>
+						</Button>
+					</Toolbar>
+				</content>
+			</Panel>
+			<Panel expandable="true" headerText="{i18n>ORDERING_INFO}" class="iconPanelHdng" width="99.4%">
+				<content>
+					<layout:Grid defaultSpan="L3 M6 S12" width="100%">
+						<layout:content>
+							<Label text="{i18n>SOURCE_ITEM_NO}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/sourceItemNo', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>SOURCE_PRODUCT_DESC}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/description', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>ORDER_UNIT_MEASURE}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>orderInfoDto/orderUom}" items="{oDropdownModel>/orderUOM}"
+								class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+							</Select>
+							<Label text="{i18n>ORDER_UNIT_GTIN}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/ordersUnitGtin', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>UNIT_PER_CASE}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/unitsPerCase',type:'sap.ui.model.type.Integer'}" change="onChangeSourceUnitPerCs"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>CASES_PER_LAYER}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/casesPerLayer',type:'sap.ui.model.type.Integer'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>LAYERS_PER_PALLET}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/layersPerPallet',type:'sap.ui.model.type.Integer'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>CASES_PER_PALLET}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/casesPerPallet',type:'sap.ui.model.type.Integer'}" change="onChangeSourceCasePerPAL"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>MINIMUM_ITEM_ORDER_QUANTITY}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/minItemOrderQuantity',type:'sap.ui.model.type.Integer'}"
+								change="onChangeSourceMinItemQuan" editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>ORDER_MULTIPLE}:" design="Bold"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/orderMultiple',type:'sap.ui.model.type.Integer'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>ORDER_MAXIMUM}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/orderMaximum',type:'sap.ui.model.type.Integer'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>MIN_ORDER_LEVL_ORDER_QUANTITY}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/minOrderLevelOrderQuantity',type:'sap.ui.model.type.Integer'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>MIN_GUARANTED_SHELF_LIFE_DERIVED}:" design="Bold" class="sapUiTinyMarginTop"/>
+							<Input value="{path:'oDashboardTabModel>orderInfoDto/minGuaranteedShelfLifeDerived', type:'sap.ui.model.type.String'}"
+								editable="{oDashboardVisibilityModel>/isProductSourceEditable}"/>
+							<Label text="{i18n>COUNTRY_OF_ORIGIN}:" design="Bold"/>
+							<Select forceSelection="false" selectedKey="{oDashboardTabModel>orderInfoDto/countryOfOrigin}" items="{oDropdownModel>/country}"
+								class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isProductSourceEditable}">
+								<core:Item key="{oDropdownModel>Land1}" text="{oDropdownModel>Landx}"/>
+							</Select>
+						</layout:content>
+					</layout:Grid>
+					<Toolbar class="SkubasicAtrbToolBarClass">
+						<ToolbarSpacer/>
+						<Button type="Accept" text="{i18n>COMPLETE_ORDERING_INFO}" press="onCompleteTask">
+							<customData>
+								<core:CustomData key="target" value="ORDERING_INFO"/>
+							</customData>
+						</Button>
+					</Toolbar>
+				</content>
+			</Panel>
+			<Panel expandable="true" headerText="{i18n>COST_SHEET}" class="iconPanelHdng" width="99.4%">
+				<core:Fragment fragmentName="freshdirect.SKU.fragments.costSheet" type="XML"/>
+			</Panel>
+		</VBox>
+	</VBox>
+	<HBox justifyContent="End">
+		<Button text="{i18n>CANCEL}" type="Reject" class="cancelBtnStyle" visible="{oDashboardVisibilityModel>/sourcingButtonVisible}"
+			press="onCancelPress"></Button>
+		<Button text="{i18n>ADD}" type="Accept" class="cancelBtnStyle" visible="{oDashboardVisibilityModel>/sourcingButtonVisible}"
+			press="flipSourceViews"></Button>
+	</HBox>
+</core:FragmentDefinition>

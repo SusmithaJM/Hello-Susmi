@@ -1,0 +1,224 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "freshdirect.SKU",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"oDataService": {
+				"uri": "/igwj/odata/SAP/ZSKUPROJECT_SRV;v=1",
+				"type": "OData"
+			},
+			"dropdownData": {
+				"uri": "model/dropdown.json",
+				"type": "JSON"
+			},
+			"skuTempObj": {
+				"uri": "model/tempObject.json",
+				"type": "JSON"
+			},
+			"oVendorLookupService": {
+				"uri": "/igwj/odata/SAP/ZVENDORPORTAL_SRV;v=1",
+				"type": "OData"
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+	  	"handleValidation": true,
+		"rootView": {
+			"viewName": "freshdirect.SKU.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "freshdirect.SKU.i18n.i18n"
+				}
+			},
+			"oDashboardTableModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oDropdownModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "dropdownData"
+			},
+			"oIdeationDropdownModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oDashboardVisibilityModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oDashboardTabModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"tempModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oGDSNDetailsModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"skuTempObjectModel" : {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "skuTempObj"
+			},
+			"oUploadModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oMerchandisingModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oDataModel": {
+				"type": "sap.ui.model.odata.ODataModel",
+				"dataSource": "oDataService"
+			},
+			"oVendorLookupModel": {
+				"type": "sap.ui.model.odata.ODataModel",
+				"dataSource": "oVendorLookupService"
+			},
+			"oUPCCheckModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oPaginationModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oWeightDimsVisibleModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oDashboardModifyModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oCFMValuesModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oIdeationHierachiesPopUp" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oSuccessErrorMsgsModel" : {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"oDetailReportModel" : {
+				"type" : "sap.ui.model.json.JSONModel"
+			},
+			"oWeightsNDimsModel" : {
+				"type" : "sap.ui.model.json.JSONModel"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				},
+				{
+					"uri": "css/globalStyle.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "freshdirect.SKU.view",
+				"controlAggregation": "pages",
+				"controlId": "SKU_APP_VIEW"
+			},
+			"routes": [{
+					"name": "dashboard",
+					"pattern": "dashboard",
+					"target": [ "dashboard" ]
+					},{
+					"name": "dashboardNew",
+					"pattern": "dashboardNew",
+					"target": [ "dashboardNew" ]
+					},{
+					"name": "salesTaxMaintenance",
+					"pattern": "salesTaxMaintenance",
+					"target": [	"salesTaxMaintenance" ]
+					},{
+					"name": "costSheet",
+					"pattern": "costSheet",
+					"target": [	"costSheet" ]
+					},{
+					"name": "detailReport",
+					"pattern": "detailReport",
+					"target": [	"detailReport" ]
+					}
+			],
+			"targets": {
+				"dashboard": {
+					"viewType": "XML",
+					"clearAggregation": true,
+					"viewName": "dashboard",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "freshdirect.SKU.view",
+					"controlAggregation": "pages",
+					"controlId": "SKU_APP_VIEW"
+				},
+				"dashboardNew": {
+					"viewType": "XML",
+					"clearAggregation": true,
+					"viewName": "dashboardNew",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "freshdirect.SKU.view",
+					"controlAggregation": "pages",
+					"controlId": "SKU_APP_VIEW",
+					"viewLevel" : 1
+				},
+				"salesTaxMaintenance": {
+					"viewType": "XML",
+					"viewName": "salesTaxMaintenance",
+					"viewLevel": 3
+				},
+				"detailReport": {
+					"viewType": "XML",
+					"viewName": "detailReport",
+					"viewLevel": 4
+				}
+			}
+		}
+	}
+}

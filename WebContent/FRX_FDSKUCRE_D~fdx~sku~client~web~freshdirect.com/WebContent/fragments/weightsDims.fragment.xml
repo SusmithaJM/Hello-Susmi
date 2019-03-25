@@ -1,0 +1,420 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:Table="sap.ui.table" xmlns:core="sap.ui.core" class="sapUiSizeCompact">
+	<Toolbar class="SkuWegtDmsBarClass">
+		<VBox>
+			<HBox class="SkuWegtDmsHbox1">
+				<Label text="{i18n>BASE_UNIT}:" class="sapMTitleStyleAuto sapUiTinyMarginTop  sapUiSmallMarginEnd"/>
+				<Select  items="{oDropdownModel>/orderUOM}" class="IconTabSelectClass" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+				</Select>
+			</HBox>
+			<Label text="{i18n>HIERARCHIES}" class="sapMTitleStyleAuto sapUiTinyMarginTop sapUiSmallMarginEnd"/>
+		</VBox>
+		<ToolbarSpacer/>
+		<VBox>
+			<Button class="sapUiSmallMarginBegin" type="Accept" text="{i18n>ADD_HIERARCHY}" press="onAddHierarchy" visible="{oDashboardVisibilityModel>/isWeightsDimsEditable}"/>
+			<HBox>
+				<Button icon="sap-icon://navigation-left-arrow"  type="Transparent" press="onPressChangeUnitNav" enabled="{oDropdownModel>/previousButtonEnabled}"/>
+				<Select selectedKey="{oDropdownModel>/selectChangeUnitKey}" change="onChangeUnits" items="{oDropdownModel>/unitDropDown}" class="IconTabSelectClass">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+				</Select>
+				<Button icon="sap-icon://navigation-right-arrow" type="Transparent" press="onPressChangeUnitNav" enabled="{oDropdownModel>/nextButtonEnabled}"/>
+			</HBox>
+		</VBox>
+	</Toolbar>
+	<Table:Table rows="{oDashboardTabModel>/weightsAndDimsDtos}" title="{oWeightDimsVisibleModel>/title}" visibleRowCount="5" fixedColumnCount="2"
+		enableColumnFreeze="true" selectionMode="None" class="sapUiTableHdrTitle">
+		<Table:columns>
+			<Table:Column width="6rem" hAlign="Center" resizable="false">
+				<Text text="{i18n>HIERARCHIES}"/>
+				<Table:template>
+					<Text text="{oDashboardTabModel>hierarchy}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="4rem" hAlign="Center" resizable="false">
+				<Text text="{i18n>ACTION}"/>
+				<Table:template>
+					<Button type="Transparent" icon="sap-icon://delete" press="onDeleteHierarchyRow" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Button>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>GTIN-EA}" visible="{oWeightDimsVisibleModel>/eachUnit}" change="upcCheckDigitValidation"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>gtinEA', type:'sap.ui.model.type.Integer', formatOptions:{
+					minIntegerDigits: 8}}" change="GITINEAInput" maxLength="17" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>SELLABLE}" />
+				<Table:template>
+					<Switch customTextOn="Yes" customTextOff="No" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}" 
+						state="{path:'oDashboardTabModel>sellableEA', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" >
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Switch>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>FD_SELLABLE}" />
+				<Table:template>
+					<CheckBox editable="false"
+						selected="{path:'oDashboardTabModel>fdSellableEA', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" />
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false"> 
+				<Text text="{i18n>BOTTLE_EA}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>bottlePerEA',type:'sap.ui.model.type.Integer'}" change="onChangeBottlePerEach" maxLength="3" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="6rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>NET_CONTENT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>netContentEA', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>UOM}"/>
+				<Table:template>
+					<Select forceSelection="false" items="{oDropdownModel>/NetContentUom}" class="selectFragClass sapUiTinyMarginTop"
+						selectedKey="{oDashboardTabModel>netContentUomEA}" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}">
+						<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+					</Select>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>GROSS_WT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>grossWTEA', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>UOM}"/>
+				<Table:template>
+					<Select forceSelection="false" items="{oDropdownModel>/GrossWeightUom}" class="selectFragClass sapUiTinyMarginTop"
+						selectedKey="{oDashboardTabModel>grossWTUomEA}" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}">
+						<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+					</Select>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>VARIABLE}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>variableEA', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>WEIGHT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>weightEA', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>HEIGHT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>heightEA', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>DEPTH}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>depthEA',type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/eachUnit}" resizable="false">
+				<Text text="{i18n>UOM}"/>
+				<Table:template>
+					<Select forceSelection="false" items="{oDropdownModel>/dimensionUOM}" class="selectFragClass sapUiTinyMarginTop"
+						selectedKey="{oDashboardTabModel>depthUomEA}" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}">
+						<core:Item key="{oDropdownModel>Msehi}" text="{oDropdownModel>Msehl}"/>
+					</Select>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>GTIN-Inner}" />
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>gtinIN', type:'sap.ui.model.type.Integer', formatOptions:{
+					minIntegerDigits: 8}}" change="upcCheckDigitValidation" maxLength="17" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>SELLABLE}" />
+				<Table:template>
+					<Switch customTextOn="Yes" customTextOff="No" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}"
+						state="{path:'oDashboardTabModel>sellableIN', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Switch>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>FD_SELLABLE}" />
+				<Table:template>
+					<CheckBox selected="{path:'oDashboardTabModel>fdSellableIN', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" editable="false"/>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>EA_INNER}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>eachPerIN', type:'sap.ui.model.type.Integer'}" change="onChangeEachPerInner" maxLength="4" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>BOTTLE_IN}"/>
+				<Table:template>
+					<Text text="{oDashboardTabModel>bottlePerIN}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>GROSS_WT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>grossWTIN', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>UOM}"/>
+				<Table:template>
+					<Select forceSelection="false" items="{oDropdownModel>/GrossWeightUom}" class="selectFragClass sapUiTinyMarginTop"
+						selectedKey="{oDashboardTabModel>grossWTUomIN}" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}">
+						<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+					</Select>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>VARIABLE}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>variableIN', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>WEIGHT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>weightIN', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>HEIGHT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>heightIN', type:'sap.ui.model.type.Float'}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>DEPTH}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>depthIN', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/innerUnit}" resizable="false">
+				<Text text="{i18n>UOM}"/>
+				<Table:template>
+					<Select forceSelection="false" items="{oDropdownModel>/dimensionUOM}" class="selectFragClass sapUiTinyMarginTop"
+						selectedKey="{oDashboardTabModel>depthUomIN}" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}">
+						<core:Item key="{oDropdownModel>Msehi}" text="{oDropdownModel>Msehl}"/>
+					</Select>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>GTIN_CASE}" />
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>gtinCS', type:'sap.ui.model.type.Integer', formatOptions:{
+					minIntegerDigits: 8}}" change="upcCheckDigitValidation" maxLength="17" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>SELLABLE}" />
+				<Table:template>
+					<Switch customTextOn="Yes" customTextOff="No" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}"
+						state="{path:'oDashboardTabModel>sellableCS', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" >
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Switch>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>FD_SELLABLE}" />
+				<Table:template>
+					<CheckBox selected="{path:'oDashboardTabModel>fdSellableCS', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" editable="false"/>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>IN_CS}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>innerPerCS',type:'sap.ui.model.type.Integer'}" change="onChangeInnerPerCs" maxLength="4" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>EA_CS}"/>
+				<Table:template>
+					<Text text="{oDashboardTabModel>eachPerCS}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>GROSS_WT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>grossWTCS', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>UOM}"/>
+				<Table:template>
+					<Select forceSelection="false" items="{oDropdownModel>/GrossWeightUom}" class="selectFragClass sapUiTinyMarginTop"
+						selectedKey="{oDashboardTabModel>grossWTUomCS}" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}">
+						<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+					</Select>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>VARIABLE}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>variableCS', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>WEIGHT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>weightCS', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>HEIGHT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>heightCS',type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>DEPTH}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>depthCS', type:'sap.ui.model.type.Flaot', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/caseUnit}" resizable="false">
+				<Text text="{i18n>UOM}"/>
+				<Table:template>
+					<Select forceSelection="false" items="{oDropdownModel>/dimensionUOM}" class="selectFragClass sapUiTinyMarginTop"
+						selectedKey="{oDashboardTabModel>depthUomCS}" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}">
+						<core:Item key="{oDropdownModel>Msehi}" text="{oDropdownModel>Msehl}"/>
+					</Select>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>GTIN_PALLET}" />
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>gtinPAL',type:'sap.ui.model.type.Integer', formatOptions:{
+					minIntegerDigits: 8}}" change="upcCheckDigitValidation" maxLength="17" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>SELLABLE}" />
+				<Table:template>
+					<Switch customTextOn="Yes" customTextOff="No" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}"
+						state="{path:'oDashboardTabModel>sellablePAL', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Switch>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>FD_SELLABLE}" />
+				<Table:template>
+					<CheckBox selected="{path:'oDashboardTabModel>fdSellablePAL', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}" editable="false"/>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>CS_PAL}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>casePerPAL', type:'sap.ui.model.type.Integer'}" change="onChangeCasePerPAL" maxLength="4" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>EA_PAL}"/>
+				<Table:template>
+					<Text text="{oDashboardTabModel>eachPerPAL}"></Text>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false"> 
+				<Text text="{i18n>TIE}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>tiePAL', type:'sap.ui.model.type.Integer'}" maxLength="3" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>HIGH}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>highPAL', type:'sap.ui.model.type.Integer'}" maxLength="3" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>GROSS_WT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>grossWTPAL', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>UOM}"/>
+				<Table:template>
+					<Select forceSelection="false" items="{oDropdownModel>/GrossWeightUom}" class="selectFragClass sapUiTinyMarginTop"
+						selectedKey="{oDashboardTabModel>grossWTUomPAL}" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}">
+						<core:Item key="{oDropdownModel>Voleh}" text="{oDropdownModel>Msehl}"/>
+					</Select>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>WEIGHT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>weightPAL', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>HEIGHT}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>heightPAL', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="5rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>DEPTH}"/>
+				<Table:template>
+					<Input value="{path:'oDashboardTabModel>depthPAL', type:'sap.ui.model.type.Float', formatOptions:{
+					minFractionDigits: 2, maxFractionDigits: 2 }}" maxLength="8" editable="{oDashboardVisibilityModel>/isWeightsDimsEditable}"></Input>
+				</Table:template>
+			</Table:Column>
+			<Table:Column width="8rem" visible="{oWeightDimsVisibleModel>/palletUnit}" resizable="false">
+				<Text text="{i18n>UOM}"/>
+				<Table:template>
+					<Select forceSelection="false" items="{oDropdownModel>/dimensionUOM}" class="selectFragClass sapUiTinyMarginTop"
+						selectedKey="{oDashboardTabModel>depthUomPAL}" enabled="{oDashboardVisibilityModel>/isWeightsDimsEditable}">
+						<core:Item key="{oDropdownModel>Msehi}" text="{oDropdownModel>Msehl}"/>
+					</Select>
+				</Table:template>
+			</Table:Column>
+		</Table:columns>
+	</Table:Table>
+	<Toolbar class="SkuWegtDmsBtmToolBarClass">
+		<ToolbarSpacer/>
+			<Button type="Accept" text="{i18n>WEIGHT_DIMS_COMPLETE}" press="onCompleteTask">
+				<customData>
+					<core:CustomData key="target" value="WEIGHTS_AND_DIMS"/>
+				</customData>
+			</Button>
+	</Toolbar>
+</core:FragmentDefinition>

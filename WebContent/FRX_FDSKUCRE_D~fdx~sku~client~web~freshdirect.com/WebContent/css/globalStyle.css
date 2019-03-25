@@ -1,0 +1,165 @@
+/* sap style classes are over-written here */
+.pageBackground{
+	background : white;
+}
+.sapMText {
+	font-family: Open Sans !important;
+	font-size: 0.7rem !important;
+}
+
+.sapMLabel {
+	font-family: Open Sans !important;
+	font-size: 0.6rem !important;
+	color : black;
+	font-weight : bold;
+}
+
+.sapMPanelHdr {
+	font-size: 0.7rem !important;
+}
+
+.sapMITBTextOnly .sapMITBText {
+	font-size: 0.7rem !important;
+}
+
+.sapMSlt>.sapMSltLabel {
+	font-size: 0.7rem !important;
+}
+
+/* Button */
+.sapMBtnInner{
+	font-size : 0.7rem !important;
+}
+
+/* Select */
+.sapMSelectListItemBase{
+	font-size : 0.7rem !important;
+}
+
+/* Input field */
+.sapMInputBaseInner {
+    border-right: 0px !important;
+    border-left: 0px !important;
+    border-top: 0px !important;
+    font-size : 0.68rem;
+}
+.IconTabSelectClass {
+    border-top-style: none;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+}
+.sap-desktop .sapMITBTextOnly .sapMITBItem:focus .sapMITBText{
+	outline : none !important;
+}
+html.sap-desktop .sapMSlt:not(.sapMSltExpanded):not(.sapMSltDisabled):not(.sapMSltState):focus {
+    outline-offset: -3px;
+    outline: 0px none #000000;
+}
+.sapMFocus .sapMInputDivWrapper:not(.sapMInputBaseDisabledInner)::before {
+    border: none !important;
+}
+/* .sapMLabelRequired:before {
+    content: "*";
+    color: #cd2828;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 0;
+    position: relative;
+    top: 0.15rem;
+} */
+.sapMLabelRequired:before {
+    position: relative;
+    top: 0.15rem;
+} 
+.sapMActionSheetPopover.sapMPopover {
+    background: white !important;
+}
+
+.sapMActionSheetPopover.sapMPopover>.sapMPopoverArrUp:after {
+    border-bottom-color: white !important;
+}
+.sapMLnk {
+    font-size: 0.7rem;
+}
+.sapUiSizeCompact .sapMSLITitleOnly{
+	font-size : 0.7rem;
+}
+
+#Checkbox class
+.sapMCbBg {
+    background-color: #ffffff;
+    position: absolute;
+    left: 0.8125rem;
+    top: 0.8125rem;
+    height: 0.6rem;
+    width: 0.6rem;
+    line-height: 0.2rem;
+    padding: 0;
+    text-align: center;
+    border: solid 0.125rem #bfbfbf;
+    border-top-left-radius: 0.125rem;
+    border-top-right-radius: 0.125rem;
+    border-bottom-right-radius: 0.125rem;
+    border-bottom-left-radius: 0.125rem;
+    -webkit-focus-ring-color: none;
+}
+
+.sapMCbBg.sapMCbMarkChecked:before {
+    font-size: 0.7rem;
+}
+
+/*Dialog Header Title*/
+.sapMDialog>header.sapMDialogTitle .sapMTitle {
+    color: #666666;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 0.7rem !important;
+    font-weight: bold;
+}
+
+
+/* Title font size */
+.sapMTitleStyleAuto{
+	font-size : 0.72rem !important;
+	font-weight: bold;
+}
+
+/* SAP Icon*/
+.sapUiSizeCompact .sapMBtnInner {
+    height: 1.625rem;
+    min-width: 1rem;
+}
+.sapUiSizeCompact .sapMBtnIcon {
+    line-height: 1.5rem;
+    width: 0rem;
+    font-size: .8rem;
+    margin-left:0rem;
+}
+/* Switch css */
+.sapUiSizeCompact .sapMSwt {
+    width: 2.8rem;
+    height: 1.2rem;
+}
+.sapUiSizeCompact .sapMSwtText {
+    line-height: 1.3rem;
+}
+.sapMSwtText {
+    font-size: 0.7rem;
+}
+.sapUiSizeCompact .sapMSwtHandle {
+    height: 0.4rem;
+    width: 0.4rem;
+}
+
+.sapMPanelContent:not (.sapMPanelBGTransparent){
+	border-bottom: none !important;
+}
+.tooltip.sapMLabel {
+	font-size: 0.675rem;
+	color: #000000 !important;
+}
+
+.sapUiCompFilterBar{
+	background : white !important;
+}

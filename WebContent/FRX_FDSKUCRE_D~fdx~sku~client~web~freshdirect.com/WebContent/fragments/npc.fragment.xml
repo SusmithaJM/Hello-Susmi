@@ -1,0 +1,73 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:l="sap.ui.layout">
+	<VBox class="skuNpcBorderBox">
+		<l:Grid defaultSpan="XL12 L12 M6 S12" class="sapUiSmallMarginTop" width="70%">
+			<l:Grid defaultSpan="XL4 L4 M6 S12" >
+		   		<Label text="{i18n>PUBLISHED_TO_GSDN}" design="Bold" class="sapUiTinyMarginTop"/>
+		   		<Select forceSelection="false" items="{oDropdownModel>/conditions}" change="onChangePublishedGDSN" 
+		   		selectedKey="{oDashboardTabModel>/npcDto/brandOwnerPublishesToFDViaGDSN}" class="selectFragClass">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+				</Select>
+			</l:Grid>
+			
+			<VBox visible="{oDashboardVisibilityModel>/isNpcYesBoxVisible}" class="sapUiLargeMarginBegin">
+				<HBox>
+					<Label text="1." design="Bold" class="sapUiTinyMarginTop" />
+					<CheckBox selected="{path:'oDashboardTabModel>/npcDto/requestedUPCAlreadyPublishedToFD', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"></CheckBox>
+					<Label text="{i18n>REQUEST_UPC_ALREADY_PUBLISH_TO_FD}" design="Bold" class="sapUiTinyMarginTop" />
+				</HBox>
+				<Label text="2. {i18n>CORE_GDSN}" design="Bold" class="sapUiTinyMarginTop "/>
+				<HBox class="sapUiSmallMarginBegin">
+					<CheckBox selected="{path:'oDashboardTabModel>/npcDto/productStructureGTIN', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"></CheckBox>
+					<Label text="{i18n>PRODUCT_STRUCTURE_GTIN}" design="Bold" class="sapUiTinyMarginTop" />
+				</HBox>
+				<HBox class="sapUiSmallMarginBegin">
+					<CheckBox selected="{path:'oDashboardTabModel>/npcDto/weightsAndDims', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"></CheckBox>
+					<Label text="{i18n>WEIGHTS_AND_DIMS}" design="Bold" class="sapUiTinyMarginTop" />
+				</HBox>
+				<HBox>
+					<Label text="3." design="Bold" class="sapUiTinyMarginTop" />
+					<CheckBox selected="{path:'oDashboardTabModel>/npcDto/generalNutritionData', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"></CheckBox>
+					<Label text="{i18n>GENERAL_NUTRITION_DATA}" design="Bold" class="sapUiTinyMarginTop" />
+				</HBox>
+				<HBox>
+					<Label text="4." design="Bold" class="sapUiTinyMarginTop" />
+					<CheckBox selected="{path:'oDashboardTabModel>/npcDto/productImages', formatter:'freshdirect.SKU.formatter.formatter.formatBooleanVal'}"></CheckBox>
+					<Label text="{i18n>PRODUCT_IMAGES}" design="Bold" class="sapUiTinyMarginTop" />
+				</HBox>
+			</VBox>
+			
+			<l:Grid defaultSpan="XL4 L4 M6 S12" visible="{oDashboardVisibilityModel>/isNpcNoBoxVisible}" >
+				<Label text="{i18n>HOW_THEY_PUBLISH_TO_FD}" design="Bold" class="sapUiSmallMarginBegin sapUiTinyMarginTop"/>
+				<Input value="{oDashboardTabModel>/npcDto/howTheyPublishToFD}" class=""/>
+				<Input value="" editable="false"/>
+			    
+				<Label text="{i18n>IS_THE_PRODUCT_PUBLISHED_TO_FD}" design="Bold" class="sapUiSmallMarginBegin sapUiTinyMarginTop"/>
+				<Select forceSelection="false" items="{oDropdownModel>/conditions}" class="selectFragClass"
+					selectedKey="{oDashboardTabModel>/npcDto/isTheProductPublishedToFD}">
+					<core:Item key="{oDropdownModel>key}" text="{oDropdownModel>value}"/>
+				</Select>
+			</l:Grid>
+			
+			<l:Grid defaultSpan="XL4 L4 M6 S12">
+				<Label text="{i18n>NPC_COMMENTS}" design="Bold" class="sapUiTinyMarginTop"/>
+				<TextArea cols="40" rows="10" placeholder="Enter Here" maxLength="500" editable="true" 
+					class="skuNpcComntTxtAreaClass" value="{oDashboardTabModel>/npcDto/npcComments}"></TextArea>
+			</l:Grid>
+		</l:Grid>
+		
+		<Toolbar width="70%">
+			<ToolbarSpacer/>
+			<Button type="Accept" text="{i18n>SEND_INFO_TO_MERCHANT}" class="sapUiSmallMarginEnd"/>
+			<Button type="Accept" text="{i18n>FETCH_GDSN}" class="sapUiSmallMarginEnd"/>
+		</Toolbar>
+		
+	</VBox>
+	<Toolbar class="SkubasicAtrbToolBarClass">
+		<ToolbarSpacer/>
+			<Button type="Accept" text="{i18n>COMPLETE_NPC}" press="onCompleteTask">
+				<customData>
+					<core:CustomData key="target" value="NPC"/>
+				</customData>
+			</Button>
+	</Toolbar>
+</core:FragmentDefinition>
